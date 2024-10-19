@@ -1,0 +1,108 @@
+Study ID	Notes	Grade of dysplasia	Precursor or follow up	IBD diagnosis	Disease duration to first dyaplastic lesion	Time between lesions	Site	PSC	Family history	Pancolitis	Additional info of note
+1CNPA	Very small biopsy	Low grade	precursor	UC	13 years	2 years 1 month	Caecum	yes	no	yes	Very small biopsy
+1CNPB		Low grade	follow up	UC	13 years	2 years 1 month	Caecum	yes	no	yes	None
+1CNPC		Indefinite	follow up	UC	13 years	2 years 1 month	Caecum	yes	no	yes	None
+2CNPA		Moderate	Precursor	UC	28 years	3 years 3months	ascending	no	no	yes	None
+2CNPB	EXCLUDED (no dysplasia on review)	Low grade	Follow up	UC	28 years	3 years 3months	ascending	no	no	yes	None
+2CNPC	Tiny fragment	Low grade	Follow up	UC	28 years	3 years 3months	ascending	no	no	yes	None
+3CNPA		NOS	Precursor	Crohns	32 years	11 months	Rectosigmoid	no	no	no	None
+3CNPB		Low grade	Follow up	Crohns	33 years	11 months	Rectosigmoid	no	no	no	None
+4CNPA		Low grade	precursor	Crohns	18 years	5 years 4 months	Descending 	no	no	yes	None
+4CNPB		Low grade	follow up	Crohns	18 years	5 years 4 months	Descending 	no	no	yes	None
+5CNPA		high grade	precursor	UC	longstanding'	5 months	Sigmoid	yes	no	yes	
+5CNPB		NOS	follow up	UC	longstanding'	5 moths	Sigmoid	yes	no	yes	
+6CNPA		low grade	precursor	UC	30 years 	4 years 4 months	Rectum	unknown	unknown	unknown	
+6CNPB		low grade	follow up	UC	30 years 	4 years 4 months	Rectum	unknown	unknown	unknown	
+7CNPA	EXCLUDED (wrong blocks cut)	low grade	precursor	UC	At least 8 years	4 months	Decending	no	no	no	
+7CNPB	EXCLUDED (wrong blocks cut)	low grade	follow up	UC	At least 8 years	4 months	Descending 	no	no	no	
+8CNPA	Missing block	low grade	precursor	UC	19 years	3 months	transverse	no	no	yes	
+8CNPB		low grade	follow up	UC	19 years	3 months	transverse	no	no	yes	
+9CNPA		low grade	precursor	UC	At least 10 years	2 years 2 months	caecum	unknown	unknown	unknown	
+9CNPB		low grade	follow up	UC	At least 10 years	2 years 2 months	caecum	unknown	unknown	unknown	
+9CNPC		low grade	follow up	UC	At least 10 years	3 years 2 months	Caecum	unknown	unknown	unknown	
+10CNPA		low grade	precursor	UC	37 years	8 months	Sigmoid	no	no	yes	
+10CNPB		low grade	follow up 	UC	37 years	8 months	Sigmoid	no	no	yes	
+11CNPA		high grade	precursor	UC	11 years	3 months	rectum	no	no	no	
+11CNPB		high grade	precursor	UC	11 years	3 months	rectum	no	no	no	
+12CNPA		Moderate	Precursor	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPB		low grade	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPC		Moderate	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPD		Moderate	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPE	EXCLUDED (no dysplasia on review)	Low grade	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPF		low grade	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPG		moderate	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+12CNPH		low grade	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	
+13CNPA		low grade	precursor	UC	"Uncertain, 'longstanding'"	4 years 4 months	rectum	no	no	yes	
+13CNPB		low grade	follow up	UC	"Uncertain, 'longstanding'"	4 years 4 months	rectum	no	no	yes	
+14CNPA		low grade*	precursor	UC	2 years 7 months	11 years	transverse	no	no	yes	
+14CNPB		low grade**	follow up	UC	1 year 2 months	11 years	caecum	no	no	yes	
+14CNPC		low grade*	precursor	UC	2 years 7 months	11 years	transverse	no	no	yes	
+14CNPD		low grade**	follow up	UC	1 year 2 months	11 years	caecum	no	no	yes	
+15CNPA	EXCLUDE (no dysplasia on review)	low grade*	precursor	UC	1 year 5 months	14 years	transverse	yes	no	yes	
+15CNPB		NOS*	follow up	UC	1 year 5 months	14 years	transverse	yes	no	yes	
+15CNPC		low grade**	precursor	UC	2 months	14 years	splenic flexure	yes	no	yes	
+15CNPD		low grade**	follow up	UC	2 months	14 years	splenic flexure	yes	no	yes	
+15CNPE-1		low grade	follow up	UC	11 months	14 years	splenic flexure	yes	no	yes	exclude
+15CNPE-2		low grade**	follow up	UC	11 months	14 years	splenic flexure	yes	no	yes	
+16CNPA		low grade	precursor	UC	2 years	20 years	rectum	no	no	no	
+16CNPB		low grade	follow up	UC	2 years	20 years	rectum	no	no	no	
+17CNPA		low grade	precursor	UC	1 year 5 months	40 years	sigmoid	no	no	yes	
+17CNPB		low grade	follow up	UC	1 year 5 months	40 years	sigmoid	no	no	yes	
+18CNPA-1		NOS**	Precursor	UC	4 months	16 years	rectum	no	no	no	
+18CNPA-2		High grade*	Precursor	UC	4 months	16 years	rectum	no	no	no	
+18CNPB-1		High grade*	Follow up	UC	4 months	16 years	rectum	no	no	no	
+18CNPB-2		low grade**	Follow up	UC	4 months	16 years	rectum	no	no	no	
+18CNPC		Low grade***	Precursor	UC	1 year 3 months	16 years	rectosigmoid	no	no	no	
+18CNPD		NOS***	Follow up	UC	1 year 3 months	16 years	rectosigmoid	no	no	no	
+19CNPA	Missing block										
+19CNPB	Missing block										
+20CNPA		low grade	precursor	UC	7 months	13 years	descending	yes	no	yes	
+20CNPB		low grade	follow up	UC	7 months	13 years	descending	yes	no	yes	
+21CNPA		low grade	precursor	UC	1 year 1 month	19 years	descending	no	no	no	
+21CNPB		low grade	follow up	UC	1 year 1 month	19 years	descending	no	no	no	
+21CNPC		low grade	follow up	UC	2 years 2 months	19 years	descending	no	no	no	
+22CNPA		low grade	precursor	UC	5 years 8 months	19 years	sigmoid	no	no	yes	
+22CNPB		low grade	follow up	UC	5 years 8 months	19 years	sigmoid	no	no	yes	
+22CNPC	Missing block	low grade	follow up	UC	5 years 10 months	19 years	sigmoid	no	no	yes	
+23CNPA		low grade	precursor	UC	8 months	35 years	Transverse	no	no	yes	
+23CNPB		low grade	follow up	UC	8 months	35 years	Transverse	no	no	yes	
+23CNPC		low grade	follow up	UC	1 year 4 months	35 years	Transverse	no	no	yes	
+24CNPA		low grade	precursor	UC	3 months	28 years	transverse	no	no	yes	
+24CNPB	Missing block	low grade	follow up	UC	3 months	28 years	transverse	no	no	yes	
+25CNPA		NOS	precursor	UC	8 months	8 years	rectum	no	no	yes	
+25CNPB		low grade	follow up	UC	8 months	8 years	rectum	no	no	yes	
+25CNPC		low grade	follow up	UC	1 year 3 months	8 years	rectum	no	no	yes	
+25CNPD		low grade	follow up	UC	2 years 11 months	8 years	rectum	no	no	yes	
+26CNPA		low grade	precursor	UC	7 months	At least 6 years	sigmoid	no	no	no	
+26CNPB		low grade	follow up	UC	7 months	At least 6 years	sigmoid	no	no	no	
+26CNPC		low grade	follow up	UC	10 months	At least 6 years	sigmoid	no	no	no	
+26CNPD		low grade	follow up	UC	1 year	At least 6 years	sigmoid	no	no	no	
+27CNPA		high grade*	precursor	UC	9 months	4 years	sigmoid 	no	no	no	
+27CNPB	Missing block	high grade*	follow up	UC	9 months	4 years	sigmoid	no	no	no	
+27CNPC	Missing block	low grade**	precursor	UC	4 months	4 years	rectum	no	no	no	
+27CNPD	Missing block	low grade**	follow up	UC	4 months	4 years	rectum	no	no	no	
+28CNPA		low grade	precursor	UC	2 years 2 months	27 years	transverse	no	no	no	
+28CNPB		low grade	follow up	UC	2 years 2 months	27 years	transverse	no	no	no	
+29CNPA		low grade	precursor	UC	1 year 2 months	9 years	transverse	yes	no	yes	
+29CNPB		low grade	follow up	UC	1 year 2 months	9 years	transverse	yes	no	yes	
+30CNPA		moderate	precursor	UC	7 months	30 years	rectosigmoid	no	no	yes	
+30CNPB		moderate	follow up	UC	7 months	30 years	rectosigmoid	no	no	yes	
+31CNPA		low grade	precursor	UC	1 year 6 months	8 years	transverse	no	no	yes	
+31CNPB		low grade	follow up	UC	1 year 6 months	8 years	transverse	no	no	yes	
+32CNPA	"Requires coring, not yet sent"	low grade	precursor	UC	4 years 7 months	5 years	rectum	no	no	no	
+32CNPB		low grade	follow up	UC	4 years 7 months	5 years	rectum	no	no	no	
+33CNPA-1		low grade**	precursor	UC	2 months	14 years	descending	no	no	no	
+33CNPA-2		NOS*	precursor	UC	2 months	14 years	rectum	no	no	no	
+33CNPB-1	Missing block	low grade**	follow up	UC	2 months	14 years	descending	no	no	no	
+33CNPB-2	Missing block	NOS*	follow up	UC	2 months	14 years	rectum	no	no	no	
+34CNPA		High grade	precursor	UC	3 months	Uncertain 'chronoic UC'	caecum	yes	no	yes	
+34CNPB		High grade	follow up	UC	3 months	Uncertain 'chronic UC'	caecum	yes	no	yes	
+35CNPA		low grade	precursor	UC	1 year	3 years	caecum	no	no	yes	
+35CNPB		low grade	follow up	UC	1 year	3 years	caecum	no	no	yes	
+35CNPC		low grade	follow up	UC	5 years 2 months	3 years	caecum	no	no	yes	
+36CNPA		low grade	precursor	UC	3 years 4 months	20 years	sigmoid	no	no	no	
+36CNPB		low grade	follow up	UC	3 years 4 months	20 years	sigmoid	no	no	no	
+37CNPA		low grade	precursor	UC	9 months	11 years	sigmoid	no	no	yes	
+37CNPB	Tiny fragment	low grade	follow up	UC	9 months	11 years	sigmoid	no	no	yes	
+											
+3CPA		Low grade 	Precursor	IBDU	16 years	1 year	Transverse	yes	no	yes	None

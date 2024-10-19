@@ -1,0 +1,82 @@
+Study ID	? Macrodissection/ coring	Grade of dysplasia	Precursor or follow up	IBD diagnosis	Disease duration to first dyaplastic lesion	Time between lesions	Site	PSC	Family history	Pancolitis	Additional info of note
+1CPA	Excluded	High grade dysplasia (can't rule out invasion) (adenocarcinoma on review)	Precursor	UC	"Uncertain, 'longstanding colitis'"	2 months	Rectum	No	No	No	None
+1CPB	Excluded	Adenocarcinoma	Follow up	UC	"Uncertain, 'longstanding colitis'"	2 months	Rectum	No	No	No	None
+2CPA	Curls	Low grade dysplasia in TVA	Precursor	IBDU	39 years	4 years 3 months	Sigmoid	No	No	No	MLH1 loss in adenocarcinoma
+2CPB	Curls	Adenocarcinoma	Follow up	IBDU	39 years	4 years 3 months	Sigmoid	No	No	No	MLH1 loss in adenocarcinoma
+3CPA	Missing block	Low grade dysplasia	Precursor	IBDU	16 years	1 year	Transverse	yes	no	yes	None
+3CPB	Cores	High grade dysplasia	Follow up	IBDU	16 years	1 year	Transverse	yes	no	yes	None
+4CPA	Curls	Low grade dysplasia in TA	Precursor	IBDU	2 years	2 years 3 months	caecum	No	No	No	Sigmoid adenocarcinoma 2015
+4CPB	Curls	Low grade dysplasia in TVA	Precursor	IBDU	2 years	2 years 3 months	caecum	No	No	No	Sigmoid adenocarcinoma 2015
+4CPC	Cores	High grade dysplasia ? Invasive in TVA (focal HG change on review)	Follow up	IBDU	2 years	2 years 3 months	caecum	No	No	No	Sigmoid adenocarcinoma 2015
+5CPA	Curls	High grade dysplasia (very small fragment)	Precursor	Crohn's	15 years	6 months	Sigmoid	No	No	No	None
+5CPB	Curls	"High grade dysplasia, flat"	Follow up	Crohn's	15 years	6 months	Sigmoid	No	No	No	None
+5CPC	Curls	Adenocarcinoma	Follow up	Crohn's	15 years	6 months	Sigmoid	No	No	No	None
+6CPA	Curls	Low grade dysplasia	Precursor	Crohn's	10 years	18 months	Sigmoid	No	No	No	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's
+6CPB	Cores	Adenocarcinoma (focal invasion)	Follow up	Crohn's	10 years	18 months	Sigmoid	No	No	No	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's
+6CPC	Curls	Low grade dysplasia (background)	Precursor (background)	Crohn's	10 years	18 months	Sigmoid	No	No	No	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's
+7CPA	Macrodissection	High grade dysplasia in VA	Precursor	UC	1 year 2 months	1 year 6 months	Rectum	No	No	No	None
+7CPB	Missing block	Adenocarcinoma in VA	Follow up	UC	1 year 2 months	1 year 6 months	Rectum	No	No	No	None
+8CPA	Curls	Low grade dysplasia in TVA	Precursor	UC	19 years	6 months	Rectum	No	No	No	None
+8CPB	Curls	Low grade dysplasia in TVA	Precursor	UC	19 years	6 months	Rectum	No	No	No	None
+8CPC	Cores	high grade dysplasia in TVA	Follow up	UC	19 years	6 months	Rectum	No	No	No	None
+9CPA	Curls	Low grade dysplasia in VA	Precursor	UC	4 years	5 years 6 months	Sigmoid	No	No	No	None
+9CPB	Cores	High grade dysplasia in TVA	Follow up	UC	4 years	5 years 6 months	Sigmoid	No	No	No	None
+10CPA	Macrodissection	Low grade dysplasia in TA	Precursor	UC	"Uncertain, 'longstanding disease'"	3 years 1 months	Transverse	yes	unknown	yes	None
+10CPB	Missing block	Adenocarcinoma	Follow up	UC	"Uncertain, 'longstanding disease'"	3 years 1 month	Transverse	Yes	unknown	yes	None
+11CPA	Missing block	Adenocarcinoma	Follow up	UC	24 years	5 years	Rectum	No	No	No	"Precursor block from different health board, not yet cut"
+11CPB	Macrodissection	High grade dysplasia	Follow up	UC	24 years	5 years	Rectum	No	No	No	None
+11CPC	Block to thin to cut	Low grade dysplasia	Precursor	UC	24 years	5 years	Rectum	No	No	No	None
+12CPA	Curls	Low grade dysplasia	Precursor*	UC	29 years	1 year	Ascending	No	No	yes	2 separate progressed lesions
+12CPB	Curls	Low grade dysplasia	Precursor**	UC	29 years	4 months	Transverse	No	No	yes	2 separate progressed lesions
+12CPC	Cores	High grade dysplasia	Follow up**	UC	29 years	4 months	Transverse	No	No	yes	2 separate progressed lesions
+12CPD	Macrodissection	High grade dysplasia	Follow up*	UC	29 years	1 year	Ascending	No	No	yes	2 separate progressed lesions
+13CPA	Curls	Low grade dysplasia	Precursor*	UC	14 years	1 year 3 months	Distal ascending	No	No	yes	2 separate progressed lesions
+13CPB	Curls	Low grade dysplasia in VA	Precursor**	UC	14 years	7 months	Proximal ascending	No	No	yes	2 separate progressed lesions
+13CPC	Curls	Adenocarcinoma	Follow up**	UC	14 years	7 months	Proximal ascending	No	No	yes	2 separate progressed lesions
+13CPD	Curls	Adenocarcinoma	Follow up*	UC	14 years	1 year 3 months	Distal ascending	No	No	yes	2 separate progressed lesions
+14CPA	Curls	low grade dysplasia in TVA	Precursor	UC	11 years	9 months	Splenic flexure	No	No	yes	None
+14CPB	Macrodissection	Adenocarcinoma	Follow up	UC	11 years	9 months	Splenic flexure	No	No	yes	None
+15CPA	Macrodissection	"Dysplasia, not specified"	Precursor	UC	8 years	5 months	Rectum	No	No	No	None
+15CPB	Missing block	Adenocarcinoma with background dysplasia	Follow up	UC	8 years	5 months	Rectum	No	No	No	None
+16CPA	Curls	Low grade dysplasia in TA	Precursor	UC	9 years	1 year 1 month	Sigmoid	No	No	yes	None
+16CPB	Curls	low grade dysplasia in adenoma	Precursor	UC	9 years	10 months	Sigmoid	No	No	yes	None
+16CPC-1	Too thin to cut	High grade dysplasia	Follow up	UC	9 years	At least 10 months	Sigmoid	No	No	yes	None
+16CPC-2	Too thin to cut	Low grade dysplasia		UC	9 years		Sigmoid	No	No	yes	None
+16CPC-3	Too thin to cut	Low grade dysplasia		UC	9 years		Sigmoid	No	No	yes	None
+17CPA	Macrodissection	Low grade dysplasia in TA	Precursor	UC	At least 14 years	2 years 1 month	Rectum	No	No	yes	None
+17CPB	Macrodissection	Adenocaricnoma	Follow up	UC	At least 14 years	2 years 1 month	Rectum	No	No	yes	None
+18CPA	Curls	Low grade dysplasia in TVA	precursor	UC	14 years	11 months	Rectum	No	No	No	None
+18CPB	Macrodissection	High grade dysplasia (focal)	Follow up	UC	14 years	11 months	Rectum	No	No	No	None
+19CPA	Macrodissection	Low grade dysplasia	Precursor	UC	15 years	5 years 11 months	Transverse	No	No	yes	None
+19CPB	Macrodissection	adenocarcinoma (focal invasion)	Follow up	UC	15 years	5 years 11 months	Transverse	No	No	yes	None
+20CPA	Curls	Adenocarcinoma	Follow up	UC	"Uncertain, 'longstanding disease'"	? Previous biopsy from other health board	Hepatic flexure	yes	No	yes	"Precursor block from different health board, not yet cut"
+21CPA	Curls	Low grade dysplasia	Precursor	UC	14 years	2 years 4 months	Rectum	No	No	No	None
+21CPB	Curls	High grade dysplasia	Follow up 	UC	14 years	2 years 4 months	Rectum	No	No	No	None
+22CPA	Macrodissection	"dysplasia in TA, not specified"	precursor	UC	6 years	4 years	Sigmoid	No	No	yes	None
+22CPB-1	Too thin to cut	mild to moderate dysplasia	precursor	UC	6 years		Sigmoid	No	No	yes	None
+22CPB-2	Too thin to cut	mild to moderate dysplasia	precursor	UC	6 years		Sigmoid	No	No	yes	None
+22CPC	Macrodissection	LG flat dysplasia	Precursor*	UC	6 years	4 years	Sigmoid	No	No	yes	None
+22CPD	Macrodissection	High grade dysplasia	precursor	UC	6 years	4 years	15cm	No	No	yes	None
+22CPE-1	Macrodissection	Flat high grade dysplasia	follow up*	UC	6 years	4 years	Sigmoid	No	No	yes	None
+22CPE-2	Too thin to cut	Flat low grade dysplasia	precursor**	UC	6 years		Rectum	No	No	yes	None
+22CPF	Too thin to cut	High grade dysplasia	Follow up**	UC	6 years		Rectum	No	No	yes	None
+22CPG-1	Too thin to cut	High grade dysplasia	precursor	UC	6 years		Rectum	No	No	yes	None
+22CPG-2	Too thin to cut	High grade dysplasia	precursor	UC	6 years		Rectum	No	No	yes	None
+22CPH	Curls	Flat high grade dysplasia (focal)	Follow up**	UC	6 years	4 years	Rectum	No	No	yes	None
+22CPI	Curls	High grade dysplasia in TVA ? Invasion	Follow up**	UC	6 years	4 years	Rectum	No	No	yes	None
+22CPJ	Curls	Adenocarcinoma	Follow up**	UC	6 years	4 years	20cm	No	No	yes	None
+23CPA	Excluded	Low grade dysplasia (focal high grade)	Precursor	UC	"Uncertain, 'long term'"	2 months	Anorectum	Unknown	Unknown	Unknown	"Exclude from progressor group as no invasion on review, move to non-progressor group"
+23CPB	Excluded	"Adenocarcinoma (on review low grade with focal high grade, no invasion)"	Follow up	UC	"Uncertain, 'long term'"	2 months	Anorectum	Unknown	Unknown	Unknown	"Exclude from progressor group as no invasion on review, move to non-progressor group"
+24CPA	Too thin to cut	"Dysplasia in TVA, not specified"	precursor	UC	2 years	3 months	Transverse	No	No	yes	"This patient had adenocarcinoma arising in background of multiple adenomata - ? Get precursor from background, assess on review."
+24CPB-1	Macrodissection	Adenocaricnoma in TVA	Follow up	UC	2 years	3 months	Transverse	No	No	yes	"This patient had adenocarcinoma arising in background of multiple adenomata - ? Get precursor from background, assess on review."
+24CPB-2	Macrodissection	Adenocaricnoma in TVA	Follow up	UC	2 years	3 months	Transverse	No	No	yes	"This patient had adenocarcinoma arising in background of multiple adenomata - ? Get precursor from background, assess on review."
+25CPA	Too thin to cut	Low grade dysplasia	Precursor	UC	29 years	4 months	Sigmoid	No	No	yes	None
+25CPB	Macrodissection	Low grade dysplasia	Precursor	UC	29 years	3 months	Sigmoid	No	No	yes	None
+25CPC	Macrodissection	High grade dysplasia	Follow up	UC	29 years	4 months	Sigmoid	No	No	yes	none
+26CPA	Macrodissection	high grade dysplasia in TVA	Precursor	UC	<1 year	1 month	Rectum	yes	No	No	"NB: diagnosed on index colonoscopy, also in non-progressor group"
+26CPB	Macrodissection	Adenocarcrinoma in TVA	Follow up	UC	<1 year	1 month	Rectum	yes	No	No	"NB: diagnosed on index colonoscopy, also in non-progressor group"
+26CPC	Missing block	Adenocarcinoma in TVA	Follow up	UC	<1 year	1 month	Rectum	yes	No	No	"NB: diagnosed on index colonoscopy, also in non-progressor group"
+27CPA-1	Macrodissection	Low grade dysplasia (background)	Precursor	UC	At least 8 years	NA	Splenic flexure	yes	No	yes	Low grade dysplasia in background of adenocarcinoma
+27CPA-2	Macrodissection	Adenocarcinoma	Follow up	UC	At least 8 years	NA	Splenic flexure	yes	no	yes	Low grade dysplasia in background of adenocarcinoma
+28CPA	Excluded	High grade dysplasia (adenocarcinoma on review)	Precursor	UC	18 years	4 months	Sigmoid	No	No	No	"Invasive carcinoma on review, exclude as no precursor"
+28CPB	Excluded	Adenocarcinoma 	Both	UC	18 years	4 months	Sigmoid	no	no	no	"Invasive carcinoma on review, exclude as no precursor"
