@@ -1,217 +1,74 @@
-study_id	country	diagnosis	phenotype	tissue	tumour_type	sex	age	location_of_normal	sanger_dna_id	grade_of_dysplasia	precursor_or_follow_up	ibd_diagnosis	disease_duration_to_first_dyaplastic_lesion	time_between_lesions	site	psc	family_history	pancolitis	additional_info_of_note	group
-2CPA	Edinburgh	Low grade dysplasia in TVA	T1	Colon	P	Female	71	-	PD62027a	Low grade dysplasia	Precursor	IBDU	39 years	4 years 3 months	Sigmoid	No	No	No	MLH1 loss in adenocarcinoma	Progressor
-2CPB	Edinburgh	Adenocarcinoma	T2	Colon	P	Female	75	-	PD62027c	Adenocarcinoma	Follow up	IBDU	39 years	4 years 3 months	Sigmoid	No	No	No	MLH1 loss in adenocarcinoma	Progressor
-2NP	Edinburgh	Normal	N	Lymph node	P	Female	75	-	PD62027b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-3CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	55	-	PD62028a	Low grade dysplasia	Precursor	IBDU	16 years	1 year	Transverse	yes	no	yes	None	Progressor
-3CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	55	-	PD62028a	Low grade dysplasia	Precursor	IBDU	16 years	1 year	Transverse	yes	no	yes	None	Non-progressor
-3CPB	Edinburgh	High grade dysplasia	T2	Colon	P	Male	56	-	PD62028c	High grade dysplasia	Follow up	IBDU	16 years	1 year	Transverse	yes	no	yes	None	Progressor
-3NP	Edinburgh	Normal	N	Colon	P	Male	56	-	PD62028b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-4CPA	Edinburgh	Low grade dysplasia in TA	T1	Colon	P	Female	80	-	PD62029a	Low grade dysplasia	Precursor	IBDU	2 years	2 years 3 months	caecum	No	No	No	Sigmoid adenocarcinoma 2015	Progressor
-4CPB	Edinburgh	Low grade dysplasia in TVA	T2	Colon	P	Female	82	-	PD62029c	Low grade dysplasia	Precursor	IBDU	2 years	2 years 3 months	caecum	No	No	No	Sigmoid adenocarcinoma 2015	Progressor
-4CPC	Edinburgh	High grade dysplasia ? Invasive in TVA (focal HG change on review)	T3	Colon	P	Female	82	-	PD62029d	High grade dysplasia	Follow up	IBDU	2 years	2 years 3 months	caecum	No	No	No	Sigmoid adenocarcinoma 2015	Progressor
-4NP	Edinburgh	Normal	N	Lymph node	P	Female	84	-	PD62029b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-5CPA	Edinburgh	High grade dysplasia (very small fragment)	T1	Colon	P	Male	67	-	PD62030a	High grade dysplasia	Precursor	Crohn's	15 years	6 months	Sigmoid	No	No	No	None	Progressor
-5CPB	Edinburgh	High grade dysplasia, flat	T2	Colon	P	Male	67	-	PD62030c	High grade dysplasia	Follow up	Crohn's	15 years	6 months	Sigmoid	No	No	No	None	Progressor
-5CPC	Edinburgh	Adenocarcinoma	T3	Colon	P	Male	67	-	PD62030d	Adenocarcinoma	Follow up	Crohn's	15 years	6 months	Sigmoid	No	No	No	None	Progressor
-5NP	Edinburgh	Normal	N	Colon	P	Male	67	-	PD62030b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-6CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	27	-	PD62031a	Low grade dysplasia	Precursor	Crohn's	10 years	18 months	Sigmoid	No	No	No	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor
-6CPB	Edinburgh	Adenocarcinoma (focal invasion)	T2	Colon	P	Male	28	-	PD62031c	Adenocarcinoma	Follow up	Crohn's	10 years	18 months	Sigmoid	No	No	No	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor
-6CPC	Edinburgh	Low grade dysplasia (background)	T3	Colon	P	Male	28	-	PD62031d	Low grade dysplasia	Precursor (background)	Crohn's	10 years	18 months	Sigmoid	No	No	No	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor
-6NP	Edinburgh	Normal	N	Lymph node	P	Male	28	-	PD62031b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-7CPA	Edinburgh	High grade dysplasia in VA	T	Colon	P	Male	67	-	PD62032a	High grade dysplasia	Precursor	UC	1 year 2 months	1 year 6 months	Rectum	No	No	No	None	Progressor
-7NP	Edinburgh	Normal	N	Colon	P	Male	69	-	PD62032b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-8CPA	Edinburgh	Low grade dysplasia in TVA	T1	Colon	P	Male	55	-	PD62033a	Low grade dysplasia	Precursor	UC	19 years	6 months	Rectum	No	No	No	None	Progressor
-8CPB	Edinburgh	Low grade dysplasia in TVA	T2	Colon	P	Male	55	-	PD62033c	Low grade dysplasia	Precursor	UC	19 years	6 months	Rectum	No	No	No	None	Progressor
-8CPC	Edinburgh	high grade dysplasia in TVA	T3	Colon	P	Male	55	-	PD62033d	High grade dysplasia	Follow up	UC	19 years	6 months	Rectum	No	No	No	None	Progressor
-8NP	Edinburgh	Normal	N	Colon	P	Male	56	-	PD62033b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-9CPA	Edinburgh	Low grade dysplasia in VA	T1	Colon	P	Female	64	-	PD62034a	Low grade dysplasia	Precursor	UC	4 years	5 years 6 months	Sigmoid	No	No	No	None	Progressor
-9CPB	Edinburgh	High grade dysplasia in TVA	T2	Colon	P	Female	70	-	PD62034c	High grade dysplasia	Follow up	UC	4 years	5 years 6 months	Sigmoid	No	No	No	None	Progressor
-9NP	Edinburgh	Normal	N	Duodenum	P	Female	71	-	PD62034b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-10CPA	Edinburgh	Low grade dysplasia in TA	T	Colon	P	Female	68	-	PD62035a	Low grade dysplasia	Precursor	UC	Uncertain, 'longstanding disease'	3 years 1 months	Transverse	yes	unknown	yes	None	Progressor
-10NP	Edinburgh	Normal	N	Colon	P	Female	71	-	PD62035b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-11CPA	Edinburgh	Unknown	T1	Colon	P	Male	67	-	PD62036a	Adenocarcinoma	Follow up	UC	24 years	5 years	Rectum	No	No	No	Precursor block from different health board, not yet cut	Progressor
-11CPB	Edinburgh	Tumour	T2	Colon	P	Male	67	-	PD62036c	High grade dysplasia	Follow up	UC	24 years	5 years	Rectum	No	No	No	None	Progressor
-11NP	Edinburgh	Normal	N	Colon	P	Male	67	-	PD62036b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-12CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	44	-	PD62037a	Low grade dysplasia	Precursor*	UC	29 years	1 year	Ascending	No	No	yes	2 separate progressed lesions	Progressor
-12CPB	Edinburgh	Low grade dysplasia	T2	Colon	P	Male	44	-	PD62037c	Low grade dysplasia	Precursor**	UC	29 years	4 months	Transverse	No	No	yes	2 separate progressed lesions	Progressor
-12CPC	Edinburgh	High grade dysplasia	T3	Colon	P	Male	45	-	PD62037d	High grade dysplasia	Follow up**	UC	29 years	4 months	Transverse	No	No	yes	2 separate progressed lesions	Progressor
-12CPD	Edinburgh	High grade dysplasia	T4	Colon	P	Male	45	-	PD62037e	High grade dysplasia	Follow up*	UC	29 years	1 year	Ascending	No	No	yes	2 separate progressed lesions	Progressor
-12NP	Edinburgh	Normal	N	Lymph node	P	Male	45	-	PD62037b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-13CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	49	-	PD62038a	Low grade dysplasia	Precursor*	UC	14 years	1 year 3 months	Distal ascending	No	No	yes	2 separate progressed lesions	Progressor
-13CPB	Edinburgh	Low grade dysplasia in VA	T2	Colon	P	Male	50	-	PD62038c	Low grade dysplasia	Precursor**	UC	14 years	7 months	Proximal ascending	No	No	yes	2 separate progressed lesions	Progressor
-13CPC	Edinburgh	Adenocarcinoma	T3	Colon	P	Male	50	-	PD62038d	Adenocarcinoma	Follow up**	UC	14 years	7 months	Proximal ascending	No	No	yes	2 separate progressed lesions	Progressor
-13CPD	Edinburgh	Adenocarcinoma	T4	Colon	P	Male	50	-	PD62038e	Adenocarcinoma	Follow up*	UC	14 years	1 year 3 months	Distal ascending	No	No	yes	2 separate progressed lesions	Progressor
-13NP	Edinburgh	Normal	N	Lymph node	P	Male	50	-	PD62038b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-14CPA	Edinburgh	Low grade dysplasia in TVA	T1	Colon	P	Female	71	-	PD62039a	Low grade dysplasia	Precursor	UC	11 years	9 months	Splenic flexure	No	No	yes	None	Progressor
-14CPB	Edinburgh	Adenocarcinoma	T2	Colon	P	Female	71	-	PD62039c	Adenocarcinoma	Follow up	UC	11 years	9 months	Splenic flexure	No	No	yes	None	Progressor
-14NP	Edinburgh	Normal	N	Lymph node	P	Female	71	-	PD62039b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-37CNPA	Edinburgh	Low grade	T3	Colon	P	Female	71	-	PD62039d	Low grade dysplasia	precursor	UC	9 months	11 years	sigmoid	no	no	yes	NA	Non-progressor
-37CNPB	Edinburgh	Low grade	T4	Colon	P	Female	71	-	PD62039e	Low grade dysplasia	follow up	UC	9 months	11 years	sigmoid	no	no	yes	NA	Non-progressor
-15CPA	Edinburgh	Dysplasia, not specified	T	Colon	P	Male	56	-	PD62040a	Dysplasia, not specified	Precursor	UC	8 years	5 months	Rectum	No	No	No	None	Progressor
-15CPB	Edinburgh	Unknown	T1	Colon	P	Male	56	-	PD62040c	Adenocarcinoma	Follow up	UC	8 years	5 months	Rectum	No	No	No	None	Progressor
-15NP	Edinburgh	Normal	N	Lymph node	P	Male	56	-	PD62040b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-16CPA	Edinburgh	Low grade dysplasia in TA	T1	Colon	P	Male	51	-	PD62041a	Low grade dysplasia	Precursor	UC	9 years	1 year 1 month	Sigmoid	No	No	yes	None	Progressor
-16CPB	Edinburgh	low grade dysplasia in adenoma	T2	Colon	P	Male	51	-	PD62041c	Low grade dysplasia	Precursor	UC	9 years	10 months	Sigmoid	No	No	yes	None	Progressor
-16CPC	Edinburgh	Unknown	T1	Colon	P	Male	52	-	PD62041d	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-16NP	Edinburgh	Normal	N	Lymph node	P	Male	52	-	PD62041b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-17CPA	Edinburgh	Low grade dysplasia in TA	T1	Colon	P	Female	73	-	PD62042a	Low grade dysplasia	Precursor	UC	At least 14 years	2 years 1 month	Rectum	No	No	yes	None	Progressor
-17CPB	Edinburgh	Adenocaricnoma	T2	Colon	P	Female	75	-	PD62042c	Adenocaricnoma	Follow up	UC	At least 14 years	2 years 1 month	Rectum	No	No	yes	None	Progressor
-17NP	Edinburgh	Normal	N	Lymph node	P	Female	75	-	PD62042b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-18CPA	Edinburgh	Low grade dysplasia in TVA	T1	Colon	P	Female	75	-	PD62043a	Low grade dysplasia	precursor	UC	14 years	11 months	Rectum	No	No	No	None	Progressor
-18CPB	Edinburgh	High grade dysplasia (focal)	T2	Colon	P	Female	76	-	PD62043c	High grade dysplasia	Follow up	UC	14 years	11 months	Rectum	No	No	No	None	Progressor
-18NP	Edinburgh	Normal	N	Lymph node	P	Female	76	-	PD62043b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-19CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Female	58	-	PD62044a	Low grade dysplasia	Precursor	UC	15 years	5 years 11 months	Transverse	No	No	yes	None	Progressor
-19CPB	Edinburgh	Adenocarcinoma (focal invasion)	T2	Colon	P	Female	64	-	PD62044c	Adenocarcinoma	Follow up	UC	15 years	5 years 11 months	Transverse	No	No	yes	None	Progressor
-19NP	Edinburgh	Normal	N	Ileum	P	Female	64	-	PD62044b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-20CPA	Edinburgh	Adenocarcinoma	T	Colon	P	Male	40	-	PD62045a	Adenocarcinoma	Follow up	UC	Uncertain, 'longstanding disease'	? Previous biopsy from other health board	Hepatic flexure	yes	No	yes	Precursor block from different health board, not yet cut	Progressor
-20CPB	Edinburgh	High grade dysplasia	T	Colon	P	Male	40	-	PD62045c	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-20NP	Edinburgh	Normal	N	Lymph node	P	Male	40	-	PD62045b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-21CPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	73	-	PD62046a	Low grade dysplasia	Precursor	UC	14 years	2 years 4 months	Rectum	No	No	No	None	Progressor
-21CPB	Edinburgh	High grade dysplasia	T2	Colon	P	Male	75	-	PD62046c	High grade dysplasia	Follow up	UC	14 years	2 years 4 months	Rectum	No	No	No	None	Progressor
-21NP	Edinburgh	Normal	N	Colon	P	Male	73	-	PD62046b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-22CPA	Edinburgh	dysplasia in TA, not specified	T1	Colon	P	Male	53	-	PD62047a	dysplasia in TA, not specified	precursor	UC	6 years	4 years	Sigmoid	No	No	yes	None	Progressor
-22CPB	Edinburgh	Unknown	T2	Colon	P	Male	54	-	PD62047c	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-22CPC	Edinburgh	LG flat dysplasia	T3	Colon	P	Male	55	-	PD62047d	LG flat dysplasia	Precursor*	UC	6 years	4 years	Sigmoid	No	No	yes	None	Progressor
-22CPD	Edinburgh	High grade dysplasia	T4	Colon	P	Male	58	-	PD62047e	High grade dysplasia	precursor	UC	6 years	4 years	15cm	No	No	yes	None	Progressor
-22CPE-1	Edinburgh	Flat high grade dysplasia	T5	Colon	P	Male	59	-	PD62047f	High grade dysplasia	follow up*	UC	6 years	4 years	Sigmoid	No	No	yes	None	Progressor
-22CPH	Edinburgh	Flat high grade dysplasia (focal)	T6	Colon	P	Male	63	-	PD62047g	High grade dysplasia	Follow up**	UC	6 years	4 years	Rectum	No	No	yes	None	Progressor
-22CPI	Edinburgh	High grade dysplasia in TVA ? Invasion	T7	Colon	P	Male	64	-	PD62047h	High grade dysplasia	Follow up**	UC	6 years	4 years	Rectum	No	No	yes	None	Progressor
-22CPJ	Edinburgh	Adenocarcinoma	T8	Colon	P	Male	65	-	PD62047i	Adenocarcinoma	Follow up**	UC	6 years	4 years	20cm	No	No	yes	None	Progressor
-22NP	Edinburgh	Normal	N	Colon	P	Male	63	-	PD62047b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-24CPB-1	Edinburgh	Adenocaricnoma in TVA	T1	Colon	P	Male	66	-	PD62048a	Adenocaricnoma in TVA	Follow up	UC	2 years	3 months	Transverse	No	No	yes	This patient had adenocarcinoma arising in background of multiple adenomata - ? Get precursor from background, assess on review.	Progressor
-24CPB-2	Edinburgh	Adenocaricnoma in TVA	T2	Colon	P	Male	66	-	PD62048c	Adenocaricnoma in TVA	Follow up	UC	2 years	3 months	Transverse	No	No	yes	This patient had adenocarcinoma arising in background of multiple adenomata - ? Get precursor from background, assess on review.	Progressor
-24NP	Edinburgh	Normal	N	Lymph node	P	Male	66	-	PD62048b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-25CPB	Edinburgh	Low grade dysplasia	T1	Colon	P	Female	53	-	PD62049a	Low grade dysplasia	Precursor	UC	29 years	3 months	Sigmoid	No	No	yes	None	Progressor
-25CPC	Edinburgh	High grade dysplasia	T2	Colon	P	Female	54	-	PD62049c	High grade dysplasia	Follow up	UC	29 years	4 months	Sigmoid	No	No	yes	none	Progressor
-25NP	Edinburgh	Normal	N	Gallbladder	P	Female	57	-	PD62049b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-26CPA	Edinburgh	high grade dysplasia in TVA	T1	Colon	P	Male	48	-	PD62050a	High grade dysplasia	Precursor	UC	<1 year	1 month	Rectum	yes	No	No	NB: diagnosed on index colonoscopy, also in non-progressor group	Progressor
-26CPB	Edinburgh	Adenocarcrinoma in TVA	T2	Colon	P	Male	48	-	PD62050c	Adenocarcrinoma in TVA	Follow up	UC	<1 year	1 month	Rectum	yes	No	No	NB: diagnosed on index colonoscopy, also in non-progressor group	Progressor
-27CNPA	Edinburgh	high grade*	T	Colon	P	Male	52	-	PD62050d	High grade dysplasia	precursor	UC	9 months	4 years	sigmoid	no	no	no	NA	Non-progressor
-27NNP	Edinburgh	Normal	N	Ileum	P	Male	59	-	PD62050b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-27CPA-1	Edinburgh	Low grade dysplasia (background)	T1	Colon	P	Female	35	-	PD62051a	Low grade dysplasia	Precursor	UC	At least 8 years	NA	Splenic flexure	yes	No	yes	Low grade dysplasia in background of adenocarcinoma	Progressor
-27CPA-2	Edinburgh	Adenocarcinoma	T2	Colon	P	Female	35	-	PD62051c	Adenocarcinoma	Follow up	UC	At least 8 years	NA	Splenic flexure	yes	no	yes	Low grade dysplasia in background of adenocarcinoma	Progressor
-27NP	Edinburgh	Normal	N	Colon	P	Female	35	-	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-27NP	Edinburgh	Normal	N	Colon	P	Female	35	-	PD62051b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-1CNPA	Edinburgh	Low grade	T1	Colon	P	Male	45	-	PD62052a	Low grade dysplasia	precursor	UC	13 years	2 years 1 month	Caecum	yes	no	yes	Very small biopsy	Non-progressor
-1CNPB	Edinburgh	Low grade	T2	Colon	P	Male	47	-	PD62052c	Low grade dysplasia	follow up	UC	13 years	2 years 1 month	Caecum	yes	no	yes	None	Non-progressor
-1CNPC	Edinburgh	Indefinite	T3	Colon	P	Male	50	-	PD62052d	Indefinite	follow up	UC	13 years	2 years 1 month	Caecum	yes	no	yes	None	Non-progressor
-1NNP	Edinburgh	Normal	N	Colon	P	Male	50	-	PD62052b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-2CNPA	Edinburgh	Moderate	T1	Colon	P	Male	58	-	PD62053a	Moderate	Precursor	UC	28 years	3 years 3months	ascending	no	no	yes	None	Non-progressor
-2CNPC	Edinburgh	Low grade	T2	Colon	P	Male	61	-	PD62053c	Low grade dysplasia	Follow up	UC	28 years	3 years 3months	ascending	no	no	yes	None	Non-progressor
-2NNP	Edinburgh	Normal	N	Colon	P	Male	76	-	PD62053b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-3CNPA	Edinburgh	NOS	T1	Colon	P	Female	57	-	PD62054a	NOS	Precursor	Crohns	32 years	11 months	Rectosigmoid	no	no	no	None	Non-progressor
-3CNPB	Edinburgh	Low grade	T2	Colon	P	Female	58	-	PD62054c	Low grade dysplasia	Follow up	Crohns	33 years	11 months	Rectosigmoid	no	no	no	None	Non-progressor
-3NNP	Edinburgh	Normal	N	Lymph node	P	Female	66	-	PD62054b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-4CNPA	Edinburgh	Low grade	T1	Colon	P	Male	76	-	PD62055a	Low grade dysplasia	precursor	Crohns	18 years	5 years 4 months	Descending	no	no	yes	None	Non-progressor
-4CNPB	Edinburgh	Low grade	T2	Colon	P	Male	83	-	PD62055c	Low grade dysplasia	follow up	Crohns	18 years	5 years 4 months	Descending	no	no	yes	None	Non-progressor
-4NNP	Edinburgh	Normal	N	Colon	P	Male	83	-	PD62055b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-5CNPA	Edinburgh	high grade	T1	Colon	P	Male	63	-	PD62056a	High grade dysplasia	precursor	UC	longstanding'	5 months	Sigmoid	yes	no	yes	NA	Non-progressor
-5CNPB	Edinburgh	NOS	T2	Colon	P	Male	64	-	PD62056c	NOS	follow up	UC	longstanding'	5 moths	Sigmoid	yes	no	yes	NA	Non-progressor
-5NNP	Edinburgh	Normal	N	Ileum	P	Male	76	-	PD62056b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-6CNPA	Edinburgh	Low grade	T1	Colon	P	Male	56	-	PD62057a	Low grade dysplasia	precursor	UC	30 years	4 years 4 months	Rectum	unknown	unknown	unknown	NA	Non-progressor
-6CNPB	Edinburgh	Low grade	T2	Colon	P	Male	61	-	PD62057c	Low grade dysplasia	follow up	UC	30 years	4 years 4 months	Rectum	unknown	unknown	unknown	NA	Non-progressor
-6NNP	Edinburgh	Normal	N	Duodenum	P	Male	68	-	PD62057b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-8CNPA	Edinburgh	Low grade dysplasia	T1	Colon	P	Male	38	-	PD62058a	Low grade dysplasia	precursor	UC	19 years	3 months	transverse	no	no	yes	NA	Non-progressor
-8CNPB	Edinburgh	Low grade	T2	Colon	P	Male	38	-	PD62058c	Low grade dysplasia	follow up	UC	19 years	3 months	transverse	no	no	yes	NA	Non-progressor
-8NNP	Edinburgh	Normal	N	Ileum	P	Male	39	-	PD62058b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-9CNPA	Edinburgh	low grade	T1	Colon	P	Male	74	-	PD62059a	Low grade dysplasia	precursor	UC	At least 10 years	2 years 2 months	caecum	unknown	unknown	unknown	NA	Non-progressor
-9CNPB	Edinburgh	low grade	T2	Colon	P	Male	76	-	PD62059c	Low grade dysplasia	follow up	UC	At least 10 years	2 years 2 months	caecum	unknown	unknown	unknown	NA	Non-progressor
-9CNPC	Edinburgh	low grade	T3	Colon	P	Male	77	-	PD62059d	Low grade dysplasia	follow up	UC	At least 10 years	3 years 2 months	Caecum	unknown	unknown	unknown	NA	Non-progressor
-9NNP	Edinburgh	Normal	N	Colon	P	Male	77	-	PD62059b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-10CNPA	Edinburgh	low grade	T1	Colon	P	Male	55	-	PD62060a	Low grade dysplasia	precursor	UC	37 years	8 months	Sigmoid	no	no	yes	NA	Non-progressor
-10CNPB	Edinburgh	low grade	T2	Colon	P	Male	56	-	PD62060c	Low grade dysplasia	follow up	UC	37 years	8 months	Sigmoid	no	no	yes	NA	Non-progressor
-10NNP	Edinburgh	Normal	N	Lymph node	P	Male	56	-	PD62060b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-11CNPA	Edinburgh	high grade	T1	Colon	P	Female	70	-	PD62061a	High grade dysplasia	precursor	UC	11 years	3 months	rectum	no	no	no	NA	Non-progressor
-11CNPB	Edinburgh	high grade	T2	Colon	P	Female	70	-	PD62061c	High grade dysplasia	precursor	UC	11 years	3 months	rectum	no	no	no	NA	Non-progressor
-11NNP	Edinburgh	Normal	N	Colon	P	Female	70	-	PD62061b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-12CNPA	Edinburgh	Moderate	T1	Colon	P	Male	66	-	PD62062a	Moderate	Precursor	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPB	Edinburgh	low grade	T2	Colon	P	Male	67	-	PD62062c	Low grade dysplasia	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPC	Edinburgh	Moderate	T3	Colon	P	Male	67	-	PD62062d	Moderate	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPD	Edinburgh	Moderate	T4	Colon	P	Male	67	-	PD62062e	Moderate	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPE	Edinburgh	Low grade	T5	Colon	P	U	U	-	PD62062f	Low grade dysplasia	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPF	Edinburgh	low grade	T6	Colon	P	Male	68	-	PD62062g	Low grade dysplasia	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPG	Edinburgh	moderate	T7	Colon	P	Male	68	-	PD62062h	moderate	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12CNPH	Edinburgh	low grade	T8	Colon	P	Male	68	-	PD62062i	Low grade dysplasia	follow up	UC	15 years	at least 1 year 7 months	rectum	no	no	yes	NA	Non-progressor
-12NNP	Edinburgh	Normal	N	Colon	P	Male	74	-	PD62062b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-13CNPA	Edinburgh	low grade	T1	Colon	P	Male	80	-	PD62063a	Low grade dysplasia	precursor	UC	Uncertain, 'longstanding'	4 years 4 months	rectum	no	no	yes	NA	Non-progressor
-13CNPB	Edinburgh	low grade	T2	Colon	P	Male	85	-	PD62063c	Low grade dysplasia	follow up	UC	Uncertain, 'longstanding'	4 years 4 months	rectum	no	no	yes	NA	Non-progressor
-13NNP	Edinburgh	Normal	N	Ileum	P	Male	85	-	PD62063b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-14CNPA	Edinburgh	low grade*	T1	Colon	P	Male	73	-	PD62064a	Low grade dysplasia	precursor	UC	2 years 7 months	11 years	transverse	no	no	yes	NA	Non-progressor
-14CNPB	Edinburgh	low grade**	T2	Colon	P	Male	74	-	PD62064c	Low grade dysplasia	follow up	UC	1 year 2 months	11 years	caecum	no	no	yes	NA	Non-progressor
-14CNPC	Edinburgh	low grade*	T3	Colon	P	Male	74	-	PD62064d	Low grade dysplasia	precursor	UC	2 years 7 months	11 years	transverse	no	no	yes	NA	Non-progressor
-14CNPD	Edinburgh	low grade**	T4	Colon	P	Male	76	-	PD62064e	Low grade dysplasia	follow up	UC	1 year 2 months	11 years	caecum	no	no	yes	NA	Non-progressor
-14NNP	Edinburgh	Normal	N	Colon	P	Male	74	-	PD62064b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-15CNPB	Edinburgh	NOS*	T1	Colon	P	Male	68	-	PD62065a	NOS*	follow up	UC	1 year 5 months	14 years	transverse	yes	no	yes	NA	Non-progressor
-15CNPC	Edinburgh	low grade**	T2	Colon	P	Male	78	-	PD62065c	Low grade dysplasia	precursor	UC	2 months	14 years	splenic flexure	yes	no	yes	NA	Non-progressor
-15CNPD	Edinburgh	low grade**	T3	Colon	P	Male	78	-	PD62065d	Low grade dysplasia	follow up	UC	2 months	14 years	splenic flexure	yes	no	yes	NA	Non-progressor
-15CNPE-1	Edinburgh	low grade	T4	Colon	P	Male	79	-	PD62065e	Low grade dysplasia	follow up	UC	11 months	14 years	splenic flexure	yes	no	yes	exclude	Non-progressor
-15CNPE-2	Edinburgh	low grade**	T5	Colon	P	Male	79	-	PD62065f	Low grade dysplasia	follow up	UC	11 months	14 years	splenic flexure	yes	no	yes	NA	Non-progressor
-15NNP	Edinburgh	Normal	N	Ileum	P	Male	84	-	PD62065b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-16CNPA	Edinburgh	low grade	T1	Colon	P	Female	70	-	PD62066a	Low grade dysplasia	precursor	UC	2 years	20 years	rectum	no	no	no	NA	Non-progressor
-16CNPB	Edinburgh	low grade	T2	Colon	P	Female	72	-	PD62066c	Low grade dysplasia	follow up	UC	2 years	20 years	rectum	no	no	no	NA	Non-progressor
-16NNP	Edinburgh	Normal	N	Colon	P	Female	74	-	PD62066b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-17CNPA	Edinburgh	low grade	T1	Colon	P	Female	59	-	PD62067a	Low grade dysplasia	precursor	UC	1 year 5 months	40 years	sigmoid	no	no	yes	NA	Non-progressor
-17CNPB	Edinburgh	low grade	T2	Colon	P	Female	60	-	PD62067c	Low grade dysplasia	follow up	UC	1 year 5 months	40 years	sigmoid	no	no	yes	NA	Non-progressor
-17NNP	Edinburgh	Normal	N	Colon	P	Female	59	-	PD62067b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-18CNPA-1	Edinburgh	NOS**	T1	Colon	P	Female	79	-	PD62068a	NOS**	Precursor	UC	4 months	16 years	rectum	no	no	no	NA	Non-progressor
-18CNPA-2	Edinburgh	High grade*	T2	Colon	P	Female	79	-	PD62068c	High grade dysplasia	Precursor	UC	4 months	16 years	rectum	no	no	no	NA	Non-progressor
-18CNPB-1	Edinburgh	High grade*	T3	Colon	P	Female	80	-	PD62068d	High grade dysplasia	Follow up	UC	4 months	16 years	rectum	no	no	no	NA	Non-progressor
-18CNPB-2	Edinburgh	low grade**	T4	Colon	P	Female	80	-	PD62068e	Low grade dysplasia	Follow up	UC	4 months	16 years	rectum	no	no	no	NA	Non-progressor
-18CNPC	Edinburgh	Low grade***	T5	Colon	P	Female	73	-	PD62068f	Low grade dysplasia	Precursor	UC	1 year 3 months	16 years	rectosigmoid	no	no	no	NA	Non-progressor
-18CNPD	Edinburgh	NOS***	T6	Colon	P	Female	74	-	PD62068g	NOS***	Follow up	UC	1 year 3 months	16 years	rectosigmoid	no	no	no	NA	Non-progressor
-18NNP	Edinburgh	Normal	N	Lymph node	P	Female	80	-	PD62068b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-20CNPA	Edinburgh	Low grade	T1	Colon	P	Male	49	-	PD62069a	Low grade dysplasia	precursor	UC	7 months	13 years	descending	yes	no	yes	NA	Non-progressor
-20CNPB	Edinburgh	Low grade	T2	Colon	P	Male	49	-	PD62069c	Low grade dysplasia	follow up	UC	7 months	13 years	descending	yes	no	yes	NA	Non-progressor
-20NNP	Edinburgh	Normal	N	Tongue	P	Male	53	-	PD62069b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-21CNPA	Edinburgh	Low grade	T1	Colon	P	Male	70	-	PD62070a	Low grade dysplasia	precursor	UC	1 year 1 month	19 years	descending	no	no	no	NA	Non-progressor
-21CNPB	Edinburgh	Low grade	T2	Colon	P	Male	71	-	PD62070c	Low grade dysplasia	follow up	UC	1 year 1 month	19 years	descending	no	no	no	NA	Non-progressor
-21CNPC	Edinburgh	Low grade	T3	Colon	P	Male	72	-	PD62070d	Low grade dysplasia	follow up	UC	2 years 2 months	19 years	descending	no	no	no	NA	Non-progressor
-21NNP	Edinburgh	Normal	N	Colon	P	Male	75	-	PD62070b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-22CNPA	Edinburgh	Low grade	T1	Colon	P	Female	28	-	PD62071a	Low grade dysplasia	precursor	UC	5 years 8 months	19 years	sigmoid	no	no	yes	NA	Non-progressor
-22CNPB	Edinburgh	Low grade	T2	Colon	P	Female	34	-	PD62071c	Low grade dysplasia	follow up	UC	5 years 8 months	19 years	sigmoid	no	no	yes	NA	Non-progressor
-22NNP	Edinburgh	Normal	N	Lymph node	P	Female	35	-	PD62071b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-23CNPA	Edinburgh	Low grade	T1	Colon	P	Male	77	-	PD62072a	Low grade dysplasia	precursor	UC	8 months	35 years	Transverse	no	no	yes	NA	Non-progressor
-23CNPB	Edinburgh	Low grade	T2	Colon	P	Male	77	-	PD62072c	Low grade dysplasia	follow up	UC	8 months	35 years	Transverse	no	no	yes	NA	Non-progressor
-23CNPC	Edinburgh	Low grade	T3	Colon	P	Male	78	-	PD62072d	Low grade dysplasia	follow up	UC	1 year 4 months	35 years	Transverse	no	no	yes	NA	Non-progressor
-23NNP	Edinburgh	Normal	N	Colon	P	Male	82	-	PD62072b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-24CNPA	Edinburgh	Low grade	T	Colon	P	Female	48	-	PD62073a	Low grade dysplasia	precursor	UC	3 months	28 years	transverse	no	no	yes	NA	Non-progressor
-24NNP	Edinburgh	Normal	N	Duodenum	P	Female	62	-	PD62073b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-25CNPA	Edinburgh	NOS	T1	Colon	P	Male	56	-	PD62074a	NOS	precursor	UC	8 months	8 years	rectum	no	no	yes	NA	Non-progressor
-25CNPB	Edinburgh	low grade	T2	Colon	P	Male	58	-	PD62074c	Low grade dysplasia	follow up	UC	8 months	8 years	rectum	no	no	yes	NA	Non-progressor
-25CNPC	Edinburgh	low grade	T3	Colon	P	Male	59	-	PD62074d	Low grade dysplasia	follow up	UC	1 year 3 months	8 years	rectum	no	no	yes	NA	Non-progressor
-25CNPD	Edinburgh	low grade	T4	Colon	P	Male	60	-	PD62074e	Low grade dysplasia	follow up	UC	2 years 11 months	8 years	rectum	no	no	yes	NA	Non-progressor
-25NNP	Edinburgh	Normal	N	Colon	P	Male	66	-	PD62074b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-26CNPA	Edinburgh	Low grade	T1	Colon	P	Female	57	-	PD62075a	Low grade dysplasia	precursor	UC	7 months	At least 6 years	sigmoid	no	no	no	NA	Non-progressor
-26CNPB	Edinburgh	Low grade	T2	Colon	P	Female	58	-	PD62075c	Low grade dysplasia	follow up	UC	7 months	At least 6 years	sigmoid	no	no	no	NA	Non-progressor
-26CNPC	Edinburgh	Low grade	T3	Colon	P	Female	59	-	PD62075d	Low grade dysplasia	follow up	UC	10 months	At least 6 years	sigmoid	no	no	no	NA	Non-progressor
-26CNPD	Edinburgh	Low grade	T4	Colon	P	Female	59	-	PD62075e	Low grade dysplasia	follow up	UC	1 year	At least 6 years	sigmoid	no	no	no	NA	Non-progressor
-26NNP	Edinburgh	Normal	N	Colon	P	Female	63	-	PD62075b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-28CNPA	Edinburgh	Low grade	T1	Colon	P	Female	81	-	PD62076a	Low grade dysplasia	precursor	UC	2 years 2 months	27 years	transverse	no	no	no	NA	Non-progressor
-28CNPB	Edinburgh	Low grade	T2	Colon	P	Female	83	-	PD62076c	Low grade dysplasia	follow up	UC	2 years 2 months	27 years	transverse	no	no	no	NA	Non-progressor
-28NNP	Edinburgh	Normal	N	Colon	P	Female	81	-	PD62076b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-29CNPA	Edinburgh	Low grade	T1	Colon	P	Female	46	-	PD62077a	Low grade dysplasia	precursor	UC	1 year 2 months	9 years	transverse	yes	no	yes	NA	Non-progressor
-29CNPB	Edinburgh	Low grade	T2	Colon	P	Female	48	-	PD62077c	Low grade dysplasia	follow up	UC	1 year 2 months	9 years	transverse	yes	no	yes	NA	Non-progressor
-29NNP	Edinburgh	Normal	N	Duodenum	P	Female	50	-	PD62077b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-30CNPA	Edinburgh	Moderate	T1	Colon	P	Male	75	-	PD62078a	moderate	precursor	UC	7 months	30 years	rectosigmoid	no	no	yes	NA	Non-progressor
-30CNPB	Edinburgh	Moderate	T2	Colon	P	Male	75	-	PD62078c	moderate	follow up	UC	7 months	30 years	rectosigmoid	no	no	yes	NA	Non-progressor
-30NNP	Edinburgh	Normal	N	Ileum	P	Male	76	-	PD62078b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-31CNPA	Edinburgh	Low grade	T1	Colon	P	Male	51	-	PD62079a	Low grade dysplasia	precursor	UC	1 year 6 months	8 years	transverse	no	no	yes	NA	Non-progressor
-31CNPB	Edinburgh	Low grade	T2	Colon	P	Male	53	-	PD62079c	Low grade dysplasia	follow up	UC	1 year 6 months	8 years	transverse	no	no	yes	NA	Non-progressor
-31NNP	Edinburgh	Normal	N	Lymph node	P	Male	53	-	PD62079b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-32CNPA	Edinburgh	Low grade	T1	Colon	P	Male	43	-	PD62080a	Low grade dysplasia	precursor	UC	4 years 7 months	5 years	rectum	no	no	no	NA	Non-progressor
-32CNPB	Edinburgh	Low grade	T2	Colon	P	Male	47	-	PD62080c	Low grade dysplasia	follow up	UC	4 years 7 months	5 years	rectum	no	no	no	NA	Non-progressor
-32NNP	Edinburgh	Normal	N	Ileum	P	Male	47	-	PD62080b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-33CNPA-1	Edinburgh	low grade**	T1	Colon	P	Male	60	-	PD62081a	Low grade dysplasia	precursor	UC	2 months	14 years	descending	no	no	no	NA	Non-progressor
-33CNPA-2	Edinburgh	NOS*	T2	Colon	P	Male	60	-	PD62081c	NOS*	precursor	UC	2 months	14 years	rectum	no	no	no	NA	Non-progressor
-33NNP	Edinburgh	Normal	N	Ileum	P	Male	69	-	PD62081b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-34CNPA	Edinburgh	High grade	T1	Colon	P	Male	36	-	PD62082a	High grade dysplasia	precursor	UC	3 months	Uncertain 'chronoic UC'	caecum	yes	no	yes	NA	Non-progressor
-34CNPB	Edinburgh	High grade	T2	Colon	P	Male	36	-	PD62082c	High grade dysplasia	follow up	UC	3 months	Uncertain 'chronic UC'	caecum	yes	no	yes	NA	Non-progressor
-34NNP	Edinburgh	Normal	N	Lymph node	P	Male	42	-	PD62082b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-35CNPA	Edinburgh	Low grade	T1	Colon	P	Male	42	-	PD62083a	Low grade dysplasia	precursor	UC	1 year	3 years	caecum	no	no	yes	NA	Non-progressor
-35CNPB	Edinburgh	Low grade	T2	Colon	P	Male	43	-	PD62083c	Low grade dysplasia	follow up	UC	1 year	3 years	caecum	no	no	yes	NA	Non-progressor
-35CNPC	Edinburgh	Low grade	T3	Colon	P	Male	47	-	PD62083d	Low grade dysplasia	follow up	UC	5 years 2 months	3 years	caecum	no	no	yes	NA	Non-progressor
-35NNP	Edinburgh	Normal	N	Colon	P	Male	47	-	PD62083b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-36CNPA	Edinburgh	Low grade	T1	Colon	P	Female	72	-	PD62084a	Low grade dysplasia	precursor	UC	3 years 4 months	20 years	sigmoid	no	no	no	NA	Non-progressor
-36CNPB	Edinburgh	Low grade	T2	Colon	P	Female	75	-	PD62084c	Low grade dysplasia	follow up	UC	3 years 4 months	20 years	sigmoid	no	no	no	NA	Non-progressor
-36NNP	Edinburgh	Normal	N	Colon	P	Female	83	-	PD62084b	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
-NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA	NA
+study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagnosis	ibd_diagnosis	disease_duration_to_first_dyaplastic_lesion	time_between_lesions	site	psc	family_history	pancolitis	sex	age	additional_info_of_note	group
+2CPA	PD62027a	T1	Precursor	Low grade	Low grade dysplasia in TVA	IBDU	39 years	4 years 3 months	Sigmoid	No	No	No	Female	71	MLH1 loss in adenocarcinoma	Progressor
+2CPB	PD62027c	T2	Follow up	Adenocarcinoma	Adenocarcinoma	IBDU	39 years	4 years 3 months	Sigmoid	No	No	No	Female	75	MLH1 loss in adenocarcinoma	Progressor
+3CPA	PD62028a	T1	Precursor	Low grade	Low grade dysplasia	IBDU	16 years	1 year	Transverse	Yes	No	Yes	Male	55	None	Progressor
+3CPA	PD62028a	T1	Precursor	Low grade	Low grade dysplasia	IBDU	16 years	1 year	Transverse	Yes	No	Yes	Male	55	None	Non-progressor
+3CPB	PD62028c	T2	Follow up	High grade	High grade dysplasia	IBDU	16 years	1 year	Transverse	Yes	No	Yes	Male	56	None	Progressor
+5CPB	PD62030c	T2	Follow up	High grade	High grade dysplasia, flat	Crohn's	15 years	6 months	Sigmoid	No	No	No	Male	67	None	Progressor
+5CPC	PD62030d	T3	Follow up	Adenocarcinoma	Adenocarcinoma	Crohn's	15 years	6 months	Sigmoid	No	No	No	Male	67	None	Progressor
+6CPA	PD62031a	T1	Precursor	Low grade	Low grade dysplasia	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	27	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor
+6CPB	PD62031c	T2	Follow up	Adenocarcinoma	Adenocarcinoma (focal invasion)	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	28	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor
+6CPC	PD62031d	T3	Precursor	Low grade	Low grade dysplasia (background)	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	28	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor
+8CPA	PD62033a	T1	Precursor	Low grade	Low grade dysplasia in TVA	UC	19 years	6 months	Rectum	No	No	No	Male	55	None	Progressor
+8CPC	PD62033d	T3	Follow up	High grade	high grade dysplasia in TVA	UC	19 years	6 months	Rectum	No	No	No	Male	55	None	Progressor
+9CPA	PD62034a	T1	Precursor	Low grade	Low grade dysplasia in VA	UC	4 years	5 years 6 months	Sigmoid	No	No	No	Female	64	None	Progressor
+9CPB	PD62034c	T2	Follow up	High grade	High grade dysplasia in TVA	UC	4 years	5 years 6 months	Sigmoid	No	No	No	Female	70	None	Progressor
+11CPA	PD62036a	T1	Follow up	Adenocarcinoma	Unknown	UC	24 years	5 years	Rectum	No	No	No	Male	67	Precursor block from different health board, not yet cut	Progressor
+12CPA	PD62037a	T1	Precursor	Low grade	Low grade dysplasia	UC	29 years	1 year	Ascending	No	No	Yes	Male	44	2 separate progressed lesions	Progressor
+12CPB	PD62037c	T2	Precursor	Low grade	Low grade dysplasia	UC	29 years	4 months	Transverse	No	No	Yes	Male	44	2 separate progressed lesions	Progressor
+12CPC	PD62037d	T3	Follow up	High grade	High grade dysplasia	UC	29 years	4 months	Transverse	No	No	Yes	Male	45	2 separate progressed lesions	Progressor
+13CPA	PD62038a	T1	Precursor	Low grade	Low grade dysplasia	UC	14 years	1 year 3 months	Distal ascending	No	No	Yes	Male	49	2 separate progressed lesions	Progressor
+13CPB	PD62038c	T2	Precursor	Low grade	Low grade dysplasia in VA	UC	14 years	7 months	Proximal ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor
+13CPC	PD62038d	T3	Follow up	Adenocarcinoma	Adenocarcinoma	UC	14 years	7 months	Proximal ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor
+13CPD	PD62038e	T4	Follow up	Adenocarcinoma	Adenocarcinoma	UC	14 years	1 year 3 months	Distal ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor
+14CPA	PD62039a	T1	Precursor	Low grade	Low grade dysplasia in TVA	UC	11 years	9 months	Splenic flexure	No	No	Yes	Female	71	None	Progressor
+14CPB	PD62039c	T2	Follow up	Adenocarcinoma	Adenocarcinoma	UC	11 years	9 months	Splenic flexure	No	No	Yes	Female	71	None	Progressor
+37CNPA	PD62039d	T3	Precursor	Low grade	Low grade	UC	9 months	11 years	sigmoid	No	No	Yes	Female	71	NA	Non-progressor
+37CNPB	PD62039e	T4	Follow up	Low grade	Low grade	UC	9 months	11 years	sigmoid	No	No	Yes	Female	71	NA	Non-progressor
+18CPA	PD62043a	T1	Precursor	Low grade	Low grade dysplasia in TVA	UC	14 years	11 months	Rectum	No	No	No	Female	75	None	Progressor
+20CPA	PD62045a	T	Follow up	Adenocarcinoma	Adenocarcinoma	UC	Uncertain, 'longstanding disease'	? Previous biopsy from other health board	Hepatic flexure	Yes	No	Yes	Male	40	Precursor block from different health board, not yet cut	Progressor
+20CPB	PD62045c	T	NA	NA	High grade dysplasia	NA	NA	NA	NA	NA	NA	NA	Male	40	NA	NA
+21CPA	PD62046a	T1	Precursor	Low grade	Low grade dysplasia	UC	14 years	2 years 4 months	Rectum	No	No	No	Male	73	None	Progressor
+21CPB	PD62046c	T2	Follow up	High grade	High grade dysplasia	UC	14 years	2 years 4 months	Rectum	No	No	No	Male	75	None	Progressor
+22CPC	PD62047d	T3	Precursor	Low grade	LG flat dysplasia	UC	6 years	4 years	Sigmoid	No	No	Yes	Male	55	None	Progressor
+22CPD	PD62047e	T4	Precursor	High grade	High grade dysplasia	UC	6 years	4 years	15cm	No	No	Yes	Male	58	None	Progressor
+22CPH	PD62047g	T6	Follow up	High grade	Flat high grade dysplasia (focal)	UC	6 years	4 years	Rectum	No	No	Yes	Male	63	None	Progressor
+22CPI	PD62047h	T7	Follow up	High grade	High grade dysplasia in TVA ? Invasion	UC	6 years	4 years	Rectum	No	No	Yes	Male	64	None	Progressor
+27CPA-1	PD62051a	T1	Precursor	Low grade	Low grade dysplasia (background)	UC	At least 8 years	NA	Splenic flexure	Yes	No	Yes	Female	35	Low grade dysplasia in background of adenocarcinoma	Progressor
+27CPA-2	PD62051c	T2	Follow up	Adenocarcinoma	Adenocarcinoma	UC	At least 8 years	NA	Splenic flexure	Yes	No	Yes	Female	35	Low grade dysplasia in background of adenocarcinoma	Progressor
+1CNPA	PD62052a	T1	Precursor	Low grade	Low grade	UC	13 years	2 years 1 month	Caecum	Yes	No	Yes	Male	45	Very small biopsy	Non-progressor
+1CNPB	PD62052c	T2	Follow up	Low grade	Low grade	UC	13 years	2 years 1 month	Caecum	Yes	No	Yes	Male	47	None	Non-progressor
+3CNPA	PD62054a	T1	Precursor	NOS	NOS	Crohn's	32 years	11 months	Rectosigmoid	No	No	No	Female	57	None	Non-progressor
+6CNPA	PD62057a	T1	Precursor	Low grade	Low grade	UC	30 years	4 years 4 months	Rectum	Unknown	Unknown	Unknown	Male	56	NA	Non-progressor
+8CNPA	PD62058a	T1	Precursor	Low grade	Low grade dysplasia	UC	19 years	3 months	transverse	No	No	Yes	Male	38	NA	Non-progressor
+8CNPB	PD62058c	T2	Follow up	Low grade	Low grade	UC	19 years	3 months	transverse	No	No	Yes	Male	38	NA	Non-progressor
+10CNPA	PD62060a	T1	Precursor	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	55	NA	Non-progressor
+10CNPB	PD62060c	T2	Follow up	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	56	NA	Non-progressor
+14CNPA	PD62064a	T1	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	transverse	No	No	Yes	Male	73	NA	Non-progressor
+14CNPB	PD62064c	T2	Follow up	Low grade	low grade**	UC	1 year 2 months	11 years	caecum	No	No	Yes	Male	74	NA	Non-progressor
+14CNPC	PD62064d	T3	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	transverse	No	No	Yes	Male	74	NA	Non-progressor
+15CNPC	PD62065c	T2	Precursor	Low grade	low grade**	UC	2 months	14 years	splenic flexure	Yes	No	Yes	Male	78	NA	Non-progressor
+15CNPD	PD62065d	T3	Follow up	Low grade	low grade**	UC	2 months	14 years	splenic flexure	Yes	No	Yes	Male	78	NA	Non-progressor
+15CNPE-1	PD62065e	T4	Follow up	Low grade	low grade	UC	11 months	14 years	splenic flexure	Yes	No	Yes	Male	79	exclude	Non-progressor
+16CNPA	PD62066a	T1	Precursor	Low grade	low grade	UC	2 years	20 years	rectum	No	No	No	Female	70	NA	Non-progressor
+16CNPB	PD62066c	T2	Follow up	Low grade	low grade	UC	2 years	20 years	rectum	No	No	No	Female	72	NA	Non-progressor
+17CNPA	PD62067a	T1	Precursor	Low grade	low grade	UC	1 year 5 months	40 years	sigmoid	No	No	Yes	Female	59	NA	Non-progressor
+17CNPB	PD62067c	T2	Follow up	Low grade	low grade	UC	1 year 5 months	40 years	sigmoid	No	No	Yes	Female	60	NA	Non-progressor
+21CNPC	PD62070d	T3	Follow up	Low grade	Low grade	UC	2 years 2 months	19 years	descending	No	No	No	Male	72	NA	Non-progressor
+23CNPA	PD62072a	T1	Precursor	Low grade	Low grade	UC	8 months	35 years	Transverse	No	No	Yes	Male	77	NA	Non-progressor
+25CNPB	PD62074c	T2	Follow up	Low grade	low grade	UC	8 months	8 years	rectum	No	No	Yes	Male	58	NA	Non-progressor
+25CNPC	PD62074d	T3	Follow up	Low grade	low grade	UC	1 year 3 months	8 years	rectum	No	No	Yes	Male	59	NA	Non-progressor
+26CNPA	PD62075a	T1	Precursor	Low grade	Low grade	UC	7 months	At least 6 years	sigmoid	No	No	No	Female	57	NA	Non-progressor
+26CNPC	PD62075d	T3	Follow up	Low grade	Low grade	UC	10 months	At least 6 years	sigmoid	No	No	No	Female	59	NA	Non-progressor
+26CNPD	PD62075e	T4	Follow up	Low grade	Low grade	UC	1 year	At least 6 years	sigmoid	No	No	No	Female	59	NA	Non-progressor
+28CNPA	PD62076a	T1	Precursor	Low grade	Low grade	UC	2 years 2 months	27 years	transverse	No	No	No	Female	81	NA	Non-progressor
+28CNPB	PD62076c	T2	Follow up	Low grade	Low grade	UC	2 years 2 months	27 years	transverse	No	No	No	Female	83	NA	Non-progressor
+29CNPA	PD62077a	T1	Precursor	Low grade	Low grade	UC	1 year 2 months	9 years	transverse	Yes	No	Yes	Female	46	NA	Non-progressor
+31CNPA	PD62079a	T1	Precursor	Low grade	Low grade	UC	1 year 6 months	8 years	transverse	No	No	Yes	Male	51	NA	Non-progressor
+31CNPB	PD62079c	T2	Follow up	Low grade	Low grade	UC	1 year 6 months	8 years	transverse	No	No	Yes	Male	53	NA	Non-progressor
+32CNPB	PD62080c	T2	Follow up	Low grade	Low grade	UC	4 years 7 months	5 years	rectum	No	No	No	Male	47	NA	Non-progressor
+33CNPA-2	PD62081c	T2	Precursor	NOS	NOS*	UC	2 months	14 years	rectum	No	No	No	Male	60	NA	Non-progressor
+35CNPB	PD62083c	T2	Follow up	Low grade	Low grade	UC	1 year	3 years	caecum	No	No	Yes	Male	43	NA	Non-progressor
+35CNPC	PD62083d	T3	Follow up	Low grade	Low grade	UC	5 years 2 months	3 years	caecum	No	No	Yes	Male	47	NA	Non-progressor
+36CNPA	PD62084a	T1	Precursor	Low grade	Low grade	UC	3 years 4 months	20 years	sigmoid	No	No	No	Female	72	NA	Non-progressor
+36CNPB	PD62084c	T2	Follow up	Low grade	Low grade	UC	3 years 4 months	20 years	sigmoid	No	No	No	Female	75	NA	Non-progressor
