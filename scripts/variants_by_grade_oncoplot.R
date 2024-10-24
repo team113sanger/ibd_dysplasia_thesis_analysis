@@ -23,7 +23,7 @@ maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   filter(Hugo_Symbol %in% oncoKB) |>
   #filter(Tumor_Sample_Barcode %in% non_progressors) |>
   group_by(Hugo_Symbol) |>
-  filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
+  filter(n_distinct(Tumor_Sample_Barcode) >=4) |>
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP)
 
@@ -79,17 +79,17 @@ metadata <- metadata |>
 
 bottom_anno <- HeatmapAnnotation(
   "Status" = as.vector(metadata$precursor_or_follow_up),
-  "IBD" = as.vector(metadata$ibd_diagnosis),
   "Group" = as.vector(metadata$group),
+  "IBD" = as.vector(metadata$ibd_diagnosis),
   show_legend = c(
     "Status" = T,
-    "IBD" = T,
-    "Group" = T
+    "Group" = T,
+    "IBD" = T
   ),
   col = list(
     "Status" = c("Precursor" = "#ffffcc", "Follow up" = "#225ea8"),
-    "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8"),
-    "Group" = c("Progressor" = "#225ea8", "Non-progressor" = "#ffffcc")
+    "Group" = c("Progressor" = "#225ea8", "Non-progressor" = "#ffffcc"),
+    "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8")
   ),
   gap = unit(c(0, 0, 1), "mm"),
   border = T, na_col = "#e6e6e6",
@@ -111,6 +111,7 @@ p <- oncoPrint(
   column_names_gp = gpar(fontsize = 5),
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
+  remove_empty_columns = FALSE,
   width = unit(18, "cm"),
   height = unit(8, "cm"),
   #border = T,
@@ -120,12 +121,12 @@ p <- oncoPrint(
 
 pdf(
   file = paste0("plots/variants_by_grade.pdf"),
-  width = 10, height = 7
+  width = 9, height = 6
 )
 draw(p,
      heatmap_legend_side = "right",
-     annotation_legend_side = "bottom"
-    # merge_legend = TRUE,
+     annotation_legend_side = "right",
+     merge_legend = TRUE,
 )
 dev.off()
 
