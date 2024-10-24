@@ -116,7 +116,7 @@ bottom_anno <- HeatmapAnnotation(
       "Descending" = "#FFD700"  # Gold
     )
   ),
-  gap = unit(c(0, 0, 1), "mm"),
+  gap = unit(c(0, 1, 1), "mm"),
   border = TRUE, na_col = "#e6e6e6",
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
