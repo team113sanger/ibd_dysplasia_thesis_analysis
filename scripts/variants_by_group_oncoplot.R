@@ -17,13 +17,15 @@ metadata <- read_tsv("metadata/processed_metadata.tsv") |>
 
 metadata$group <- factor(
   metadata$group,
-  levels = c("Non-progressor Precursor", "Non-progressor Follow up",
-             "Progressor Precursor",  "Progressor Follow up")
+  levels = c(
+    "Non-progressor Precursor", "Non-progressor Follow up",
+    "Progressor Precursor", "Progressor Follow up"
+  )
 )
 
 maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   filter(Hugo_Symbol %in% oncoKB) |>
-  #filter(Tumor_Sample_Barcode %in% non_progressors) |>
+  # filter(Tumor_Sample_Barcode %in% non_progressors) |>
   group_by(Hugo_Symbol) |>
   filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
   ungroup() |>
@@ -34,8 +36,8 @@ maf <- shorten_consequence(maf)
 # Transform data
 mat_df <- maf |>
   group_by(Hugo_Symbol, Tumor_Sample_Barcode) |>
-  summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = 'drop') |>
-  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "") 
+  summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = "drop") |>
+  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "")
 
 mat <- as.matrix(mat_df[, -1])
 rownames(mat) <- mat_df$Hugo_Symbol
@@ -104,7 +106,7 @@ p <- oncoPrint(
   show_pct = FALSE,
   row_names_side = "left",
   pct_digits = 1,
-  show_column_names=TRUE,
+  show_column_names = TRUE,
   column_split = factor(metadata$group),
   column_gap = unit(1, "mm"),
   column_names_gp = gpar(fontsize = 5),
@@ -113,7 +115,7 @@ p <- oncoPrint(
   width = unit(18, "cm"),
   height = unit(8, "cm"),
   remove_empty_columns = FALSE,
-  #border = T,
+  # border = T,
   row_names_gp = gpar(fontsize = 8),
   column_title_gp = gpar(fontsize = 9)
 )
@@ -123,8 +125,8 @@ pdf(
   width = 9, height = 6
 )
 draw(p,
-     heatmap_legend_side = "right",
-     annotation_legend_side = "right",
-     merge_legend = TRUE,
+  heatmap_legend_side = "right",
+  annotation_legend_side = "right",
+  merge_legend = TRUE,
 )
 dev.off()

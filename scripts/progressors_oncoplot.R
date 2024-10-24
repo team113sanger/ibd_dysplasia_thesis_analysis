@@ -37,8 +37,8 @@ maf <- shorten_consequence(maf)
 # Transform data
 mat_df <- maf |>
   group_by(Hugo_Symbol, Tumor_Sample_Barcode) |>
-  summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = 'drop') |>
-  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "") 
+  summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = "drop") |>
+  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "")
 
 mat <- as.matrix(mat_df[, -1])
 rownames(mat) <- mat_df$Hugo_Symbol
@@ -107,7 +107,7 @@ p <- oncoPrint(
   show_pct = FALSE,
   row_names_side = "left",
   pct_digits = 1,
-  show_column_names=TRUE,
+  show_column_names = TRUE,
   column_split = factor(metadata$precursor_or_follow_up),
   column_gap = unit(1, "mm"),
   column_names_gp = gpar(fontsize = 5),
@@ -115,7 +115,7 @@ p <- oncoPrint(
   bottom_annotation = bottom_anno,
   width = unit(13, "cm"),
   height = unit(8, "cm"),
-  #border = T,
+  # border = T,
   row_names_gp = gpar(fontsize = 8),
   column_title_gp = gpar(fontsize = 12)
 )
@@ -125,9 +125,8 @@ pdf(
   width = 8, height = 7
 )
 draw(p,
-     heatmap_legend_side = "right",
-     annotation_legend_side = "bottom"
-     # merge_legend = TRUE,
+  heatmap_legend_side = "right",
+  annotation_legend_side = "bottom"
+  # merge_legend = TRUE,
 )
 dev.off()
-
