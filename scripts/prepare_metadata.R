@@ -20,7 +20,7 @@ meta <- read_tsv("metadata/sanger_metadata.tsv") |>
             sex, age) |>
             rename(study_id = case_id)
 
-qc_pass_samples <- read_tsv("sample_lists/qc_pass_sample_list.tsv", col_names = F) |>
+qc_pass_samples <- read_tsv("metadata/sample_lists/qc_pass_sample_list.tsv", col_names = F) |>
     pull(X1)
 
 # Combine metadata
