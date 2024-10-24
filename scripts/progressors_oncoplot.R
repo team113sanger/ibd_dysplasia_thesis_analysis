@@ -10,7 +10,7 @@ library(grid)
 oncoKB <- read_tsv("/lustre/scratch124/casm/team113/secure-lustre/resources/dermatlas/oncoKB/cancerGeneList.tsv") |>
   pull(`Hugo Symbol`)
 
-metadata <- read_tsv("metadata/processed_metadata.tsv") |>
+metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
   filter(group == "Progressor")
 
 metadata$precursor_or_follow_up <- factor(
@@ -21,7 +21,7 @@ metadata$precursor_or_follow_up <- factor(
 progressors <- metadata |>
   pull(sanger_dna_id)
 
-tmb <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB")) |>
+tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB")) |>
   filter(Sample %in% progressors)
 
 maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
@@ -30,15 +30,18 @@ maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   group_by(Hugo_Symbol) |>
   filter(n_distinct(Tumor_Sample_Barcode) >= 3) |>
   ungroup() |>
-  select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP)
-
-maf <- shorten_consequence(maf)
+  select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
+  shorten_consequence() |>
+  left_join(metadata |> select(sanger_dna_id, study_id), 
+            by = c("Tumor_Sample_Barcode" = "sanger_dna_id")) |>
+  select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
+  arrange(study_id)
 
 # Transform data
 mat_df <- maf |>
-  group_by(Hugo_Symbol, Tumor_Sample_Barcode) |>
+  group_by(Hugo_Symbol, study_id) |>
   summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = "drop") |>
-  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "")
+  pivot_wider(names_from = study_id, values_from = Main_consequence_VEP, values_fill = "")
 
 mat <- as.matrix(mat_df[, -1])
 rownames(mat) <- mat_df$Hugo_Symbol
@@ -67,8 +70,13 @@ alter_fun <- list(
 )
 
 # Add TMB
-tmb <- tmb |>
-  filter(Sample %in% colnames(mat))
+tmb <- tmb_raw |>
+  left_join(metadata |> select(sanger_dna_id, study_id), 
+            by = c("Sample" = "sanger_dna_id")) |>
+  select(study_id, TMB) |>
+  filter(study_id %in% colnames(mat)) |>
+  arrange(study_id)
+
 top_anno <- HeatmapAnnotation(
   "TMB\n(per Mb)" = anno_barplot(tmb$TMB, baseline = 0),
   annotation_name_side = "left",
@@ -79,8 +87,8 @@ top_anno <- HeatmapAnnotation(
 
 # Add metadata
 metadata <- metadata |>
-  filter(sanger_dna_id %in% colnames(mat)) |>
-  arrange(sanger_dna_id)
+  filter(study_id %in% colnames(mat)) |>
+  arrange(study_id)
 
 bottom_anno <- HeatmapAnnotation(
   "Grade" = as.vector(metadata$grade_of_dysplasia),
@@ -126,7 +134,7 @@ pdf(
 )
 draw(p,
   heatmap_legend_side = "right",
-  annotation_legend_side = "bottom"
-  # merge_legend = TRUE,
+  annotation_legend_side = "right",
+  merge_legend = TRUE,
 )
 dev.off()
