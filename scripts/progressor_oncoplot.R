@@ -13,7 +13,7 @@ library(tibble)
 MAF_PATH <- "data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf"
 METADATA_PATH <- "metadata/processed_metadata.tsv"
 TMB_PATH <- "data/mutations_per_Mb.tsv"
-SAMPLE_LIST <- "metadata/sample_list.tsv"
+SAMPLE_LIST <- "metadata/sample_lists/qc_pass_samples_list.txt"
 
 maf <- read_tsv(MAF_PATH)
 metadata <- read_tsv(METADATA_PATH, col_types = cols(
@@ -47,28 +47,53 @@ genes_order <- get_order(variants_plot, Hugo_Symbol)
 # Remove duplicates
 variants_unique <- remove_duplicates(variants_plot)
 
-# Get sample order for plotting
-samples_order <- variants_unique |>
-  group_by(Hugo_Symbol) |>
-  mutate(n = n()) |>
-  arrange(desc(n)) |>
-  pull(Tumor_Sample_Barcode)
-
-samples_order <- unique(samples_order)
-
 # Add missing samples
 variants_unique_full <- add_missing_samples(progressors, variants_unique, "No mutation")
 samples_order <- c(samples_order, missing_samples)
 
 # Set levels
-variants_unique_full[["Tumor_Sample_Barcode"]] <-
-  factor(variants_unique_full[["Tumor_Sample_Barcode"]], levels = samples_order)
-
 variants_unique_full[["Hugo_Symbol"]] <-
   factor(variants_unique_full[["Hugo_Symbol"]], levels = genes_order)
 
 # Expand variants for plotting
 variants_expanded <- expand_dataframe(variants_unique_full, "No mutation")
+
+# Add group info
+meta_select <- metadata |>
+  select(sanger_dna_id, precursor_or_follow_up)
+
+variants_plot_data <- left_join(variants_expanded, meta_select,
+                                by = c("Tumor_Sample_Barcode" = "sanger_dna_id"))
+
+variants_plot_data$precursor_or_follow_up <- factor(
+  variants_plot_data$precursor_or_follow_up,
+  levels = c("Precursor", "Follow up")
+)
+
+# Get sample order for plotting
+samples_order_1 <- variants_plot_data |>
+  filter(precursor_or_follow_up == "Precursor") |>
+  group_by(Hugo_Symbol) |>
+  mutate(n = n()) |>
+  arrange(desc(n)) |>
+  pull(Tumor_Sample_Barcode)
+
+samples_order_1 <- unique(samples_order_1)
+
+# Get sample order for plotting
+samples_order_2 <- variants_plot_data |>
+  filter(precursor_or_follow_up == "Follow up") |>
+  group_by(Hugo_Symbol) |>
+  mutate(n = n()) |>
+  arrange(desc(n)) |>
+  pull(Tumor_Sample_Barcode)
+  
+samples_order_2 <- unique(samples_order_2)
+
+samples_order <- c(samples_order_1, samples_order_2)
+
+variants_plot_data[["Tumor_Sample_Barcode"]] <-
+  factor(variants_plot_data[["Tumor_Sample_Barcode"]], levels = samples_order)
 
 ######## Variant Plot #########
 consequence_palette <- c(
@@ -84,7 +109,7 @@ consequence_palette <- c(
 legend_order <- names(consequence_palette)
 # pclo_y <- which(levels(variants_expanded$Hugo_Symbol) == "PCLO")
 
-variants_plot <- ggplot(data = variants_expanded) +
+variants_plot <- ggplot(data = variants_plot_data) +
   geom_tile(aes(
     x = Tumor_Sample_Barcode, y = Hugo_Symbol,
     fill = Main_consequence_VEP
@@ -102,12 +127,14 @@ variants_plot <- ggplot(data = variants_expanded) +
   ) +
   scale_x_discrete(expand = c(0, 0), guide = guide_axis(angle = 90)) +
   scale_y_discrete(expand = c(0, 0)) +
+  facet_wrap(~ precursor_or_follow_up, scales = "free_x") +
   # geom_hline(yintercept = pclo_y + 0.5, color = "grey30",
   #           linewidth = 0.4, linetype = "dashed") +
   labs(fill = "Consequence")
 # coord_fixed()
 
 variants_plot
+ggsave('plots/test.pdf')
 variants_plot_leg <- as_ggplot(get_legend(variants_plot + theme(legend.text = element_text(size = 8), legend.title = element_text(size = 9))))
 
 ######## Prepare Metadata ########
