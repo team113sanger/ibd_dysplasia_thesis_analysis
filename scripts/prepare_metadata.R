@@ -4,23 +4,23 @@ library(stringr)
 library(dplyr)
 
 # Load metadata
-progressors <- read_tsv("metadata/progressors.tsv") |>
+progressors <- read_tsv("metadata/progressors_raw.tsv") |>
     clean_names() |>
     mutate(group = "Progressor") |>
     select(-macrodissection_coring)
 
-non_progressors <- read_tsv("metadata/non-progressors.tsv") |>
+non_progressors <- read_tsv("metadata/non-progressors_raw.tsv") |>
     clean_names()|>
     mutate(group = "Non-progressor")|>
     select(-notes)
 
-meta <- read_tsv("metadata/7100_sanger_metadata.tsv") |>
+meta <- read_tsv("metadata/sanger_metadata.tsv") |>
     clean_names() |>
     select(case_id, sanger_dna_id, phenotype, diagnosis,
             sex, age) |>
             rename(study_id = case_id)
 
-passed_samples <- read_tsv("metadata/qc_pass_samples_list.txt", col_names = F) |>
+qc_pass_samples <- read_tsv("sample_lists/qc_pass_sample_list.tsv", col_names = F) |>
     pull(X1)
 
 # Combine metadata
@@ -34,7 +34,7 @@ meta_combined <- left_join(meta, meta_temp) |>
 
 # Filter for only samples that passed QC
 meta_pass <- meta_combined |>
-    filter(sanger_dna_id %in% passed_samples)
+    filter(sanger_dna_id %in% qc_pass_samples)
 
 # Tidy columns
 meta_tidy <- meta_pass |>
@@ -61,4 +61,4 @@ meta_tidy <- meta_pass |>
     pancolitis = str_to_title(pancolitis)
   )
 
-write_tsv(meta_tidy, "metadata/processed_metadata.tsv")
+write_tsv(meta_tidy, "metadata/final_metadata_qc_pass.tsv")
