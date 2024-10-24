@@ -10,9 +10,9 @@ library(grid)
 oncoKB <- read_tsv("/lustre/scratch124/casm/team113/secure-lustre/resources/dermatlas/oncoKB/cancerGeneList.tsv") |>
   pull(`Hugo Symbol`)
 
-tmb <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
+tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
 
-metadata <- read_tsv("metadata/processed_metadata.tsv")
+metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 
 metadata$grade_of_dysplasia <- factor(
   metadata$grade_of_dysplasia,
@@ -25,15 +25,18 @@ maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   group_by(Hugo_Symbol) |>
   filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
   ungroup() |>
-  select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP)
-
-maf <- shorten_consequence(maf)
+  select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
+  shorten_consequence() |>
+  left_join(metadata |> select(sanger_dna_id, study_id), 
+            by = c("Tumor_Sample_Barcode" = "sanger_dna_id")) |>
+  select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
+  arrange(study_id)
 
 # Transform data
 mat_df <- maf |>
-  group_by(Hugo_Symbol, Tumor_Sample_Barcode) |>
+  group_by(Hugo_Symbol, study_id) |>
   summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = "drop") |>
-  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "")
+  pivot_wider(names_from = study_id, values_from = Main_consequence_VEP, values_fill = "")
 
 mat <- as.matrix(mat_df[, -1])
 rownames(mat) <- mat_df$Hugo_Symbol
@@ -62,8 +65,13 @@ alter_fun <- list(
 )
 
 # Add TMB
-tmb <- tmb |>
-  filter(Sample %in% colnames(mat))
+tmb <- tmb_raw |>
+  left_join(metadata |> select(sanger_dna_id, study_id), 
+            by = c("Sample" = "sanger_dna_id")) |>
+  select(study_id, TMB) |>
+  filter(study_id %in% colnames(mat)) |>
+  arrange(study_id)
+
 top_anno <- HeatmapAnnotation(
   "TMB\n(per Mb)" = anno_barplot(tmb$TMB, baseline = 0),
   annotation_name_side = "left",
@@ -74,25 +82,42 @@ top_anno <- HeatmapAnnotation(
 
 # Add metadata
 metadata <- metadata |>
-  filter(sanger_dna_id %in% colnames(mat)) |>
-  arrange(sanger_dna_id)
+  filter(study_id %in% colnames(mat)) |>
+  arrange(study_id)
 
 bottom_anno <- HeatmapAnnotation(
   "Status" = as.vector(metadata$precursor_or_follow_up),
   "Group" = as.vector(metadata$group),
   "IBD" = as.vector(metadata$ibd_diagnosis),
+  "Site" = as.vector(metadata$site),
   show_legend = c(
-    "Status" = T,
-    "Group" = T,
-    "IBD" = T
+    "Status" = TRUE,
+    "Group" = TRUE,
+    "IBD" = TRUE,
+    "Site" = TRUE
   ),
   col = list(
     "Status" = c("Precursor" = "#ffffcc", "Follow up" = "#225ea8"),
-    "Group" = c("Progressor" = "#225ea8", "Non-progressor" = "#ffffcc"),
-    "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8")
+    "Group" = c("Progressor" = "#225ea8",
+                 "Non-progressor" = "#ffffcc"), 
+    "IBD" = c("Crohn's" = "#ffffcc", 
+               "IBDU" = "#66c2a5", 
+               "UC" = "#225ea8"),
+    "Site" = c(
+      "Sigmoid" = "#d0e3e8",  # Light Blue
+      "Transverse" = "#A4C8E1",  # Medium Blue
+      "Rectum" = "#7FB1CC",  # Blue
+      "Ascending" = "#5B9BB1",  # Darker Blue
+      "Distal Ascending" = "#009688",  # Teal
+      "Proximal Ascending" = "#66C2A5",  # Light Green
+      "Splenic Flexure" = "#A0DAB3",  # Mint Green
+      "Hepatic Flexure" = "#F1E6C8",  # Light Yellow
+      "Caecum" = "#FFEA78",  # Pale Yellow
+      "Descending" = "#FFD700"  # Gold
+    )
   ),
   gap = unit(c(0, 0, 1), "mm"),
-  border = T, na_col = "#e6e6e6",
+  border = TRUE, na_col = "#e6e6e6",
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
   simple_anno_size = unit(0.4, "cm")
@@ -112,7 +137,7 @@ p <- oncoPrint(
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
   remove_empty_columns = FALSE,
-  width = unit(18, "cm"),
+  width = unit(17, "cm"),
   height = unit(8, "cm"),
   # border = T,
   row_names_gp = gpar(fontsize = 8),
