@@ -27,7 +27,7 @@ qc_pass_samples <- read_tsv("metadata/sample_lists/qc_pass_sample_list.tsv", col
 
 # Combine metadata
 meta_temp <- rbind(progressors, non_progressors)
-meta_combined <- left_join(meta, meta_temp) |>
+meta_combined <- left_join(meta, meta_temp, by = "study_id") |>
   select(
     study_id, sanger_dna_id, phenotype, precursor_or_follow_up,
     grade_of_dysplasia, diagnosis, ibd_diagnosis,
@@ -62,7 +62,8 @@ meta_tidy <- meta_pass |>
   mutate(
     psc = str_to_title(psc),
     family_history = str_to_title(family_history),
-    pancolitis = str_to_title(pancolitis)
+    pancolitis = str_to_title(pancolitis),
+    site = str_to_title(site)
   )
 
 write_tsv(meta_tidy, "metadata/final_metadata_qc_pass.tsv")
