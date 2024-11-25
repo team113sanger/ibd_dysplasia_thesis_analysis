@@ -154,7 +154,7 @@ p <- oncoPrint(
 )
 
 pdf(
-  file = paste0("plots/sample_pairs_oncoplot.pdf"),
+  file = paste0("plots/oncoplots/sample_pairs_oncoplot.pdf"),
   width = 8, height = 6
 )
 draw(p,
