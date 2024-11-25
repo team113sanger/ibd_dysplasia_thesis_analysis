@@ -121,7 +121,7 @@ p <- oncoPrint(
   column_names_gp = gpar(fontsize = 5),
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
-  width = unit(13, "cm"),
+  width = unit(10, "cm"),
   height = unit(8, "cm"),
   # border = T,
   row_names_gp = gpar(fontsize = 8),
@@ -130,7 +130,7 @@ p <- oncoPrint(
 
 pdf(
   file = paste0("plots/progressors.pdf"),
-  width = 8, height = 7
+  width = 6, height = 5
 )
 draw(p,
   heatmap_legend_side = "right",

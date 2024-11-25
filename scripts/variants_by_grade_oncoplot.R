@@ -20,10 +20,10 @@ metadata$grade_of_dysplasia <- factor(
 )
 
 maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
-  filter(Hugo_Symbol %in% oncoKB) |>
+  # filter(Hugo_Symbol %in% oncoKB) |>
   # filter(Tumor_Sample_Barcode %in% non_progressors) |>
   group_by(Hugo_Symbol) |>
-  filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
+  filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
@@ -113,7 +113,8 @@ bottom_anno <- HeatmapAnnotation(
       "Splenic Flexure" = "#A0DAB3",  # Mint Green
       "Hepatic Flexure" = "#F1E6C8",  # Light Yellow
       "Caecum" = "#FFEA78",  # Pale Yellow
-      "Descending" = "#FFD700"  # Gold
+      "Descending" = "#FFD700",  # Gold
+      "Rectosigmoid" = "#F4A582"
     )
   ),
   gap = unit(c(0, 1, 1), "mm"),

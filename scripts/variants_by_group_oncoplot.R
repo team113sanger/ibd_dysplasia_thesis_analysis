@@ -15,6 +15,7 @@ tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
   mutate(group = paste(group, " ", precursor_or_follow_up, sep = ""))
 
+# Add levels
 metadata[["group"]] <- factor(
   metadata[["group"]],
   levels = c(
@@ -23,11 +24,16 @@ metadata[["group"]] <- factor(
   )
 )
 
+# metadata[["grade_of_dysplasia"]] <- factor(
+#   metadata[["grade_of_dysplasia"]],
+#   levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
+# )
+
 maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
-  filter(Hugo_Symbol %in% oncoKB) |>
+  # filter(Hugo_Symbol %in% oncoKB) |>
   # filter(Tumor_Sample_Barcode %in% non_progressors) |>
   group_by(Hugo_Symbol) |>
-  filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
+  filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
@@ -116,7 +122,8 @@ bottom_anno <- HeatmapAnnotation(
       "Splenic Flexure" = "#A0DAB3", 
       "Hepatic Flexure" = "#F1E6C8",  
       "Caecum" = "#FFEA78", 
-      "Descending" = "#FFD700" 
+      "Descending" = "#FFD700",
+      "Rectosigmoid" = "#F4A582"
     )
   ),
   gap = unit(c(0, 0, 1), "mm"),
