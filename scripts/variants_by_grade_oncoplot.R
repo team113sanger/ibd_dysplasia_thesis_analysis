@@ -146,7 +146,7 @@ p <- oncoPrint(
 )
 
 pdf(
-  file = paste0("plots/variants_by_grade.pdf"),
+  file = paste0("plots/oncoplots/variants_by_grade.pdf"),
   width = 9, height = 6
 )
 draw(p,
