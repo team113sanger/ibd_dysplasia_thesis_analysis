@@ -1,63 +1,39 @@
-library(maftools)
 library(readr)
+library(dplyr)
+library(ggplot2)
 
-maf <- read_tsv("data/7100_3235-filtered_mutations_matched_indepTum_keep.maf")
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
+tmb <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("sanger_dna_id", "tmb")) |>
+    left_join(metadata) |>
+    mutate(
+        grade_of_dysplasia = case_when(
+            grade_of_dysplasia == "Low grade" ~ "LGD",
+            grade_of_dysplasia == "High grade" ~ "HGD",
+            grade_of_dysplasia == "Adenocarcinoma" ~ "AC",
+            grade_of_dysplasia == "NOS" ~ "NOS",
+            TRUE ~ NA_character_ 
+        )
+    ) |>
+    filter(!grade_of_dysplasia == "NOS")
 
-#### By Group ###
-progressors <- metadata |>
-    filter(group == "Progressor") |>
-    pull(sanger_dna_id)
+tmb[["grade_of_dysplasia"]] <- factor(
+    tmb[["grade_of_dysplasia"]], 
+    levels = c("LGD", "HGD", "AC")
+    )
 
-progressor_maf <- maf |>
-    filter(Tumor_Sample_Barcode %in% progressors)
+p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +
+        geom_violin(trim = TRUE, alpha = 0.6) +
+        geom_boxplot(outlier.shape = NA, alpha = 0.8, width = 0.3, fill = "white", color = "black") +
+        geom_jitter(size = 2, alpha = 0.8, color = "grey25",
+                    position = position_dodge(width = 0)) +
+        facet_grid(~ group, scales = "free_x", space = "free") +
+        labs(
+            y = "TMB (Mutations/Mb)"
+        ) +
+        theme_bw(base_size = 14) +
+        theme(legend.position = "none",
+              axis.title.x = element_blank()) +
+        scale_fill_brewer(palette = "Dark2") +
+        scale_y_log10()
 
-non_progressors <- metadata |>
-    filter(group == "Non-progressor") |>
-    pull(sanger_dna_id)
-
-non_progressor_maf <- maf |>
-    filter(Tumor_Sample_Barcode %in% non_progressors)
-
-maf_1 <- read.maf(progressor_maf, verbose = FALSE)
-maf_2 <- read.maf(non_progressor_maf, verbose = FALSE)
-  
-pdf("plots/TMB/tmb_by group.pdf", width = 4, height = 6)
-
-tcgaCompare(maf = c(maf_1, maf_2), cohortName = c("Progressors", "Non-Progressors"), logscale = TRUE, 
-             capture_size = 50, tcga_cohorts = "COAD")
-  
-dev.off()
-
-#### By Grade ####
-low_grade <- metadata |>
-    filter(grade_of_dysplasia == "Low grade") |>
-    pull(sanger_dna_id)
-
-low_grade_maf <- maf |>
-    filter(Tumor_Sample_Barcode %in% low_grade)
-
-high_grade <- metadata |>
-    filter(grade_of_dysplasia == "High grade") |>
-    pull(sanger_dna_id)
-
-high_grade_maf <- maf |>
-    filter(Tumor_Sample_Barcode %in% high_grade)
-
-adenocarcinoma <- metadata |>
-    filter(grade_of_dysplasia == "Adenocarcinoma") |>
-    pull(sanger_dna_id)
-
-adenocarcinoma_maf <- maf |>
-    filter(Tumor_Sample_Barcode %in% adenocarcinoma)
-
-maf_1 <- read.maf(low_grade_maf, verbose = FALSE)
-maf_2 <- read.maf(high_grade_maf, verbose = FALSE)
-maf_3 <- read.maf(adenocarcinoma_maf, verbose = FALSE)
-  
-pdf("plots/TMB/tmb_by_grade.pdf", width = 4, height = 6)
-
-tcgaCompare(maf = c(maf_1, maf_2, maf_3), cohortName = c("Low Grade", "High Grade", "IBD-CRC"), logscale = TRUE, 
-             capture_size = 50, tcga_cohorts = "COAD")
-  
-dev.off()
+ggsave("plots/TMB/test.png", p)
