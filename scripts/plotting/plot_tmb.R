@@ -3,7 +3,7 @@ library(dplyr)
 library(ggplot2)
 
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
-tmb <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("sanger_dna_id", "tmb")) |>
+tmb <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("sanger_dna_id", "tmb")) |>
     left_join(metadata) |>
     mutate(
         grade_of_dysplasia = case_when(
