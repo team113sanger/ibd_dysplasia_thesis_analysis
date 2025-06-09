@@ -129,7 +129,7 @@ p <- oncoPrint(
 )
 
 pdf(
-  file = paste0("plots/progressors.pdf"),
+  file = paste0("plots/oncoplots/progressors_all.pdf"),
   width = 6, height = 5
 )
 draw(p,
