@@ -17,6 +17,11 @@ metadata$precursor_or_follow_up <- factor(
   metadata$precursor_or_follow_up,
   levels = c("Precursor", "Follow up")
 )
+metadata$grade_of_dysplasia <- factor(
+  metadata$grade_of_dysplasia,
+  levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
+)
+
 pair_ids <- metadata[["sanger_dna_id"]]
 progressors <- metadata |>
     filter(group == "Progressor") |>
@@ -25,11 +30,14 @@ non_progressors <- metadata |>
     filter(group == "Non-progressor") |>
     pull(sanger_dna_id)
 
+plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
+
 #### Progressors ####
 maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   # filter(Hugo_Symbol %in% oncoKB) |>
   filter(Tumor_Sample_Barcode %in% pair_ids) |>
   filter(Tumor_Sample_Barcode %in% progressors) |>
+  # filter(Hugo_Symbol %in% plot_genes) |>
   group_by(Hugo_Symbol) |>
   filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
   ungroup() |>
