@@ -1,4 +1,4 @@
-source("scripts/plotting/oncoplot_utils.R")
+source("scripts/plotting/oncoplots/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
@@ -19,11 +19,21 @@ metadata$grade_of_dysplasia <- factor(
   levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
 )
 
+samples_to_plot <- metadata %>%
+  filter(
+    (grade_of_dysplasia == "Low grade" & precursor_or_follow_up == "Precursor") |
+    grade_of_dysplasia == "High grade" |
+    grade_of_dysplasia == "Adenocarcinoma"
+  ) %>%
+  pull(sanger_dna_id)
+
+#plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
+
 maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
-  # filter(Hugo_Symbol %in% oncoKB) |>
-  # filter(Tumor_Sample_Barcode %in% non_progressors) |>
+  filter(Hugo_Symbol %in% oncoKB) |>
+  filter(Tumor_Sample_Barcode %in% samples_to_plot) |>
   group_by(Hugo_Symbol) |>
-  filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
+  filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>

@@ -1,4 +1,4 @@
-source("scripts/plotting/oncoplot_utils.R")
+source("scripts/plotting/oncoplots/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
@@ -7,10 +7,10 @@ library(ComplexHeatmap)
 library(grid)
 
 # Load in data
-oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
-  pull(`Hugo Symbol`)
+# oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
+#   pull(`Hugo Symbol`)
 
-tmb_raw <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
+tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
 
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
   mutate(group = paste(group, " ", precursor_or_follow_up, sep = ""))
@@ -23,18 +23,23 @@ metadata[["group"]] <- factor(
     "Progressor Precursor", "Progressor Follow up"
   )
 )
+# samples_to_plot <- metadata %>%
+#   filter(precursor_or_follow_up == "Precursor") %>%
+#   pull(sanger_dna_id)
+
+plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
 
 # metadata[["grade_of_dysplasia"]] <- factor(
 #   metadata[["grade_of_dysplasia"]],
 #   levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
 # )
 
-maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
-  # filter(Hugo_Symbol %in% oncoKB) |>
-  # filter(Tumor_Sample_Barcode %in% non_progressors) |>
-  group_by(Hugo_Symbol) |>
-  filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
-  ungroup() |>
+maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
+  filter(Hugo_Symbol %in% plot_genes) |>
+  # filter(Tumor_Sample_Barcode %in% samples_to_plot) |>
+  # group_by(Hugo_Symbol) |>
+  # filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
+  # ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
   left_join(metadata |> select(sanger_dna_id, study_id), 
@@ -147,7 +152,7 @@ p <- oncoPrint(
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
   width = unit(17, "cm"),
-  height = unit(8, "cm"),
+  height = unit(6, "cm"),
   remove_empty_columns = FALSE,
   # border = T,
   row_names_gp = gpar(fontsize = 8),
@@ -156,7 +161,7 @@ p <- oncoPrint(
 
 pdf(
   file = paste0("plots/variants_by_group.pdf"),
-  width = 9, height = 6
+  width = 9, height = 5
 )
 draw(p,
   heatmap_legend_side = "right",
