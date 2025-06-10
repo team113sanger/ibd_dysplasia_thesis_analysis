@@ -33,7 +33,7 @@ n_counts <- tmb %>%
 
 p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +
         geom_boxplot(outlier.shape = NA, alpha = 0.8) +
-        geom_jitter(size = 1, alpha = 0.8) +
+        # geom_jitter(size = 1, alpha = 0.8) +
        #             position = position_dodge(width = 0)) +
         facet_grid(~ group, scales = "free_x", space = "free") +
         geom_text(
@@ -53,7 +53,7 @@ p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)
         scale_fill_brewer(palette = "Dark2") +
         scale_y_log10()
 
-ggsave("plots/TMB/tmb_per_group.png", p, width = 5.6, height = 6)
+ggsave("plots/tmb/tmb_per_group.png", p, width = 5.6, height = 6)
 
 #### Add 2018 remapped adenocarcinomas #### 
 remap_tmb <- read_tsv("/lustre/scratch125/casm/team113da/projects/IBD_Associated_Dysplasia/3361_3511_IBD_CRC_ReMap/analysis/variants_combined/release_v1/all_tumours/matched_samples/mutations_per_Mb.tsv",
