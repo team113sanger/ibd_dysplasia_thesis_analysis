@@ -3,7 +3,7 @@ library(dplyr)
 
 # Read in data
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv")
-maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf")
+maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf")
 
 # Get sample lists
 p53_samples <- maf |>

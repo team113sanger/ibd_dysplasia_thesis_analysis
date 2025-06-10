@@ -1,4 +1,4 @@
-source("/lustre/scratch125/casm/team113da/projects/dermatlas_analysis_methods/somatic-variant-plots/src/oncoplot_utils.R")
+source("scripts/plotting/oncoplots/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
@@ -7,33 +7,33 @@ library(ComplexHeatmap)
 library(grid)
 
 # Load in data
-oncoKB <- read_tsv("/lustre/scratch124/casm/team113/secure-lustre/resources/dermatlas/oncoKB/cancerGeneList.tsv") |>
+oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
   pull(`Hugo Symbol`)
 
-tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
+tmb_raw <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
 
-metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
-  mutate(group = paste(group, " ", precursor_or_follow_up, sep = ""))
+metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 
-# Add levels
-metadata[["group"]] <- factor(
-  metadata[["group"]],
-  levels = c(
-    "Non-progressor Precursor", "Non-progressor Follow up",
-    "Progressor Precursor", "Progressor Follow up"
-  )
+metadata$grade_of_dysplasia <- factor(
+  metadata$grade_of_dysplasia,
+  levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
 )
 
-# metadata[["grade_of_dysplasia"]] <- factor(
-#   metadata[["grade_of_dysplasia"]],
-#   levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
-# )
+samples_to_plot <- metadata %>%
+  filter(
+    (grade_of_dysplasia == "Low grade" & precursor_or_follow_up == "Precursor") |
+    grade_of_dysplasia == "High grade" |
+    grade_of_dysplasia == "Adenocarcinoma"
+  ) %>%
+  pull(sanger_dna_id)
 
-maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
-  # filter(Hugo_Symbol %in% oncoKB) |>
-  # filter(Tumor_Sample_Barcode %in% non_progressors) |>
+#plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
+
+maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
+  filter(Hugo_Symbol %in% oncoKB) |>
+  filter(Tumor_Sample_Barcode %in% samples_to_plot) |>
   group_by(Hugo_Symbol) |>
-  filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
+  filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
@@ -96,38 +96,39 @@ metadata <- metadata |>
   arrange(study_id)
 
 bottom_anno <- HeatmapAnnotation(
-  "Grade" = as.vector(metadata$grade_of_dysplasia),
+  "Status" = as.vector(metadata$precursor_or_follow_up),
+  "Group" = as.vector(metadata$group),
   "IBD" = as.vector(metadata$ibd_diagnosis),
   "Site" = as.vector(metadata$site),
   show_legend = c(
-    "Grade" = T,
-    "IBD" = T,
+    "Status" = TRUE,
+    "Group" = TRUE,
+    "IBD" = TRUE,
     "Site" = TRUE
   ),
   col = list(
-    "Grade" = c(
-      "Low grade" = "#ffffcc",
-      "High grade" = "#66c2a5",
-      "Adenocarcinoma" = "#225ea8",
-      "NOS" = "lightgrey"
-    ),
-    "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8"),
+    "Status" = c("Precursor" = "#ffffcc", "Follow up" = "#225ea8"),
+    "Group" = c("Progressor" = "#225ea8",
+                 "Non-progressor" = "#ffffcc"), 
+    "IBD" = c("Crohn's" = "#ffffcc", 
+               "IBDU" = "#66c2a5", 
+               "UC" = "#225ea8"),
     "Site" = c(
-      "Sigmoid" = "#d0e3e8",  
-      "Transverse" = "#A4C8E1", 
-      "Rectum" = "#7FB1CC",  
-      "Ascending" = "#5B9BB1", 
-      "Distal Ascending" = "#009688",  
-      "Proximal Ascending" = "#66C2A5",  
-      "Splenic Flexure" = "#A0DAB3", 
-      "Hepatic Flexure" = "#F1E6C8",  
-      "Caecum" = "#FFEA78", 
-      "Descending" = "#FFD700",
+      "Sigmoid" = "#d0e3e8",  # Light Blue
+      "Transverse" = "#A4C8E1",  # Medium Blue
+      "Rectum" = "#7FB1CC",  # Blue
+      "Ascending" = "#5B9BB1",  # Darker Blue
+      "Distal Ascending" = "#009688",  # Teal
+      "Proximal Ascending" = "#66C2A5",  # Light Green
+      "Splenic Flexure" = "#A0DAB3",  # Mint Green
+      "Hepatic Flexure" = "#F1E6C8",  # Light Yellow
+      "Caecum" = "#FFEA78",  # Pale Yellow
+      "Descending" = "#FFD700",  # Gold
       "Rectosigmoid" = "#F4A582"
     )
   ),
-  gap = unit(c(0, 0, 1), "mm"),
-  border = T, na_col = "#e6e6e6",
+  gap = unit(c(0, 1, 1), "mm"),
+  border = TRUE, na_col = "#e6e6e6",
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
   simple_anno_size = unit(0.4, "cm")
@@ -141,21 +142,21 @@ p <- oncoPrint(
   row_names_side = "left",
   pct_digits = 1,
   show_column_names = TRUE,
-  column_split = factor(metadata$group),
+  column_split = factor(metadata$grade_of_dysplasia),
   column_gap = unit(1, "mm"),
   column_names_gp = gpar(fontsize = 5),
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
+  remove_empty_columns = FALSE,
   width = unit(17, "cm"),
   height = unit(8, "cm"),
-  remove_empty_columns = FALSE,
   # border = T,
   row_names_gp = gpar(fontsize = 8),
   column_title_gp = gpar(fontsize = 9)
 )
 
 pdf(
-  file = paste0("plots/variants_by_group.pdf"),
+  file = paste0("plots/oncoplots/variants_by_grade.pdf"),
   width = 9, height = 6
 )
 draw(p,

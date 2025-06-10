@@ -1,4 +1,4 @@
-source("/lustre/scratch125/casm/team113da/projects/dermatlas_analysis_methods/somatic-variant-plots/src/oncoplot_utils.R")
+source("scripts/plotting/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
@@ -7,16 +7,21 @@ library(ComplexHeatmap)
 library(grid)
 
 #### Load in data ####
-oncoKB <- read_tsv("/lustre/scratch124/casm/team113/secure-lustre/resources/dermatlas/oncoKB/cancerGeneList.tsv") |>
+oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
   pull(`Hugo Symbol`)
 
-tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
+tmb_raw <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
 
 metadata <- read_tsv("metadata/sample_pairs.tsv")
 metadata$precursor_or_follow_up <- factor(
   metadata$precursor_or_follow_up,
   levels = c("Precursor", "Follow up")
 )
+metadata$grade_of_dysplasia <- factor(
+  metadata$grade_of_dysplasia,
+  levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
+)
+
 pair_ids <- metadata[["sanger_dna_id"]]
 progressors <- metadata |>
     filter(group == "Progressor") |>
@@ -25,11 +30,14 @@ non_progressors <- metadata |>
     filter(group == "Non-progressor") |>
     pull(sanger_dna_id)
 
+plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
+
 #### Progressors ####
-maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
+maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   # filter(Hugo_Symbol %in% oncoKB) |>
   filter(Tumor_Sample_Barcode %in% pair_ids) |>
   filter(Tumor_Sample_Barcode %in% progressors) |>
+  # filter(Hugo_Symbol %in% plot_genes) |>
   group_by(Hugo_Symbol) |>
   filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
   ungroup() |>
