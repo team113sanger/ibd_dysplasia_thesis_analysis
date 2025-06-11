@@ -5,15 +5,12 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 3CPB	PD62028c	T2	Follow up	High grade	High grade dysplasia	IBDU	16 years	1 year	Transverse	Yes	No	Yes	Male	56	None	Progressor	PD62028
 6CPA	PD62031a	T1	Precursor	Low grade	Low grade dysplasia	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	27	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor	PD62031
 6CPB	PD62031c	T2	Follow up	Adenocarcinoma	Adenocarcinoma (focal invasion)	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	28	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor	PD62031
-6CPC	PD62031d	T3	Precursor	Low grade	Low grade dysplasia (background)	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	28	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor	PD62031
 8CPA	PD62033a	T1	Precursor	Low grade	Low grade dysplasia in TVA	UC	19 years	6 months	Rectum	No	No	No	Male	55	None	Progressor	PD62033
 8CPC	PD62033d	T3	Follow up	High grade	high grade dysplasia in TVA	UC	19 years	6 months	Rectum	No	No	No	Male	55	None	Progressor	PD62033
 9CPA	PD62034a	T1	Precursor	Low grade	Low grade dysplasia in VA	UC	4 years	5 years 6 months	Sigmoid	No	No	No	Female	64	None	Progressor	PD62034
 9CPB	PD62034c	T2	Follow up	High grade	High grade dysplasia in TVA	UC	4 years	5 years 6 months	Sigmoid	No	No	No	Female	70	None	Progressor	PD62034
-12CPA	PD62037a	T1	Precursor	Low grade	Low grade dysplasia	UC	29 years	1 year	Ascending	No	No	Yes	Male	44	2 separate progressed lesions	Progressor	PD62037
 12CPB	PD62037c	T2	Precursor	Low grade	Low grade dysplasia	UC	29 years	4 months	Transverse	No	No	Yes	Male	44	2 separate progressed lesions	Progressor	PD62037
 12CPC	PD62037d	T3	Follow up	High grade	High grade dysplasia	UC	29 years	4 months	Transverse	No	No	Yes	Male	45	2 separate progressed lesions	Progressor	PD62037
-13CPA	PD62038a	T1	Precursor	Low grade	Low grade dysplasia	UC	14 years	1 year 3 months	Distal Ascending	No	No	Yes	Male	49	2 separate progressed lesions	Progressor	PD62038
 13CPB	PD62038c	T2	Precursor	Low grade	Low grade dysplasia in VA	UC	14 years	7 months	Proximal Ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor	PD62038
 13CPC	PD62038d	T3	Follow up	Adenocarcinoma	Adenocarcinoma	UC	14 years	7 months	Proximal Ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor	PD62038
 13CPD	PD62038e	T4	Follow up	Adenocarcinoma	Adenocarcinoma	UC	14 years	1 year 3 months	Distal Ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor	PD62038
@@ -32,18 +29,15 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 10CNPA	PD62060a	T1	Precursor	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	55	NA	Non-progressor	PD62060
 10CNPB	PD62060c	T2	Follow up	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	56	NA	Non-progressor	PD62060
 14CNPA	PD62064a	T1	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	73	NA	Non-progressor	PD62064
-14CNPB	PD62064c	T2	Follow up	Low grade	low grade**	UC	1 year 2 months	11 years	Caecum	No	No	Yes	Male	74	NA	Non-progressor	PD62064
 14CNPC	PD62064d	T3	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	74	NA	Non-progressor	PD62064
 15CNPC	PD62065c	T2	Precursor	Low grade	low grade**	UC	2 months	14 years	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor	PD62065
 15CNPD	PD62065d	T3	Follow up	Low grade	low grade**	UC	2 months	14 years	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor	PD62065
-15CNPE-1	PD62065e	T4	Follow up	Low grade	low grade	UC	11 months	14 years	Splenic Flexure	Yes	No	Yes	Male	79	exclude	Non-progressor	PD62065
 16CNPA	PD62066a	T1	Precursor	Low grade	low grade	UC	2 years	20 years	Rectum	No	No	No	Female	70	NA	Non-progressor	PD62066
 16CNPB	PD62066c	T2	Follow up	Low grade	low grade	UC	2 years	20 years	Rectum	No	No	No	Female	72	NA	Non-progressor	PD62066
 17CNPA	PD62067a	T1	Precursor	Low grade	low grade	UC	1 year 5 months	40 years	Sigmoid	No	No	Yes	Female	59	NA	Non-progressor	PD62067
 17CNPB	PD62067c	T2	Follow up	Low grade	low grade	UC	1 year 5 months	40 years	Sigmoid	No	No	Yes	Female	60	NA	Non-progressor	PD62067
 26CNPA	PD62075a	T1	Precursor	Low grade	Low grade	UC	7 months	At least 6 years	Sigmoid	No	No	No	Female	57	NA	Non-progressor	PD62075
 26CNPC	PD62075d	T3	Follow up	Low grade	Low grade	UC	10 months	At least 6 years	Sigmoid	No	No	No	Female	59	NA	Non-progressor	PD62075
-26CNPD	PD62075e	T4	Follow up	Low grade	Low grade	UC	1 year	At least 6 years	Sigmoid	No	No	No	Female	59	NA	Non-progressor	PD62075
 28CNPA	PD62076a	T1	Precursor	Low grade	Low grade	UC	2 years 2 months	27 years	Transverse	No	No	No	Female	81	NA	Non-progressor	PD62076
 28CNPB	PD62076c	T2	Follow up	Low grade	Low grade	UC	2 years 2 months	27 years	Transverse	No	No	No	Female	83	NA	Non-progressor	PD62076
 31CNPA	PD62079a	T1	Precursor	Low grade	Low grade	UC	1 year 6 months	8 years	Transverse	No	No	Yes	Male	51	NA	Non-progressor	PD62079
