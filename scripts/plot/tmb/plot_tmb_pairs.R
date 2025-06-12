@@ -26,7 +26,8 @@ p_boxplot <- ggplot(sample_pairs, aes(x = precursor_or_follow_up, y = tmb, fill 
   ) +
   scale_fill_brewer(palette = "Dark2") +
   scale_y_log10() +
-  facet_wrap(~group)
+  facet_wrap(~group) +
+  geom_line(aes(group = patient_id), colour = "lightblue", alpha = 0.7)
 
 ggsave("plots/tmb/samples_pairs_tmb_boxplot.png", p_boxplot, width = 5.6, height = 4)
 
