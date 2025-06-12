@@ -1,22 +1,24 @@
 library(readr)
 library(dplyr)
 
- maf <- read_tsv("data/variants/7100_3235-filtered_mutations_matched_indepTum_keep.maf")
- metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
+maf <- read_tsv("data/variants/7100_3235-filtered_mutations_matched_indepTum_keep.maf")
+metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 
-p53_muts <- maf |> 
-    filter(Hugo_Symbol == "TP53") |>
-    select(Tumor_Sample_Barcode, Main_consequence_VEP, Variant_Type, HGVSp_Short, VAF_tum) |>
-    left_join(metadata |> select(sanger_dna_id, group, precursor_or_follow_up, grade_of_dysplasia), by = c("Tumor_Sample_Barcode" = "sanger_dna_id"))
+p53_muts <- maf |>
+  filter(Hugo_Symbol == "TP53") |>
+  select(Tumor_Sample_Barcode, Main_consequence_VEP, Variant_Type, HGVSp_Short, VAF_tum) |>
+  left_join(metadata |> select(sanger_dna_id, group, precursor_or_follow_up, grade_of_dysplasia), by = c("Tumor_Sample_Barcode" = "sanger_dna_id"))
 
 write_tsv(p53_muts, "results/p53_status.tsv")
 
 
 
 maf_new <- maf |>
-    filter(Hugo_Symbol=="TP53") |>
-    select(Sample_ID = Tumor_Sample_Barcode, Chromosome, Start_Position, End_Position, 
-         Reference_Allele, Variant_Allele = Tumor_Seq_Allele2, Hugo_Symbol)
+  filter(Hugo_Symbol == "TP53") |>
+  select(
+    Sample_ID = Tumor_Sample_Barcode, Chromosome, Start_Position, End_Position,
+    Reference_Allele, Variant_Allele = Tumor_Seq_Allele2, Hugo_Symbol
+  )
 
 
 write_tsv(maf_new, "results/p53_muts.txt")

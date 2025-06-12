@@ -22,12 +22,12 @@ metadata$grade_of_dysplasia <- factor(
 samples_to_plot <- metadata %>%
   filter(
     (grade_of_dysplasia == "Low grade" & precursor_or_follow_up == "Precursor") |
-    grade_of_dysplasia == "High grade" |
-    grade_of_dysplasia == "Adenocarcinoma"
+      grade_of_dysplasia == "High grade" |
+      grade_of_dysplasia == "Adenocarcinoma"
   ) %>%
   pull(sanger_dna_id)
 
-#plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
+# plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
 
 maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
   filter(Hugo_Symbol %in% oncoKB) |>
@@ -37,8 +37,9 @@ maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
-  left_join(metadata |> select(sanger_dna_id, study_id), 
-            by = c("Tumor_Sample_Barcode" = "sanger_dna_id")) |>
+  left_join(metadata |> select(sanger_dna_id, study_id),
+    by = c("Tumor_Sample_Barcode" = "sanger_dna_id")
+  ) |>
   select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
   arrange(study_id)
 
@@ -76,8 +77,9 @@ alter_fun <- list(
 
 # Add TMB
 tmb <- tmb_raw |>
-  left_join(metadata |> select(sanger_dna_id, study_id), 
-            by = c("Sample" = "sanger_dna_id")) |>
+  left_join(metadata |> select(sanger_dna_id, study_id),
+    by = c("Sample" = "sanger_dna_id")
+  ) |>
   select(study_id, TMB) |>
   filter(study_id %in% colnames(mat)) |>
   arrange(study_id)
@@ -108,22 +110,26 @@ bottom_anno <- HeatmapAnnotation(
   ),
   col = list(
     "Status" = c("Precursor" = "#ffffcc", "Follow up" = "#225ea8"),
-    "Group" = c("Progressor" = "#225ea8",
-                 "Non-progressor" = "#ffffcc"), 
-    "IBD" = c("Crohn's" = "#ffffcc", 
-               "IBDU" = "#66c2a5", 
-               "UC" = "#225ea8"),
+    "Group" = c(
+      "Progressor" = "#225ea8",
+      "Non-progressor" = "#ffffcc"
+    ),
+    "IBD" = c(
+      "Crohn's" = "#ffffcc",
+      "IBDU" = "#66c2a5",
+      "UC" = "#225ea8"
+    ),
     "Site" = c(
-      "Sigmoid" = "#d0e3e8",  # Light Blue
-      "Transverse" = "#A4C8E1",  # Medium Blue
-      "Rectum" = "#7FB1CC",  # Blue
-      "Ascending" = "#5B9BB1",  # Darker Blue
-      "Distal Ascending" = "#009688",  # Teal
-      "Proximal Ascending" = "#66C2A5",  # Light Green
-      "Splenic Flexure" = "#A0DAB3",  # Mint Green
-      "Hepatic Flexure" = "#F1E6C8",  # Light Yellow
-      "Caecum" = "#FFEA78",  # Pale Yellow
-      "Descending" = "#FFD700",  # Gold
+      "Sigmoid" = "#d0e3e8", # Light Blue
+      "Transverse" = "#A4C8E1", # Medium Blue
+      "Rectum" = "#7FB1CC", # Blue
+      "Ascending" = "#5B9BB1", # Darker Blue
+      "Distal Ascending" = "#009688", # Teal
+      "Proximal Ascending" = "#66C2A5", # Light Green
+      "Splenic Flexure" = "#A0DAB3", # Mint Green
+      "Hepatic Flexure" = "#F1E6C8", # Light Yellow
+      "Caecum" = "#FFEA78", # Pale Yellow
+      "Descending" = "#FFD700", # Gold
       "Rectosigmoid" = "#F4A582"
     )
   ),

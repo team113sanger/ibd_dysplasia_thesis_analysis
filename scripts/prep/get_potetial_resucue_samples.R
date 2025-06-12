@@ -4,17 +4,19 @@ library(dplyr)
 cov <- read_tsv("data/qc/7100-coverage.txt")
 
 rescue_samples <- cov |>
-    filter(pass == FALSE) |>
-    arrange(desc(`21+`)) |>
-    filter(`21+` > 70) |>
-    select(sample, `21+`)
+  filter(pass == FALSE) |>
+  arrange(desc(`21+`)) |>
+  filter(`21+` > 70) |>
+  select(sample, `21+`)
 
 write_tsv(rescue_samples, "metadata/rescue_samples.tsv")
 
 
 adenocarcinomas <- cov |>
-    filter(sample %in% c("PD62036a", "PD62030d", "PD62038e", "PD62045a", "PD62038d",
-                          "PD62039c", "PD62031c", "PD62051c", "PD62027c"))
+  filter(sample %in% c(
+    "PD62036a", "PD62030d", "PD62038e", "PD62045a", "PD62038d",
+    "PD62039c", "PD62031c", "PD62051c", "PD62027c"
+  ))
 
 write_tsv(adenocarcinomas, "results/adenocarcinomas_cov.tsv")
 
@@ -34,7 +36,7 @@ pass_fail_plot <- ggplot(cov_plot, aes(x = pass, fill = pass)) +
   scale_fill_manual(values = c("PASS" = "#56B4E9", "FAIL" = "#E69F00")) + # Custom colours for pass/fail
   theme_minimal() +
   labs(
-    y = "Sample Count"  # Remove x-axis title, keep y-axis title
+    y = "Sample Count" # Remove x-axis title, keep y-axis title
   ) +
   theme(
     legend.position = "none",
@@ -46,7 +48,3 @@ pass_fail_plot <- ggplot(cov_plot, aes(x = pass, fill = pass)) +
 
 # Save the plot
 ggsave("plots/cov_pass_fail_barplot.png", plot = pass_fail_plot, height = 4, width = 3, dpi = 300)
-
-
-
-    

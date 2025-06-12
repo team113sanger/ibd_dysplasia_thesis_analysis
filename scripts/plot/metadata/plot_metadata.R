@@ -1,4 +1,3 @@
-
 library(ggplot2)
 library(patchwork)
 library(stringr)
@@ -50,7 +49,7 @@ make_status_plot <- function(data, title) {
 make_ibd_unique_plot <- function(data, title) {
   data_unique <- data %>%
     distinct(patient_id, .keep_all = TRUE)
-  
+
   ggplot(data_unique, aes(x = ibd_diagnosis)) +
     geom_bar(fill = "steelblue") +
     labs(title = title, y = "Patient Count", x = NULL) +
@@ -70,6 +69,6 @@ ibd_plot_prog <- make_ibd_unique_plot(prog_meta, "IBD Diagnosis")
 
 # Combine and save
 p <- (status_plot_nonprog | ibd_plot_nonprog) /
-     (status_plot_prog | ibd_plot_prog)
+  (status_plot_prog | ibd_plot_prog)
 
 ggsave("plots/metadata/metadata_plots.png", p, dpi = 300, width = 6, height = 7)

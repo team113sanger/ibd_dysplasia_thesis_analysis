@@ -13,32 +13,34 @@ filtered_data <- non_prog %>%
 # Pivot mutation columns to long format
 long_data <- filtered_data %>%
   select(gene_name, qglobal_cv, n_syn, n_mis, n_non, n_spl, n_ind) %>%
-  pivot_longer(cols = c(n_syn, n_mis, n_non, n_spl, n_ind),
-               names_to = "mutation_type", 
-               values_to = "count")
+  pivot_longer(
+    cols = c(n_syn, n_mis, n_non, n_spl, n_ind),
+    names_to = "mutation_type",
+    values_to = "count"
+  )
 
 # Create the barplot
 mutation_plot <- ggplot(long_data, aes(x = gene_name, y = count, fill = mutation_type)) +
   geom_bar(stat = "identity", position = "stack") +
   geom_text(
     aes(label = ifelse(mutation_type == "n_ind", paste0("q=", round(qglobal_cv, 3)), "")),
-    position = position_stack(vjust = 1.25),  # Slightly higher placement
+    position = position_stack(vjust = 1.25), # Slightly higher placement
     size = 2.5
   ) +
   scale_fill_brewer(palette = "Dark2") +
   labs(
-    x = NULL,  # Remove x-axis title
+    x = NULL, # Remove x-axis title
     y = "Mutation Count",
     fill = "Mutation Type"
   ) +
   theme_minimal() +
   theme(
-    axis.text.x = element_text(angle = 45, size = 10),  # Horizontal x-axis text
+    axis.text.x = element_text(angle = 45, size = 10), # Horizontal x-axis text
     axis.title.x = element_blank(),
     axis.title.y = element_text(size = 12),
     legend.title = element_text(size = 10),
     legend.text = element_text(size = 9),
-    panel.grid.major.x = element_blank(),  # Remove vertical gridlines for clarity
+    panel.grid.major.x = element_blank(), # Remove vertical gridlines for clarity
     panel.grid.minor.x = element_blank()
   )
 
@@ -53,32 +55,34 @@ filtered_data <- prog %>%
 # Pivot mutation columns to long format
 long_data <- filtered_data %>%
   select(gene_name, qglobal_cv, n_syn, n_mis, n_non, n_spl, n_ind) %>%
-  pivot_longer(cols = c(n_syn, n_mis, n_non, n_spl, n_ind),
-               names_to = "mutation_type", 
-               values_to = "count")
+  pivot_longer(
+    cols = c(n_syn, n_mis, n_non, n_spl, n_ind),
+    names_to = "mutation_type",
+    values_to = "count"
+  )
 
 # Create the barplot
 mutation_plot <- ggplot(long_data, aes(x = gene_name, y = count, fill = mutation_type)) +
   geom_bar(stat = "identity", position = "stack") +
   geom_text(
     aes(label = ifelse(mutation_type == "n_ind", paste0("q=", round(qglobal_cv, 3)), "")),
-    position = position_stack(vjust = 1.25),  # Slightly higher placement
+    position = position_stack(vjust = 1.25), # Slightly higher placement
     size = 2.5
   ) +
   scale_fill_brewer(palette = "Dark2") +
   labs(
-    x = NULL,  # Remove x-axis title
+    x = NULL, # Remove x-axis title
     y = "Mutation Count",
     fill = "Mutation Type"
   ) +
   theme_minimal() +
   theme(
-    axis.text.x = element_text(angle = 45, size = 10),  # Horizontal x-axis text
+    axis.text.x = element_text(angle = 45, size = 10), # Horizontal x-axis text
     axis.title.x = element_blank(),
     axis.title.y = element_text(size = 12),
     legend.title = element_text(size = 10),
     legend.text = element_text(size = 9),
-    panel.grid.major.x = element_blank(),  # Remove vertical gridlines for clarity
+    panel.grid.major.x = element_blank(), # Remove vertical gridlines for clarity
     panel.grid.minor.x = element_blank()
   )
 
@@ -141,7 +145,7 @@ mutation_summed <- mutation_summed %>%
 
 # --- STEP 3: Barplot ---
 mutation_colours <- c(
-  "Synonymous" = "azure4",  
+  "Synonymous" = "azure4",
   "Missense" = "forestgreen",
   "Nonsense" = "firebrick",
   "Splice" = "orange2",
@@ -150,7 +154,7 @@ mutation_colours <- c(
 
 barplot <- ggplot(mutation_summed, aes(x = gene_name, y = Total, fill = Mutation_Type)) +
   geom_col() +
-  facet_wrap(~ Group, scales = "free_x") +
+  facet_wrap(~Group, scales = "free_x") +
   scale_fill_manual(values = mutation_colours) +
   labs(
     x = "Gene",
@@ -184,7 +188,7 @@ mutation_summed_p53 <- mutation_summed |>
 
 barplot <- ggplot(mutation_summed_p53, aes(x = gene_name, y = Total, fill = Mutation_Type)) +
   geom_col() +
-  facet_wrap(~ Group, scales = "free_x") +
+  facet_wrap(~Group, scales = "free_x") +
   scale_fill_manual(values = mutation_colours) +
   labs(
     x = "Gene",
@@ -218,11 +222,13 @@ combined_ci <- bind_rows(prog_ci, non_prog_ci) %>%
 # --- STEP 5: Dot plot of truncating dN/dS with error bars ---
 dotplot <- ggplot(combined_ci, aes(x = gene_name, y = tru_mle, colour = Group)) +
   geom_point(size = 2, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = tru_low, ymax = tru_high), width = 0.3,
-                position = position_dodge(width = 0.6)) +
+  geom_errorbar(aes(ymin = tru_low, ymax = tru_high),
+    width = 0.3,
+    position = position_dodge(width = 0.6)
+  ) +
   geom_hline(yintercept = 1, linetype = "dashed", colour = "grey30") +
   scale_y_log10() +
-  facet_wrap(~ Group, scales = "free_x") +
+  facet_wrap(~Group, scales = "free_x") +
   theme_classic(base_size = 13) +
   theme(
     axis.title.x = element_blank(),

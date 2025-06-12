@@ -16,12 +16,13 @@ props <- read_tsv("data/progressor_precursors_cn_props.tsv") |>
 #  ggsave("plots/cn_props/progressor_precursors_p53_cn_prop.png", p)
 
 p2 <- ggplot(props, aes(x = p53, y = proportion, fill = p53)) +
-        geom_violin(trim = TRUE) +
-        labs(x = "p53 Status", y = "CNA Proportion") +
-        scale_fill_manual(values = c("WT" = "darkseagreen", "Mut" = "darkorange")) +
-        theme_classic()
+  geom_violin(trim = TRUE) +
+  labs(x = "p53 Status", y = "CNA Proportion") +
+  scale_fill_manual(values = c("WT" = "darkseagreen", "Mut" = "darkorange")) +
+  theme_classic()
 ggsave("plots/cn_props/progressor_precursors_p53_cn_prop_viol.png", p2,
-        width = 4, height = 4)
+  width = 4, height = 4
+)
 
 write_tsv(props, "results/p53_cn_props.tsv")
 
@@ -33,12 +34,12 @@ props <- read_tsv("data/progressors_followups_cn_props.tsv") |>
 
 
 p2 <- ggplot(props, aes(x = p53, y = proportion, fill = p53)) +
-        geom_violin(trim = TRUE) +
-        labs(x = "p53 Status", y = "CNA Proportion") +
-        scale_fill_manual(values = c("WT" = "darkseagreen", "Mut" = "darkorange")) +
-        theme_classic()
+  geom_violin(trim = TRUE) +
+  labs(x = "p53 Status", y = "CNA Proportion") +
+  scale_fill_manual(values = c("WT" = "darkseagreen", "Mut" = "darkorange")) +
+  theme_classic()
 ggsave("plots/cn_props/progressor_followups_p53_cn_prop_viol.png", p2,
-        width = 4, height = 4)
+  width = 4, height = 4
+)
 
 write_tsv(props, "results/p53_cn_props_fups.tsv")
-

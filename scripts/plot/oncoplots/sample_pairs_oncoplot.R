@@ -24,11 +24,11 @@ metadata$grade_of_dysplasia <- factor(
 
 pair_ids <- metadata[["sanger_dna_id"]]
 progressors <- metadata |>
-    filter(group == "Progressor") |>
-    pull(sanger_dna_id)
+  filter(group == "Progressor") |>
+  pull(sanger_dna_id)
 non_progressors <- metadata |>
-    filter(group == "Non-progressor") |>
-    pull(sanger_dna_id)
+  filter(group == "Non-progressor") |>
+  pull(sanger_dna_id)
 
 plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
 
@@ -43,8 +43,9 @@ maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
-  left_join(metadata |> select(sanger_dna_id, study_id), 
-            by = c("Tumor_Sample_Barcode" = "sanger_dna_id")) |>
+  left_join(metadata |> select(sanger_dna_id, study_id),
+    by = c("Tumor_Sample_Barcode" = "sanger_dna_id")
+  ) |>
   select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
   arrange(study_id)
 
@@ -82,8 +83,9 @@ alter_fun <- list(
 
 # Add TMB
 tmb <- tmb_raw |>
-  left_join(metadata |> select(sanger_dna_id, study_id), 
-            by = c("Sample" = "sanger_dna_id")) |>
+  left_join(metadata |> select(sanger_dna_id, study_id),
+    by = c("Sample" = "sanger_dna_id")
+  ) |>
   select(study_id, TMB) |>
   filter(study_id %in% colnames(mat)) |>
   arrange(study_id)
@@ -119,15 +121,15 @@ bottom_anno <- HeatmapAnnotation(
     ),
     "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8"),
     "Site" = c(
-      "Sigmoid" = "#d0e3e8",  
-      "Transverse" = "#A4C8E1", 
-      "Rectum" = "#7FB1CC",  
-      "Ascending" = "#5B9BB1", 
-      "Distal Ascending" = "#009688",  
-      "Proximal Ascending" = "#66C2A5",  
-      "Splenic Flexure" = "#A0DAB3", 
-      "Hepatic Flexure" = "#F1E6C8",  
-      "Caecum" = "#FFEA78", 
+      "Sigmoid" = "#d0e3e8",
+      "Transverse" = "#A4C8E1",
+      "Rectum" = "#7FB1CC",
+      "Ascending" = "#5B9BB1",
+      "Distal Ascending" = "#009688",
+      "Proximal Ascending" = "#66C2A5",
+      "Splenic Flexure" = "#A0DAB3",
+      "Hepatic Flexure" = "#F1E6C8",
+      "Caecum" = "#FFEA78",
       "Descending" = "#FFD700",
       "Rectosigmoid" = "#F4A582"
     )
@@ -182,7 +184,7 @@ dev.off()
 #   ungroup() |>
 #   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
 #   shorten_consequence() |>
-#   left_join(metadata |> select(sanger_dna_id, study_id), 
+#   left_join(metadata |> select(sanger_dna_id, study_id),
 #             by = c("Tumor_Sample_Barcode" = "sanger_dna_id")) |>
 #   select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
 #   arrange(study_id)
@@ -221,7 +223,7 @@ dev.off()
 
 # # Add TMB
 # tmb <- tmb_raw |>
-#   left_join(metadata |> select(sanger_dna_id, study_id), 
+#   left_join(metadata |> select(sanger_dna_id, study_id),
 #             by = c("Sample" = "sanger_dna_id")) |>
 #   select(study_id, TMB) |>
 #   filter(study_id %in% colnames(mat)) |>
@@ -258,15 +260,15 @@ dev.off()
 #     ),
 #     "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8"),
 #     "Site" = c(
-#       "Sigmoid" = "#d0e3e8",  
-#       "Transverse" = "#A4C8E1", 
-#       "Rectum" = "#7FB1CC",  
-#       "Ascending" = "#5B9BB1", 
-#       "Distal Ascending" = "#009688",  
-#       "Proximal Ascending" = "#66C2A5",  
-#       "Splenic Flexure" = "#A0DAB3", 
-#       "Hepatic Flexure" = "#F1E6C8",  
-#       "Caecum" = "#FFEA78", 
+#       "Sigmoid" = "#d0e3e8",
+#       "Transverse" = "#A4C8E1",
+#       "Rectum" = "#7FB1CC",
+#       "Ascending" = "#5B9BB1",
+#       "Distal Ascending" = "#009688",
+#       "Proximal Ascending" = "#66C2A5",
+#       "Splenic Flexure" = "#A0DAB3",
+#       "Hepatic Flexure" = "#F1E6C8",
+#       "Caecum" = "#FFEA78",
 #       "Descending" = "#FFD700",
 #       "Rectosigmoid" = "#F4A582"
 #     )

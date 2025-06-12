@@ -21,4 +21,3 @@ filtered_metadata <- metadata |>
   ))
 
 write_tsv(filtered_metadata, "metadata/sample_pairs.tsv")
-

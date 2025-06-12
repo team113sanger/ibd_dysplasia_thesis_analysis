@@ -7,12 +7,12 @@ maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.
 
 # Get sample lists
 p53_samples <- maf |>
-    filter(Hugo_Symbol == "TP53") |>
-    pull(Tumor_Sample_Barcode)
+  filter(Hugo_Symbol == "TP53") |>
+  pull(Tumor_Sample_Barcode)
 
 progressors <- meta |>
-    filter(group == "Progressor") |>
-    pull(sanger_dna_id)
+  filter(group == "Progressor") |>
+  pull(sanger_dna_id)
 
 non_p53_progressors <- progressors[!progressors %in% p53_samples]
 

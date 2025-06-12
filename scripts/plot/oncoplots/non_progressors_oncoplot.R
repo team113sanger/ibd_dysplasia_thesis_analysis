@@ -32,8 +32,9 @@ maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.
   ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
-  left_join(metadata |> select(sanger_dna_id, study_id), 
-            by = c("Tumor_Sample_Barcode" = "sanger_dna_id")) |>
+  left_join(metadata |> select(sanger_dna_id, study_id),
+    by = c("Tumor_Sample_Barcode" = "sanger_dna_id")
+  ) |>
   select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
   arrange(study_id)
 
@@ -71,8 +72,9 @@ alter_fun <- list(
 
 # Add TMB
 tmb <- tmb_raw |>
-  left_join(metadata |> select(sanger_dna_id, study_id), 
-            by = c("Sample" = "sanger_dna_id")) |>
+  left_join(metadata |> select(sanger_dna_id, study_id),
+    by = c("Sample" = "sanger_dna_id")
+  ) |>
   select(study_id, TMB) |>
   filter(study_id %in% colnames(mat)) |>
   arrange(study_id)
