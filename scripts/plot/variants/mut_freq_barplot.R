@@ -32,7 +32,7 @@ bar_data <- mutation_presence %>%
   summarise(freq = mean(mutation), .groups = "drop")
 
 p <- ggplot(bar_data, aes(x = freq, y = Hugo_Symbol, fill = group)) +
-      geom_col(position = "dodge") +
+      geom_col(position = "dodge", width = 0.6) +
       scale_x_continuous(labels = scales::percent_format()) +
       theme_classic(base_size = 13) +
       labs(x = "Mutation Frequency", fill = "Sample") +
@@ -44,4 +44,4 @@ p <- ggplot(bar_data, aes(x = freq, y = Hugo_Symbol, fill = group)) +
             legend.position = "right") +
       scale_fill_manual(values = c("Progressor" = "darkorange", "Non-progressor" = "darkseagreen"))
 
-ggsave("plots/variants/mutation_freq_barplot.png", plot = p, width = 7, height = 3.5)
+ggsave("plots/variants/mutation_freq_barplot.png", plot = p, width = 7, height = 3)
