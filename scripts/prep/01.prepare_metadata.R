@@ -7,7 +7,8 @@ library(dplyr)
 progressors <- read_tsv("metadata/progressors_raw.tsv") |>
   clean_names() |>
   mutate(group = "Progressor") |>
-  select(-macrodissection_coring)
+  select(-macrodissection_coring) |>
+  mutate(study_id = str_replace(study_id, "^16CPC-1$", "16CPC")) #Check later is this is correct 
 
 non_progressors <- read_tsv("metadata/non-progressors_raw.tsv") |>
   clean_names() |>
@@ -66,4 +67,20 @@ meta_tidy <- meta_pass |>
     site = str_to_title(site)
   )
 
-write_tsv(meta_tidy, "metadata/final_metadata_qc_pass.tsv")
+# Remove extra PD62028a case in 'non-progressor' group
+meta_filtered <- meta_tidy |>
+  filter(!(sanger_dna_id == "PD62028a" & group == "Non-progressor"))
+
+# Fix samples with missing metadata (not in prog/non-prog sheets)
+# PD62045c, PD62041d 
+meta_fin <- meta_filtered |>
+  mutate(
+    precursor_or_follow_up = if_else(
+      sanger_dna_id == "PD62045c", "Follow Up", precursor_or_follow_up
+    ),
+    grade_of_dysplasia = if_else(
+      sanger_dna_id == "PD62045c", "High grade", grade_of_dysplasia
+    )
+  )
+
+write_tsv(meta_fin, "metadata/final_metadata_qc_pass.tsv")
