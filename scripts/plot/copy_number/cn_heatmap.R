@@ -4,17 +4,17 @@ library(readr)
 library(dplyr)
 
 # load in chromosome sizes
-chrom_sizes <- read.table("data/other/GRCh38_chrom_sizes.csv", header = 0, stringsAsFactors = F, sep = ",")
+chrom_sizes <- read.table("metadata/rescources/GRCh38_chrom_sizes.csv", header = 0, stringsAsFactors = F, sep = ",")
 chrom_sizes[, 3] <- cumsum(as.numeric(chrom_sizes[, 2]))
 chrom_sizes$V1 <- gsub("^chr", "", chrom_sizes$V1)
 
 # Load in CN segments
-non_prog_segments <- read_tsv("/lustre/scratch125/casm/team113da/projects/IBD_Associated_Dysplasia/7100_3235_IBD-associated_dysplasia/analysis/ASCAT/release_v1/non_progressor_precursors/PLOTS_ONE_PER_PATIENT/7100_3235_segments.tsv")
-prog_segments <- read_tsv("/lustre/scratch125/casm/team113da/projects/IBD_Associated_Dysplasia/7100_3235_IBD-associated_dysplasia/analysis/ASCAT/release_v1/progressor_precursors/PLOTS_ONE_PER_PATIENT/7100_3235_segments.tsv")
+non_prog_segments <- read_tsv("data/copy_number/segments/n_prog_pre_segments.tsv")
+prog_segments <- read_tsv("data/copy_number/segments/prog_pre_segments.tsv")
 
-non_prog_cn_loh_segments <- read_tsv("/lustre/scratch125/casm/team113da/projects/IBD_Associated_Dysplasia/7100_3235_IBD-associated_dysplasia/analysis/ASCAT/release_v1/non_progressor_precursors/PLOTS_ONE_PER_PATIENT/7100_3235_cn-loh_segments.tsv") |>
+non_prog_cn_loh_segments <- read_tsv("data/copy_number/segments/n_prog_pre_cn-loh_segments.tsv") |>
   mutate(CN = "cn-LOH")
-prog_cn_loh_segments <- read_tsv("/lustre/scratch125/casm/team113da/projects/IBD_Associated_Dysplasia/7100_3235_IBD-associated_dysplasia/analysis/ASCAT/release_v1/progressor_precursors/PLOTS_ONE_PER_PATIENT/7100_3235_cn-loh_segments.tsv") |>
+prog_cn_loh_segments <- read_tsv("data/copy_number/segments/prog_pre_cn-loh_segments.tsv") |>
   mutate(CN = "cn-LOH")
 
 non_prog_segments <- non_prog_segments |>
@@ -28,19 +28,21 @@ combined_segments <- bind_rows(
 )
 
 # Create a sample list (vector) of unique sample IDs
-metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
+# metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 
-precursors <- metadata %>%
-  filter(precursor_or_follow_up == "Precursor") %>%
-  pull(sanger_dna_id)
+# precursors <- metadata %>%
+#   filter(precursor_or_follow_up == "Precursor") %>%
+#   pull(sanger_dna_id)
 
-# Sample list 2: Follow-up samples
-follow_ups <- metadata %>%
-  filter(precursor_or_follow_up == "Follow up") %>%
-  pull(sanger_dna_id)
+# # Sample list 2: Follow-up samples
+# follow_ups <- metadata %>%
+#   filter(precursor_or_follow_up == "Follow up") %>%
+#   pull(sanger_dna_id)
 
-sample_list <- intersect(precursors, unique(combined_segments$Sample))
-sample_list <- setdiff(sample_list, c("PD62031d", "PD62038c"))
+# sample_list <- intersect(precursors, unique(combined_segments$Sample))
+# sample_list <- setdiff(sample_list, c("PD62031d", "PD62038c"))
+
+sample_list <- unique(combined_segments$Sample)
 
 # Prep
 bin_size <- 100000
@@ -125,8 +127,8 @@ p <- ggplot(data = tidy_cnv_calls) +
     legend.position = "top"
   )
 
-ggsave("plots/CN/cn_heatmap.pdf", plot = p, width = 10, height = length(sample_list) / 5)
-ggsave("plots/CN/cn_heatmap.png", plot = p, width = 8, height = length(sample_list) / 5)
+ggsave("plots/copy_number/heatmap/cn_heatmap.pdf", plot = p, width = 10, height = length(sample_list) / 5)
+ggsave("plots/copy_number/heatmap/cn_heatmap.png", plot = p, width = 10, height = length(sample_list) / 5)
 
 
 # # By variable
