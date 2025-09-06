@@ -86,4 +86,12 @@ meta_fin <- meta_filtered |>
     )
   )
 
+# Fix incorrect labels in metadata
+meta_fin <- meta_fin |>
+  mutate(precursor_or_follow_up = case_when(
+    sanger_dna_id == "PD62064d" ~ "Follow up",
+    sanger_dna_id == "PD62064c" ~ "Precursor",
+    TRUE ~ precursor_or_follow_up
+  ))
+
 write_tsv(meta_fin, "metadata/final_metadata_qc_pass.tsv")

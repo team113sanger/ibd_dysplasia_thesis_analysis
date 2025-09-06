@@ -61,8 +61,8 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 10CNPA	PD62060a	T1	Precursor	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	55	NA	Non-progressor
 10CNPB	PD62060c	T2	Follow up	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	56	NA	Non-progressor
 14CNPA	PD62064a	T1	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	73	NA	Non-progressor
-14CNPB	PD62064c	T2	Follow up	Low grade	low grade**	UC	1 year 2 months	11 years	Caecum	No	No	Yes	Male	74	NA	Non-progressor
-14CNPC	PD62064d	T3	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	74	NA	Non-progressor
+14CNPB	PD62064c	T2	Precursor	Low grade	low grade**	UC	1 year 2 months	11 years	Caecum	No	No	Yes	Male	74	NA	Non-progressor
+14CNPC	PD62064d	T3	Follow up	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	74	NA	Non-progressor
 15CNPB	PD62065a	T1	Follow up	NOS	NOS*	UC	1 year 5 months	14 years	Transverse	Yes	No	Yes	Male	68	NA	Non-progressor
 15CNPC	PD62065c	T2	Precursor	Low grade	low grade**	UC	2 months	14 years	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor
 15CNPD	PD62065d	T3	Follow up	Low grade	low grade**	UC	2 months	14 years	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor
