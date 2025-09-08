@@ -23,8 +23,6 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 13CPD	PD62038e	T4	Follow up	Adenocarcinoma	Adenocarcinoma	UC	14 years	1 year 3 months	Distal Ascending	No	No	Yes	Male	50	2 separate progressed lesions	Progressor	PD62038
 14CPA	PD62039a	T1	Precursor	Low grade	Low grade dysplasia in TVA	UC	11 years	9 months	Splenic Flexure	No	No	Yes	Female	71	None	Progressor	PD62039
 14CPB	PD62039c	T2	Follow up	Adenocarcinoma	Adenocarcinoma	UC	11 years	9 months	Splenic Flexure	No	No	Yes	Female	71	None	Progressor	PD62039
-37CNPA	PD62039d	T3	Precursor	Low grade	Low grade	UC	9 months	11 years	Sigmoid	No	No	Yes	Female	71	NA	Non-progressor	PD62039
-37CNPB	PD62039e	T4	Follow up	Low grade	Low grade	UC	9 months	11 years	Sigmoid	No	No	Yes	Female	71	NA	Non-progressor	PD62039
 16CPA	PD62041a	T1	Precursor	Low grade	Low grade dysplasia in TA	UC	9 years	1 year 1 month	Sigmoid	No	No	Yes	Male	51	None	Progressor	PD62041
 16CPC	PD62041d	T1	Follow up	High grade	Unknown	UC	9 years	At least 10 months	Sigmoid	No	No	Yes	Male	52	None	Progressor	PD62041
 17CPA	PD62042a	T1	Precursor	Low grade	Low grade dysplasia in TA	UC	At least 14 years	2 years 1 month	Rectum	No	No	Yes	Female	73	None	Progressor	PD62042

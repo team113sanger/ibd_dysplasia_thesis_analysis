@@ -70,9 +70,12 @@ meta_tidy <- meta_pass |>
     site = str_to_title(site)
   )
 
-# Remove extra PD62028a case in 'non-progressor' group
+# Remove extra PD62028a/3CPA case in 'non-progressor' group
+# Remove N-prog lesion from patient with lesions in both N-prog & prog groups
+# 37CNPA/PD62039d & 37CNPB/PD62039e
 meta_filtered <- meta_tidy |>
-  filter(!(sanger_dna_id == "PD62028a" & group == "Non-progressor"))
+  filter(!(sanger_dna_id == "PD62028a" & group == "Non-progressor")) |>
+  filter(!(sanger_dna_id %in% c("PD62039d", "PD62039e")))
 
 # Fix samples with missing metadata (not in prog/non-prog sheets)
 # PD62045c, PD62041d 
@@ -83,7 +86,10 @@ meta_fin <- meta_filtered |>
     ),
     grade_of_dysplasia = if_else(
       sanger_dna_id == "PD62045c", "High grade", grade_of_dysplasia
-    )
+    ),
+    group = if_else(
+      sanger_dna_id == "PD62045c", "Progressor", group
+    ),
   )
 
 # Fix incorrect labels in metadata
