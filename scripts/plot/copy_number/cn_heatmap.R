@@ -8,41 +8,26 @@ chrom_sizes <- read.table("metadata/rescources/GRCh38_chrom_sizes.csv", header =
 chrom_sizes[, 3] <- cumsum(as.numeric(chrom_sizes[, 2]))
 chrom_sizes$V1 <- gsub("^chr", "", chrom_sizes$V1)
 
+# Read in metadata
+metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
+nprog_pre <- read_tsv("metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv", col_names = "Sample") |>
+  mutate(Group = "Non-Progressor")
+prog_pre <- read_tsv("metadata/sample_lists/progressor_precursor_samples_ppat.tsv", col_names = "Sample") |>
+  mutate(Group = "Progressor")
+samples <- rbind(nprog_pre, prog_pre)
+
 # Load in CN segments
-non_prog_segments <- read_tsv("data/copy_number/segments/n_prog_pre_segments.tsv")
-prog_segments <- read_tsv("data/copy_number/segments/prog_pre_segments.tsv")
+segments <- read_tsv("data/copy_number/segments/all_segments.tsv")
 
-non_prog_cn_loh_segments <- read_tsv("data/copy_number/segments/n_prog_pre_cn-loh_segments.tsv") |>
-  mutate(CN = "cn-LOH")
-prog_cn_loh_segments <- read_tsv("data/copy_number/segments/prog_pre_cn-loh_segments.tsv") |>
+loh_segments <- read_tsv("data/copy_number/segments/all_cn-loh_segments.tsv") |>
   mutate(CN = "cn-LOH")
 
-non_prog_segments <- non_prog_segments |>
-  rows_update(non_prog_cn_loh_segments, by = c("Sample", "chr", "startpos", "endpos"))
-prog_segments <- prog_segments |>
-  rows_update(prog_cn_loh_segments, by = c("Sample", "chr", "startpos", "endpos"))
-
-combined_segments <- bind_rows(
-  non_prog_segments %>% mutate(Group = "Non-Progressor"),
-  prog_segments %>% mutate(Group = "Progressor")
-)
+segments <- segments |>
+  rows_update(loh_segments, by = c("Sample", "chr", "startpos", "endpos")) |>
+  left_join(samples)
 
 # Create a sample list (vector) of unique sample IDs
-# metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
-
-# precursors <- metadata %>%
-#   filter(precursor_or_follow_up == "Precursor") %>%
-#   pull(sanger_dna_id)
-
-# # Sample list 2: Follow-up samples
-# follow_ups <- metadata %>%
-#   filter(precursor_or_follow_up == "Follow up") %>%
-#   pull(sanger_dna_id)
-
-# sample_list <- intersect(precursors, unique(combined_segments$Sample))
-# sample_list <- setdiff(sample_list, c("PD62031d", "PD62038c"))
-
-sample_list <- unique(combined_segments$Sample)
+sample_list <- intersect(samples[["Sample"]], unique(segments$Sample))
 
 # Prep
 bin_size <- 100000
@@ -51,13 +36,13 @@ filter_size <- 1000000
 cnv_calls <- array(data = 0, dim = c((chrom_sizes[24, 3] / bin_size) + 1, length(sample_list)))
 colnames(cnv_calls) <- unique(sample_list)
 
-combined_segments$startcumpos <- combined_segments$startpos
-combined_segments$endcumpos <- combined_segments$endpos
+segments$startcumpos <- segments$startpos
+segments$endcumpos <- segments$endpos
 
-for (i in 1:nrow(combined_segments)) {
-  if (combined_segments$chr[i] != "1") {
-    combined_segments$startcumpos[i] <- combined_segments$startpos[i] + chrom_sizes$V3[which(chrom_sizes$V1 == combined_segments$chr[i]) - 1]
-    combined_segments$endcumpos[i] <- combined_segments$endpos[i] + chrom_sizes$V3[which(chrom_sizes$V1 == combined_segments$chr[i]) - 1]
+for (i in 1:nrow(segments)) {
+  if (segments$chr[i] != "1") {
+    segments$startcumpos[i] <- segments$startpos[i] + chrom_sizes$V3[which(chrom_sizes$V1 == segments$chr[i]) - 1]
+    segments$endcumpos[i] <- segments$endpos[i] + chrom_sizes$V3[which(chrom_sizes$V1 == segments$chr[i]) - 1]
   }
 }
 
@@ -67,8 +52,8 @@ for (i in 1:length(sample_list)) {
   loss_temp <- vector()
   loh_temp <- vector()
 
-  # Filter the combined_segments for the current sample
-  sample_segments <- combined_segments[combined_segments$Sample == sample_list[i], ]
+  # Filter the segments for the current sample
+  sample_segments <- segments[segments$Sample == sample_list[i], ]
 
   # Loop through each row of the filtered sample segments
   for (j in 1:nrow(sample_segments)) {
@@ -98,7 +83,7 @@ colnames(tidy_cnv_calls) <- c("bin", "sample", "cn_state")
 
 tidy_cnv_calls$cn_state <- as.character(tidy_cnv_calls$cn_state)
 tidy_cnv_calls <- tidy_cnv_calls %>%
-  left_join(combined_segments %>%
+  left_join(segments %>%
     select(Sample, Group) %>%
     distinct(), by = c("sample" = "Sample"))
 
@@ -108,7 +93,7 @@ p <- ggplot(data = tidy_cnv_calls) +
   geom_vline(xintercept = chrom_sizes$V3[1:22] / bin_size) +
   facet_wrap(~Group, nrow = 2, scales = "free_y") +
   scale_fill_manual(
-    values = c("0" = "white", "1" = "lightsalmon2", "2" = "skyblue2", "3" = "mediumaquamarine"),
+    values = c("0" = "white", "1" = "palevioletred2", "2" = "skyblue2", "3" = "mediumaquamarine"),
     labels = c("0" = "No change", "2" = "Loss", "1" = "Gain", "3" = "cn-LOH"),
     guide = guide_legend(
       override.aes = list(color = "black", size = 0.5) # Add outline to legend squares
@@ -124,15 +109,15 @@ p <- ggplot(data = tidy_cnv_calls) +
   labs(x = "", y = "", fill = "Copy number") +
   theme(
     axis.ticks = element_blank(),
-    legend.position = "top"
+    legend.position = "right"
   )
 
-ggsave("plots/copy_number/heatmap/cn_heatmap.pdf", plot = p, width = 10, height = length(sample_list) / 5)
-ggsave("plots/copy_number/heatmap/cn_heatmap.png", plot = p, width = 10, height = length(sample_list) / 5)
+ggsave("plots/copy_number/heatmap/cn_heatmap.pdf", plot = p, width = 10, height = length(sample_list) / 6)
+ggsave("plots/copy_number/heatmap/cn_heatmap.png", plot = p, width = 10, height = length(sample_list) / 6)
 
 
 # # By variable
-# groups <- unique(combined_segments$Group)
+# groups <- unique(segments$Group)
 
 # matrix <- array(data = 0, dim = c((chrom_sizes[24,3] / bin_size) + 1, length(groups)))
 # colnames(matrix) <- groups
@@ -143,7 +128,7 @@ ggsave("plots/copy_number/heatmap/cn_heatmap.png", plot = p, width = 10, height 
 # per_variable_losses_summary <- matrix
 
 # for(i in 1:length(groups)){
-#   per_variable_sample_ids <- unique(combined_segments$Sample[combined_segments$Group == groups[i]])
+#   per_variable_sample_ids <- unique(segments$Sample[segments$Group == groups[i]])
 
 #   cnv_calls_variable_inc <- cnv_calls[,per_variable_sample_ids, drop = F]
 
