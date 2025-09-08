@@ -39,6 +39,8 @@ colnames(cnv_calls) <- unique(sample_list)
 segments$startcumpos <- segments$startpos
 segments$endcumpos <- segments$endpos
 
+# Call segments
+
 for (i in 1:nrow(segments)) {
   if (segments$chr[i] != "1") {
     segments$startcumpos[i] <- segments$startpos[i] + chrom_sizes$V3[which(chrom_sizes$V1 == segments$chr[i]) - 1]
@@ -75,7 +77,13 @@ for (i in 1:length(sample_list)) {
   cnv_calls[unique(loh_temp), sample_list[i]] <- 3
 }
 
-cnv_calls_1 <- cnv_calls[1:28776, ]
+cnv_calls_1 <- cnv_calls[1:28751, ]
+
+# Write out cnv
+cnv_calls_1_df <- as.data.frame(cnv_calls_1) %>%
+  rownames_to_column("bin")
+
+write_tsv(cnv_calls_1_df, "results/copy_number/cnv_calls.txt")
 
 # Single Plot
 tidy_cnv_calls <- reshape2::melt(cnv_calls_1)
