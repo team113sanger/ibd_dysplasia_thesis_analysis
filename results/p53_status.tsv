@@ -1,9 +1,11 @@
 Tumor_Sample_Barcode	Main_consequence_VEP	Variant_Type	HGVSp_Short	VAF_tum	group	precursor_or_follow_up	grade_of_dysplasia
+PD62030a	stop_gained	SNP	p.R306*	0.27	Progressor	Precursor	High grade
 PD62030c	stop_gained	SNP	p.R306*	0.24	Progressor	Follow up	High grade
 PD62034c	missense_variant	SNP	p.R175H	0.5	Progressor	Follow up	High grade
+PD62036c	missense_variant	SNP	p.R248P	0.45	Progressor	Follow up	High grade
 PD62039a	missense_variant	SNP	p.Y234C	0.88	Progressor	Precursor	Low grade
 PD62039c	missense_variant	SNP	p.Y234C	0.6	Progressor	Follow up	Adenocarcinoma
-PD62039e	missense_variant	SNP	p.Y234C	0.38	Non-progressor	Follow up	Low grade
+PD62039e	missense_variant	SNP	p.Y234C	0.38	NA	NA	NA
 PD62041a	missense_variant	SNP	p.H179Q	0.63	Progressor	Precursor	Low grade
 PD62041c	missense_variant	SNP	p.H179Q	0.28	Progressor	Precursor	Low grade
 PD62042a	missense_variant	SNP	p.C238F	0.68	Progressor	Precursor	Low grade
@@ -13,16 +15,21 @@ PD62046a	missense_variant	SNP	p.V173M	0.73	Progressor	Precursor	Low grade
 PD62046c	missense_variant	SNP	p.V173M	0.14	Progressor	Follow up	High grade
 PD62047g	splice_donor_variant	SNP	-	0.4	Progressor	Follow up	High grade
 PD62047h	splice_donor_variant	SNP	-	0.87	Progressor	Follow up	High grade
+PD62049a	missense_variant	SNP	p.R273H	0.63	Progressor	Precursor	Low grade
 PD62051a	stop_gained	SNP	p.R342*	0.45	Progressor	Precursor	Low grade
 PD62051c	stop_gained	SNP	p.R342*	0.65	Progressor	Follow up	Adenocarcinoma
 PD62066a	missense_variant	SNP	p.R282W	0.44	Non-progressor	Precursor	Low grade
 PD62066c	missense_variant	SNP	p.R282W	0.34	Non-progressor	Follow up	Low grade
 PD62068c	splice_acceptor_variant	SNP	-	0.61	Non-progressor	Precursor	High grade
+PD62068d	splice_acceptor_variant	SNP	-	0.65	Non-progressor	Follow up	High grade
 PD62077a	missense_variant	SNP	p.R248Q	0.43	Non-progressor	Precursor	Low grade
 PD62081c	missense_variant	SNP	p.A159P	0.59	Non-progressor	Precursor	NOS
+PD62082c	missense_variant	SNP	p.C275Y	0.19	Non-progressor	Follow up	High grade
 PD62028a	frameshift_variant	DEL	p.K373Rfs*49	0.34	Progressor	Precursor	Low grade
 PD62028c	frameshift_variant	DEL	p.K373Rfs*49	0.646	Progressor	Follow up	High grade
 PD62037d	frameshift_variant	INS	p.F341Efs*7	0.579	Progressor	Follow up	High grade
+PD62037e	frameshift_variant	INS	p.F341Efs*7	0.379	Progressor	Follow up	High grade
+PD62040c	frameshift_variant	DEL	p.R156Afs*14	0.119	Progressor	Follow up	Adenocarcinoma
 PD62041d	frameshift_variant	DEL	p.C242Afs*5	0.597	Progressor	Follow up	High grade
 PD62066a	frameshift_variant	DEL	p.K373Rfs*49	0.417	Non-progressor	Precursor	Low grade
 PD62066c	frameshift_variant	DEL	p.K373Rfs*49	0.4	Non-progressor	Follow up	Low grade
