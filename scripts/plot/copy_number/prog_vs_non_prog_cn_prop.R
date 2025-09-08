@@ -28,7 +28,7 @@ perform_wilcox <- function(df){
 plot_boxplot <- function(df, p_label){
   ggplot(df, aes(x = group, y = proportion, fill = group)) +
     geom_violin(width = 1, alpha = 0.8, linewidth = 0.3) +
-    geom_boxplot(color = "#585858", alpha = 0.15, linewidth = 0.3, outlier.shape = NA) +
+    geom_boxplot(color = "#383838ff", alpha = 0.15, linewidth = 0.3, outlier.shape = NA, width = 0.5) +
     geom_jitter(fill = "#585858", size = 1, stroke = 0, alpha = 0.4, width = 0.1, height = 0.1) +
     labs(y = "CNA Proportion", x = NULL) +
     scale_fill_manual(values = c("Progressor" = "darkorange", "Non-Progressor" = "darkseagreen")) +
