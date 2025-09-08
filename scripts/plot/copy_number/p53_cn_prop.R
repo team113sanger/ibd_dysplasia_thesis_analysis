@@ -1,45 +1,91 @@
 library(readr)
 library(dplyr)
 library(ggplot2)
+library(patchwork)
+library(viridis)
 
-p53_status <- read_tsv("results/p53_status.tsv")
-props <- read_tsv("data/progressor_precursors_cn_props.tsv") |>
-  mutate(p53 = if_else(Sample %in% p53_status$Tumor_Sample_Barcode, "Mut", "WT")) |>
-  left_join(p53_status %>% select(Tumor_Sample_Barcode, VAF_tum), by = c("Sample" = "Tumor_Sample_Barcode"))
+# Read data
+p53_status <- read_tsv("results/p53_mutations/p53_status.tsv")
+cn_props <- read_tsv("data/copy_number/proportions/all_cn_props.tsv") |>
+  select(Sample, proportion) |>
+  rename(sanger_dna_id = Sample)
 
+# Sample lists
+nprog_pre <- read_lines("metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv")
+prog_pre  <- read_lines("metadata/sample_lists/progressor_precursor_samples_ppat.tsv")
+nprog_fol <- read_lines("metadata/sample_lists/non_progressor_follow_up_samples_ppat.tsv")
+prog_fol  <- read_lines("metadata/sample_lists/progressor_follow_up_samples_ppat.tsv")
 
-# p <- ggplot(props, aes(x = p53, y = proportion, fill = p53)) +
-#         geom_bar(stat = "identity", position = "dodge") +
-#         labs(x = "TP53 Status", y = "Proportion") +
-#         scale_fill_manual(values = c("WT" = "blue", "Mut" = "red")) +
-#         theme_classic()
-#  ggsave("plots/cn_props/progressor_precursors_p53_cn_prop.png", p)
+# Functions
+subset_groups <- function(df, set1, set2, set1_label, set2_label, timepoint) {
+  df %>%
+    filter(sanger_dna_id %in% c(set1, set2)) %>%
+    mutate(group = ifelse(sanger_dna_id %in% set1, set1_label, set2_label),
+           timepoint = timepoint)
+}
 
-p2 <- ggplot(props, aes(x = p53, y = proportion, fill = p53)) +
-  geom_violin(trim = TRUE) +
-  labs(x = "p53 Status", y = "CNA Proportion") +
-  scale_fill_manual(values = c("WT" = "darkseagreen", "Mut" = "darkorange")) +
-  theme_classic()
-ggsave("plots/cn_props/progressor_precursors_p53_cn_prop_viol.png", p2,
-  width = 4, height = 4
+add_TP53_status <- function(df, p53_df) {
+  df %>%
+    mutate(p53 = ifelse(sanger_dna_id %in% p53_df$Tumor_Sample_Barcode, "Mut", "WT"))
+}
+
+# Build combined dataset
+df_all <- bind_rows(
+  subset_groups(cn_props, nprog_pre, prog_pre, "Non-Progressor", "Progressor", "Precursor"),
+  subset_groups(cn_props, nprog_fol, prog_fol, "Non-Progressor", "Progressor", "Follow-up")
+) %>%
+  add_TP53_status(p53_status)
+
+df_all[["timepoint"]] <- factor(
+  df_all[["timepoint"]],
+  levels = c("Precursor", "Follow-up")
 )
 
-write_tsv(props, "results/p53_cn_props.tsv")
+# Wilcoxon per facet
+wilcox_labels <- df_all %>%
+  group_by(timepoint) %>%
+  summarise(
+    p = wilcox.test(proportion ~ p53)$p.value,
+    .groups = "drop"
+  ) %>%
+  mutate(label = paste0("Wilcox p = ", signif(p, 3)))
 
-# Follow-ups
-p53_status <- read_tsv("results/p53_status.tsv")
-props <- read_tsv("data/progressors_followups_cn_props.tsv") |>
-  mutate(p53 = if_else(Sample %in% p53_status$Tumor_Sample_Barcode, "Mut", "WT")) |>
-  left_join(p53_status %>% select(Tumor_Sample_Barcode, VAF_tum), by = c("Sample" = "Tumor_Sample_Barcode"))
+# Boxplot
+p <- ggplot(df_all, aes(x = p53, y = proportion, fill = p53)) +
+    geom_violin(width = 1, alpha = 0.8, linewidth = 0.3) +
+    geom_boxplot(color = "#383838ff", alpha = 0.15, linewidth = 0.3, outlier.shape = NA, width = 0.5) +
+    geom_jitter(fill = "#585858", size = 1, stroke = 0, alpha = 0.4, width = 0.1, height = 0.1) +
+    labs(x = NULL, y = "CNA Proportion") +
+    scale_fill_viridis_d(end = 0.8) +
+    theme_classic(base_size = 10) +
+    facet_wrap(~timepoint) +
+    geom_text(
+      data = wilcox_labels,
+      aes(x = 1.5, y = 1.05 * max(df_all$proportion), label = label),
+      inherit.aes = FALSE,
+      size = 3,
+      fontface = "italic") +
+      theme(
+        strip.background = element_blank(),
+        strip.text = element_text(face = "bold"),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+    
+ggsave("plots/copy_number/proportions/p53_cn_props.png", p, width = 6, height = 4)
 
+# Counts plot
+p2 <- ggplot(df_all, aes(x = p53, fill = group)) +
+        geom_bar(position = "stack") +
+        labs(x = "TP53 Status", y = "Frequency", fill = "Group") +
+        scale_fill_manual(values = c("Progressor" = "darkorange", "Non-Progressor" = "darkseagreen")) +
+        theme_classic(base_size = 10) +
+        facet_wrap(~timepoint) +
+        theme(
+          legend.position = "right",
+          strip.text = element_blank())
 
-p2 <- ggplot(props, aes(x = p53, y = proportion, fill = p53)) +
-  geom_violin(trim = TRUE) +
-  labs(x = "p53 Status", y = "CNA Proportion") +
-  scale_fill_manual(values = c("WT" = "darkseagreen", "Mut" = "darkorange")) +
-  theme_classic()
-ggsave("plots/cn_props/progressor_followups_p53_cn_prop_viol.png", p2,
-  width = 4, height = 4
-)
+# Arrange plots
+p_combined <- p / p2 + 
+  plot_layout(heights = c(3, 1)) 
 
-write_tsv(props, "results/p53_cn_props_fups.tsv")
+ggsave("plots/copy_number/proportions/p53_cn_props.png", p_combined, width = 6, height = 4)
