@@ -38,8 +38,8 @@ axis_labels <- data.frame(
 
 p <- ggplot(df_alluvial,
         aes(axis1 = group, axis2 = p53, axis3 = cn_cluster, y = Freq, fill = group)) +
-        geom_alluvium(width = 0.5, alpha = 0.8) +
-        geom_stratum(width = 0.5, color = "black") +
+        geom_alluvium(width = 0.5, alpha = 0.7) +
+        geom_stratum(width = 0.5, color = "black", alpha = 0.9) +
         geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 3) +
         geom_text(data = axis_labels, aes(x = x, y = y, label = label),
                   inherit.aes = FALSE, fontface = "bold", size = 4) +
@@ -54,8 +54,29 @@ p <- ggplot(df_alluvial,
             legend.position = "none"
         )
 
-ggsave("plots/alluvial/p53_cn_alluvial.png", p, height = 5)
+ggsave("plots/alluvial/group_cn_p53_alluvial.png", p, height = 5)
 
+axis_labels <- data.frame(
+  x = c(1, 2, 3),                  
+  y = 42,
+  label = c("TP53 Status", "CN Cluster", "Group")
+)
 
+p2 <- ggplot(df_alluvial,
+        aes(axis1 = p53, axis2 = cn_cluster, axis3 = group, y = Freq, fill = p53)) +
+        geom_alluvium(width = 0.5, alpha = 0.7) +
+        geom_stratum(width = 0.5, color = "black", alpha = 0.9) +
+        geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 3) +
+        geom_text(data = axis_labels, aes(x = x, y = y, label = label),
+                  inherit.aes = FALSE, fontface = "bold", size = 4) +
+        scale_fill_manual(values = c("#41B6C4","#edf8b1"), na.value = "white") +
+        theme_classic() +
+        theme(
+            axis.title = element_blank(),
+            axis.text = element_blank(),
+            axis.ticks = element_blank(),
+            axis.line = element_blank(),
+            legend.position = "none"
+        )
 
-
+ggsave("plots/alluvial/p53_cn_group_alluvial.png", p2, height = 5)
