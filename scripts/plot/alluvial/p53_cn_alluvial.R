@@ -23,7 +23,9 @@ df_all <- meta |>
   left_join(
     cn_clusters |> rename(sanger_dna_id = sample),
     by = "sanger_dna_id"
-  )
+  ) |>
+  filter(!sanger_dna_id %in% c("PD62028a", "PD62077a")) # Remove samples with no CN results
+
 
 df_alluvial <- df_all |>
   group_by(p53, cn_cluster, group) |>
@@ -32,7 +34,7 @@ df_alluvial <- df_all |>
 # Plot
 axis_labels <- data.frame(
   x = c(1, 2, 3),                  
-  y = 42,
+  y = 40,
   label = c("Group", "TP53 Status", "CN Cluster")
 )
 
@@ -58,7 +60,7 @@ ggsave("plots/alluvial/group_cn_p53_alluvial.png", p, height = 5)
 
 axis_labels <- data.frame(
   x = c(1, 2, 3),                  
-  y = 42,
+  y = 40,
   label = c("TP53 Status", "CN Cluster", "Group")
 )
 
