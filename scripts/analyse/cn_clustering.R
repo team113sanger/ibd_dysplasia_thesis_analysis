@@ -19,9 +19,9 @@ CN_clusters <- as.data.frame(cutree(hc_mat, k = c(2, 3, 4))) %>%
   tibble::rownames_to_column("sample")
 
 # Save results
-write_tsv(CN_clusters, "results/copy_number/cn_clusters.tsv")
+write_tsv(CN_clusters, "results/copy_number/precursors/cn_clusters.tsv")
 
 # Plot dendrogram
-pdf("results/copy_number/clusters_dendrogram.pdf")
+pdf("results/copy_number/precursors/clusters_dendrogram.pdf")
 plot(hc_mat, labels = colnames(num_mat), main = "CNV clustering")
 dev.off()
