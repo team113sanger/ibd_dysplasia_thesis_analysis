@@ -58,43 +58,43 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 8CNPB	PD62058c	T2	Follow up	Low grade	Low grade	UC	19 years	3 months	Transverse	No	No	Yes	Male	38	NA	Non-progressor
 10CNPA	PD62060a	T1	Precursor	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	55	NA	Non-progressor
 10CNPB	PD62060c	T2	Follow up	Low grade	low grade	UC	37 years	8 months	Sigmoid	No	No	Yes	Male	56	NA	Non-progressor
-14CNPA	PD62064a	T1	Precursor	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	73	NA	Non-progressor
-14CNPB	PD62064c	T2	Precursor	Low grade	low grade**	UC	1 year 2 months	11 years	Caecum	No	No	Yes	Male	74	NA	Non-progressor
-14CNPC	PD62064d	T3	Follow up	Low grade	low grade*	UC	2 years 7 months	11 years	Transverse	No	No	Yes	Male	74	NA	Non-progressor
-15CNPB	PD62065a	T1	Follow up	NOS	NOS*	UC	1 year 5 months	14 years	Transverse	Yes	No	Yes	Male	68	NA	Non-progressor
-15CNPC	PD62065c	T2	Precursor	Low grade	low grade**	UC	2 months	14 years	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor
-15CNPD	PD62065d	T3	Follow up	Low grade	low grade**	UC	2 months	14 years	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor
-15CNPE-1	PD62065e	T4	Follow up	Low grade	low grade	UC	11 months	14 years	Splenic Flexure	Yes	No	Yes	Male	79	exclude	Non-progressor
-16CNPA	PD62066a	T1	Precursor	Low grade	low grade	UC	2 years	20 years	Rectum	No	No	No	Female	70	NA	Non-progressor
-16CNPB	PD62066c	T2	Follow up	Low grade	low grade	UC	2 years	20 years	Rectum	No	No	No	Female	72	NA	Non-progressor
-17CNPA	PD62067a	T1	Precursor	Low grade	low grade	UC	1 year 5 months	40 years	Sigmoid	No	No	Yes	Female	59	NA	Non-progressor
-17CNPB	PD62067c	T2	Follow up	Low grade	low grade	UC	1 year 5 months	40 years	Sigmoid	No	No	Yes	Female	60	NA	Non-progressor
-18CNPA-1	PD62068a	T1	Precursor	NOS	NOS**	UC	4 months	16 years	Rectum	No	No	No	Female	79	NA	Non-progressor
-18CNPA-2	PD62068c	T2	Precursor	High grade	High grade*	UC	4 months	16 years	Rectum	No	No	No	Female	79	NA	Non-progressor
-18CNPB-1	PD62068d	T3	Follow up	High grade	High grade*	UC	4 months	16 years	Rectum	No	No	No	Female	80	NA	Non-progressor
-18CNPB-2	PD62068e	T4	Follow up	Low grade	low grade**	UC	4 months	16 years	Rectum	No	No	No	Female	80	NA	Non-progressor
-18CNPC	PD62068f	T5	Precursor	Low grade	Low grade***	UC	1 year 3 months	16 years	Rectosigmoid	No	No	No	Female	73	NA	Non-progressor
-18CNPD	PD62068g	T6	Follow up	NOS	NOS***	UC	1 year 3 months	16 years	Rectosigmoid	No	No	No	Female	74	NA	Non-progressor
-21CNPC	PD62070d	T3	Follow up	Low grade	Low grade	UC	2 years 2 months	19 years	Descending	No	No	No	Male	72	NA	Non-progressor
-23CNPA	PD62072a	T1	Precursor	Low grade	Low grade	UC	8 months	35 years	Transverse	No	No	Yes	Male	77	NA	Non-progressor
-24CNPA	PD62073a	T	Precursor	Low grade	Low grade	UC	3 months	28 years	Transverse	No	No	Yes	Female	48	NA	Non-progressor
-25CNPC	PD62074d	T3	Follow up	Low grade	low grade	UC	1 year 3 months	8 years	Rectum	No	No	Yes	Male	59	NA	Non-progressor
-26CNPA	PD62075a	T1	Precursor	Low grade	Low grade	UC	7 months	At least 6 years	Sigmoid	No	No	No	Female	57	NA	Non-progressor
-26CNPB	PD62075c	T2	Follow up	Low grade	Low grade	UC	7 months	At least 6 years	Sigmoid	No	No	No	Female	58	NA	Non-progressor
-26CNPC	PD62075d	T3	Follow up	Low grade	Low grade	UC	10 months	At least 6 years	Sigmoid	No	No	No	Female	59	NA	Non-progressor
-26CNPD	PD62075e	T4	Follow up	Low grade	Low grade	UC	1 year	At least 6 years	Sigmoid	No	No	No	Female	59	NA	Non-progressor
-28CNPA	PD62076a	T1	Precursor	Low grade	Low grade	UC	2 years 2 months	27 years	Transverse	No	No	No	Female	81	NA	Non-progressor
-28CNPB	PD62076c	T2	Follow up	Low grade	Low grade	UC	2 years 2 months	27 years	Transverse	No	No	No	Female	83	NA	Non-progressor
-29CNPA	PD62077a	T1	Precursor	Low grade	Low grade	UC	1 year 2 months	9 years	Transverse	Yes	No	Yes	Female	46	NA	Non-progressor
-30CNPA	PD62078a	T1	Precursor	Moderate	Moderate	UC	7 months	30 years	Rectosigmoid	No	No	Yes	Male	75	NA	Non-progressor
-30CNPB	PD62078c	T2	Follow up	Moderate	Moderate	UC	7 months	30 years	Rectosigmoid	No	No	Yes	Male	75	NA	Non-progressor
-31CNPA	PD62079a	T1	Precursor	Low grade	Low grade	UC	1 year 6 months	8 years	Transverse	No	No	Yes	Male	51	NA	Non-progressor
-31CNPB	PD62079c	T2	Follow up	Low grade	Low grade	UC	1 year 6 months	8 years	Transverse	No	No	Yes	Male	53	NA	Non-progressor
-32CNPA	PD62080a	T1	Precursor	Low grade	Low grade	UC	4 years 7 months	5 years	Rectum	No	No	No	Male	43	NA	Non-progressor
-32CNPB	PD62080c	T2	Follow up	Low grade	Low grade	UC	4 years 7 months	5 years	Rectum	No	No	No	Male	47	NA	Non-progressor
-33CNPA-1	PD62081a	T1	Precursor	Low grade	low grade**	UC	2 months	14 years	Descending	No	No	No	Male	60	NA	Non-progressor
-33CNPA-2	PD62081c	T2	Precursor	NOS	NOS*	UC	2 months	14 years	Rectum	No	No	No	Male	60	NA	Non-progressor
-34CNPB	PD62082c	T2	Follow up	High grade	High grade	UC	3 months	Uncertain 'chronic UC'	Caecum	Yes	No	Yes	Male	36	NA	Non-progressor
-35CNPB	PD62083c	T2	Follow up	Low grade	Low grade	UC	1 year	3 years	Caecum	No	No	Yes	Male	43	NA	Non-progressor
-35CNPC	PD62083d	T3	Follow up	Low grade	Low grade	UC	5 years 2 months	3 years	Caecum	No	No	Yes	Male	47	NA	Non-progressor
-36CNPA	PD62084a	T1	Precursor	Low grade	Low grade	UC	3 years 4 months	20 years	Sigmoid	No	No	No	Female	72	NA	Non-progressor
+14CNPA	PD62064a	T1	Precursor	Low grade	low grade*	UC	11 years	2 years 7 months	Transverse	No	No	Yes	Male	73	NA	Non-progressor
+14CNPB	PD62064c	T2	Precursor	Low grade	low grade**	UC	11 years	1 year 2 months	Caecum	No	No	Yes	Male	74	NA	Non-progressor
+14CNPC	PD62064d	T3	Follow up	Low grade	low grade*	UC	11 years	2 years 7 months	Transverse	No	No	Yes	Male	74	NA	Non-progressor
+15CNPB	PD62065a	T1	Follow up	NOS	NOS*	UC	14 years	1 year 5 months	Transverse	Yes	No	Yes	Male	68	NA	Non-progressor
+15CNPC	PD62065c	T2	Precursor	Low grade	low grade**	UC	14 years	2 months	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor
+15CNPD	PD62065d	T3	Follow up	Low grade	low grade**	UC	14 years	2 months	Splenic Flexure	Yes	No	Yes	Male	78	NA	Non-progressor
+15CNPE-1	PD62065e	T4	Follow up	Low grade	low grade	UC	14 years	11 months	Splenic Flexure	Yes	No	Yes	Male	79	exclude	Non-progressor
+16CNPA	PD62066a	T1	Precursor	Low grade	low grade	UC	20 years	2 years	Rectum	No	No	No	Female	70	NA	Non-progressor
+16CNPB	PD62066c	T2	Follow up	Low grade	low grade	UC	20 years	2 years	Rectum	No	No	No	Female	72	NA	Non-progressor
+17CNPA	PD62067a	T1	Precursor	Low grade	low grade	UC	40 years	1 year 5 months	Sigmoid	No	No	Yes	Female	59	NA	Non-progressor
+17CNPB	PD62067c	T2	Follow up	Low grade	low grade	UC	40 years	1 year 5 months	Sigmoid	No	No	Yes	Female	60	NA	Non-progressor
+18CNPA-1	PD62068a	T1	Precursor	NOS	NOS**	UC	16 years	4 months	Rectum	No	No	No	Female	79	NA	Non-progressor
+18CNPA-2	PD62068c	T2	Precursor	High grade	High grade*	UC	16 years	4 months	Rectum	No	No	No	Female	79	NA	Non-progressor
+18CNPB-1	PD62068d	T3	Follow up	High grade	High grade*	UC	16 years	4 months	Rectum	No	No	No	Female	80	NA	Non-progressor
+18CNPB-2	PD62068e	T4	Follow up	Low grade	low grade**	UC	16 years	4 months	Rectum	No	No	No	Female	80	NA	Non-progressor
+18CNPC	PD62068f	T5	Precursor	Low grade	Low grade***	UC	16 years	1 year 3 months	Rectosigmoid	No	No	No	Female	73	NA	Non-progressor
+18CNPD	PD62068g	T6	Follow up	NOS	NOS***	UC	16 years	1 year 3 months	Rectosigmoid	No	No	No	Female	74	NA	Non-progressor
+21CNPC	PD62070d	T3	Follow up	Low grade	Low grade	UC	19 years	2 years 2 months	Descending	No	No	No	Male	72	NA	Non-progressor
+23CNPA	PD62072a	T1	Precursor	Low grade	Low grade	UC	35 years	8 months	Transverse	No	No	Yes	Male	77	NA	Non-progressor
+24CNPA	PD62073a	T	Precursor	Low grade	Low grade	UC	28 years	3 months	Transverse	No	No	Yes	Female	48	NA	Non-progressor
+25CNPC	PD62074d	T3	Follow up	Low grade	low grade	UC	8 years	1 year 3 months	Rectum	No	No	Yes	Male	59	NA	Non-progressor
+26CNPA	PD62075a	T1	Precursor	Low grade	Low grade	UC	At least 6 years	7 months	Sigmoid	No	No	No	Female	57	NA	Non-progressor
+26CNPB	PD62075c	T2	Follow up	Low grade	Low grade	UC	At least 6 years	7 months	Sigmoid	No	No	No	Female	58	NA	Non-progressor
+26CNPC	PD62075d	T3	Follow up	Low grade	Low grade	UC	At least 6 years	10 months	Sigmoid	No	No	No	Female	59	NA	Non-progressor
+26CNPD	PD62075e	T4	Follow up	Low grade	Low grade	UC	At least 6 years	1 year	Sigmoid	No	No	No	Female	59	NA	Non-progressor
+28CNPA	PD62076a	T1	Precursor	Low grade	Low grade	UC	27 years	2 years 2 months	Transverse	No	No	No	Female	81	NA	Non-progressor
+28CNPB	PD62076c	T2	Follow up	Low grade	Low grade	UC	27 years	2 years 2 months	Transverse	No	No	No	Female	83	NA	Non-progressor
+29CNPA	PD62077a	T1	Precursor	Low grade	Low grade	UC	9 years	1 year 2 months	Transverse	Yes	No	Yes	Female	46	NA	Non-progressor
+30CNPA	PD62078a	T1	Precursor	Moderate	Moderate	UC	30 years	7 months	Rectosigmoid	No	No	Yes	Male	75	NA	Non-progressor
+30CNPB	PD62078c	T2	Follow up	Moderate	Moderate	UC	30 years	7 months	Rectosigmoid	No	No	Yes	Male	75	NA	Non-progressor
+31CNPA	PD62079a	T1	Precursor	Low grade	Low grade	UC	8 years	1 year 6 months	Transverse	No	No	Yes	Male	51	NA	Non-progressor
+31CNPB	PD62079c	T2	Follow up	Low grade	Low grade	UC	8 years	1 year 6 months	Transverse	No	No	Yes	Male	53	NA	Non-progressor
+32CNPA	PD62080a	T1	Precursor	Low grade	Low grade	UC	5 years	4 years 7 months	Rectum	No	No	No	Male	43	NA	Non-progressor
+32CNPB	PD62080c	T2	Follow up	Low grade	Low grade	UC	5 years	4 years 7 months	Rectum	No	No	No	Male	47	NA	Non-progressor
+33CNPA-1	PD62081a	T1	Precursor	Low grade	low grade**	UC	14 years	2 months	Descending	No	No	No	Male	60	NA	Non-progressor
+33CNPA-2	PD62081c	T2	Precursor	NOS	NOS*	UC	14 years	2 months	Rectum	No	No	No	Male	60	NA	Non-progressor
+34CNPB	PD62082c	T2	Follow up	High grade	High grade	UC	Uncertain 'chronic UC'	3 months	Caecum	Yes	No	Yes	Male	36	NA	Non-progressor
+35CNPB	PD62083c	T2	Follow up	Low grade	Low grade	UC	3 years	1 year	Caecum	No	No	Yes	Male	43	NA	Non-progressor
+35CNPC	PD62083d	T3	Follow up	Low grade	Low grade	UC	3 years	5 years 2 months	Caecum	No	No	Yes	Male	47	NA	Non-progressor
+36CNPA	PD62084a	T1	Precursor	Low grade	Low grade	UC	20 years	3 years 4 months	Sigmoid	No	No	No	Female	72	NA	Non-progressor
