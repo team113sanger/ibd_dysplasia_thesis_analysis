@@ -22,7 +22,7 @@ df_pre <- meta |>
   select(sanger_dna_id, group) |>
   filter(sanger_dna_id %in% pre_samples) |>
   mutate(
-    p53 = if_else(sanger_dna_id %in% tp53_status$Tumor_Sample_Barcode, "Mut", "WT")
+    TP53_status = if_else(sanger_dna_id %in% tp53_status$Tumor_Sample_Barcode, "Mut", "WT")
   ) |>
   left_join(
     cn_clusters |> rename(sanger_dna_id = sample),
@@ -40,7 +40,7 @@ write_tsv(df_pre, "results/precursor_combined_results.tsv")
   select(sanger_dna_id, group) |>
   filter(sanger_dna_id %in% fol_samples) |>
   mutate(
-    p53 = if_else(sanger_dna_id %in% tp53_status$Tumor_Sample_Barcode, "Mut", "WT")
+    TP53_status = if_else(sanger_dna_id %in% tp53_status$Tumor_Sample_Barcode, "Mut", "WT")
   ) |>
   left_join(
     cn_clusters |> rename(sanger_dna_id = sample),

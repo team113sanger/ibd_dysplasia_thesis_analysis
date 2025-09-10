@@ -1,4 +1,4 @@
-sanger_dna_id	group	p53	cn_cluster	proportion
+sanger_dna_id	group	TP53_status	cn_cluster	proportion
 PD62027c	Progressor	WT	NA	0.0471633353877914
 PD62028c	Progressor	Mut	NA	0.631339990737457
 PD62029d	Progressor	WT	NA	0.340734123077604
