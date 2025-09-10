@@ -3,9 +3,9 @@ library(readr)
 library(dplyr)
 
 # Read in data
-cn_clusters <- read_tsv("results/copy_number/cn_clusters.tsv") |>
-    select(sample, `4`) |>
-    rename(cn_cluster = `4`)
+cn_clusters <- read_tsv("results/copy_number/precursors/cn_clusters.tsv") |>
+    select(sample, `2`) |>
+    rename(cn_cluster = `2`)
 cn_prop <- read_tsv("data/copy_number/proportions/all_cn_props.tsv") |>
     select(Sample, proportion)
 tp53_status <- read_tsv("results/p53_mutations/p53_status.tsv")
