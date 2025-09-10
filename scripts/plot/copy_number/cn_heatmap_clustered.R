@@ -118,7 +118,7 @@ HM <- Heatmap(
 # ================================
 # 6. Save plot
 # ================================
-pdf("plots/copy_number/heatmap/cn_clustered_heatmap.pdf", width = 8, height = 10)
+pdf("plots/copy_number/heatmap/precursors/cn_clustered_heatmap.pdf", width = 8, height = 10)
 draw(
     HM,
     heatmap_legend_side = "right",
