@@ -4,30 +4,9 @@ library(dplyr)
 library(ggalluvial)
 
 # Read in data
-cn_clusters <- read_tsv("results/copy_number/cn_clusters.tsv") |>
-    select(sample, `4`) |>
-    rename(cn_cluster = `4`)
-tp53_status <- read_tsv("results/p53_mutations/p53_status.tsv")
-meta <- read_tsv("metadata/final_metadata_qc_pass.tsv")
-samples <- c(
-    read_lines("metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv"),
-    read_lines("metadata/sample_lists/progressor_precursor_samples_ppat.tsv"))
+results_df <- read_tsv("results/precursor_combined_results.tsv")
 
-# Combine data 
-df_all <- meta |>
-  select(sanger_dna_id, group) |>
-  filter(sanger_dna_id %in% samples) |>
-  mutate(
-    p53 = if_else(sanger_dna_id %in% tp53_status$Tumor_Sample_Barcode, "Mut", "WT")
-  ) |>
-  left_join(
-    cn_clusters |> rename(sanger_dna_id = sample),
-    by = "sanger_dna_id"
-  ) |>
-  filter(!sanger_dna_id %in% c("PD62028a", "PD62077a")) # Remove samples with no CN results
-
-
-df_alluvial <- df_all |>
+df_alluvial <- results_df |>
   group_by(p53, cn_cluster, group) |>
   summarise(Freq = n(), .groups = "drop")
 
