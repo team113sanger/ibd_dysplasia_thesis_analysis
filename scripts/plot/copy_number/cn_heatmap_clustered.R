@@ -9,8 +9,8 @@ library(circlize)
 # 1. Read data
 # ================================
 
-cnv_mat <- read_tsv("results/copy_number/cnv_calls.txt")
-clusters <- read_tsv("results/copy_number/cn_clusters.tsv")
+cnv_mat <- read_tsv("results/copy_number/precursors/cnv_calls.txt")
+clusters <- read_tsv("results/copy_number/precursors/cn_clusters.tsv")
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 
 # ================================
@@ -51,7 +51,7 @@ table(chr_vector)
 # ================================
 # Top annotation: cluster labels
 top_annotation <- HeatmapAnnotation(
-  "CN cluster" = annot_data$`4`,  # <- or use `3` or `8` depending on cut
+  "CN cluster" = annot_data$`2`,  # <- or use `3` or `8` depending on cut
   col = list(
     "CN cluster" = c(
       "1" = "#225ea8",
@@ -108,7 +108,7 @@ HM <- Heatmap(
   top_annotation = top_annotation,
   bottom_annotation = bottom_annotation,
   border = TRUE,
-  column_split = annot_data$`4`,  # split samples by cluster assignment
+  column_split = annot_data$`2`,  # split samples by cluster assignment
   row_split = chr_vector,
   row_title_rot = 0,
   row_title_gp = gpar(fontsize = 10),
@@ -118,7 +118,7 @@ HM <- Heatmap(
 # ================================
 # 6. Save plot
 # ================================
-pdf("plots/copy_number/heatmap/precursors/cn_clustered_heatmap.pdf", width = 8, height = 10)
+pdf("plots/copy_number/heatmap/precursors/cn_clustered_heatmap_2.pdf", width = 8, height = 10)
 draw(
     HM,
     heatmap_legend_side = "right",
