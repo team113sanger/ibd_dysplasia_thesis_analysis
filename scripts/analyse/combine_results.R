@@ -51,4 +51,4 @@ write_tsv(df_pre, "results/precursor_combined_results.tsv")
     by = "sanger_dna_id"
   )
 
-write_tsv(df_fol, "results/follow_up_combined_results")
+write_tsv(df_fol, "results/follow_up_combined_results.tsv")
