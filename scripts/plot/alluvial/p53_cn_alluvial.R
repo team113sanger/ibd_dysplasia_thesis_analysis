@@ -3,61 +3,83 @@ library(readr)
 library(dplyr)
 library(ggalluvial)
 
-# Read in data
-results_df <- read_tsv("results/precursor_combined_results.tsv")
+### Functions ###
+prep_alluvial_data <- function(df) {
+  df_alluvial <- df |>
+    select(-proportion) |>
+    group_by(group, cn_cluster, TP53_status) |>
+    summarise(Freq = n(), .groups = "drop")
+  return(df_alluvial)
+}
 
-df_alluvial <- results_df |>
-  group_by(p53, cn_cluster, group) |>
-  summarise(Freq = n(), .groups = "drop")
+plot_alluvial <- function(plot_df, axes_order, axis_labels, colours) {
+  axis_label_df <- data.frame(
+    x = seq_along(axes_order),
+    y = 40,
+    label = axis_labels
+  )
+  
+  ggplot(plot_df,
+         aes_string(axis1 = axes_order[1], axis2 = axes_order[2], axis3 = axes_order[3],
+                    y = "Freq", fill = axes_order[1])) +
+    geom_alluvium(width = 0.5, alpha = 0.7) +
+    geom_stratum(width = 0.5, color = "black", alpha = 0.9) +
+    geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 3) +
+    geom_text(data = axis_label_df, aes(x = x, y = y, label = label),
+              inherit.aes = FALSE, fontface = "bold", size = 4) +
+    scale_fill_manual(values = colours, na.value = "white") +
+    theme_classic() +
+    theme(
+      axis.title = element_blank(),
+      axis.text = element_blank(),
+      axis.ticks = element_blank(),
+      axis.line = element_blank(),
+      legend.position = "none"
+    )
+}
 
-# Plot
-axis_labels <- data.frame(
-  x = c(1, 2, 3),                  
-  y = 40,
-  label = c("Group", "TP53 Status", "CN Cluster")
+### Precursors ###
+pre_df <- read_tsv("results/precursor_combined_results.tsv")
+
+pre_alluvial <- prep_alluvial_data(pre_df)
+
+# By group
+p1 <- plot_alluvial(
+  pre_alluvial,
+  axes_order = c("group", "TP53_status", "cn_cluster"),
+  axis_labels = c("Group", "TP53 Status", "CN Cluster"),
+  colours = c("Non-progressor" = "#8FB996", "Progressor" = "#E6A272")
 )
+ggsave("plots/alluvial/precursors/group_cn_TP53.png", p1, height = 5, width = 7)
 
-p <- ggplot(df_alluvial,
-        aes(axis1 = group, axis2 = p53, axis3 = cn_cluster, y = Freq, fill = group)) +
-        geom_alluvium(width = 0.5, alpha = 0.7) +
-        geom_stratum(width = 0.5, color = "black", alpha = 0.9) +
-        geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 3) +
-        geom_text(data = axis_labels, aes(x = x, y = y, label = label),
-                  inherit.aes = FALSE, fontface = "bold", size = 4) +
-        scale_fill_manual(values = c("Non-progressor" = "#8FB996",
-                             "Progressor" = "#E6A272"), na.value = "white") +
-        theme_classic() +
-        theme(
-            axis.title = element_blank(),
-            axis.text = element_blank(),
-            axis.ticks = element_blank(),
-            axis.line = element_blank(),
-            legend.position = "none"
-        )
-
-ggsave("plots/alluvial/group_cn_p53_alluvial.png", p, height = 5)
-
-axis_labels <- data.frame(
-  x = c(1, 2, 3),                  
-  y = 40,
-  label = c("TP53 Status", "CN Cluster", "Group")
+# By TP53
+p2 <- plot_alluvial(
+  pre_alluvial,
+  axes_order = c("TP53_status", "cn_cluster", "group"),
+  axis_labels = c("TP53 Status", "CN Cluster", "Group"),
+  colours = c("WT" = "#41B6C4", "Mut" = "#edf8b1")
 )
+ggsave("plots/alluvial/precursors/TP53_cn_group.png", p2, height = 5, width = 7)
 
-p2 <- ggplot(df_alluvial,
-        aes(axis1 = p53, axis2 = cn_cluster, axis3 = group, y = Freq, fill = p53)) +
-        geom_alluvium(width = 0.5, alpha = 0.7) +
-        geom_stratum(width = 0.5, color = "black", alpha = 0.9) +
-        geom_text(stat = "stratum", aes(label = after_stat(stratum)), size = 3) +
-        geom_text(data = axis_labels, aes(x = x, y = y, label = label),
-                  inherit.aes = FALSE, fontface = "bold", size = 4) +
-        scale_fill_manual(values = c("#41B6C4","#edf8b1"), na.value = "white") +
-        theme_classic() +
-        theme(
-            axis.title = element_blank(),
-            axis.text = element_blank(),
-            axis.ticks = element_blank(),
-            axis.line = element_blank(),
-            legend.position = "none"
-        )
+### Follow Ups ###
+fol_df <- read_tsv("results/follow_up_combined_results.tsv")
 
-ggsave("plots/alluvial/p53_cn_group_alluvial.png", p2, height = 5)
+fol_alluvial <- prep_alluvial_data(fol_df)
+
+# By group
+f1 <- plot_alluvial(
+  fol_alluvial,
+  axes = c("group", "TP53_status", "cn_cluster"),
+  axis_labels = c("Group", "TP53 Status", "CN Cluster"),
+  colours = c("Non-progressor" = "#8FB996", "Progressor" = "#E6A272")
+)
+ggsave("plots/alluvial/follow_ups/group_cn_TP53.png", f1, height = 5, width = 7)
+
+# By TP53
+f2 <- plot_alluvial(
+  fol_alluvial,
+  axes = c("TP53_status", "cn_cluster", "group"),
+  axis_labels = c("TP53 Status", "CN Cluster", "Group"),
+  colours = c("WT" = "#41B6C4", "Mut" = "#edf8b1")
+)
+ggsave("plots/alluvial/follow_ups/TP53_cn_group.png", f2, height = 5, width = 7)
