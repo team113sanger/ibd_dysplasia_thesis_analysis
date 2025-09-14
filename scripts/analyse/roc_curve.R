@@ -38,7 +38,7 @@ best_thresh
 
 p <- ggroc(list(roc_obj), size = 1, legacy.axes = TRUE)+
         theme_classic(base_size = 12) +
-        geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), color="grey", linetype="dashed") +
+        geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), color="grey", linetype="dashed") + #random classifier baseline
         theme(axis.text.x = element_text(vjust = 0.5, hjust=1, colour="black", size=10),
               panel.grid.major = element_blank(),
               panel.grid.minor = element_blank(),
