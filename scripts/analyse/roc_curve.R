@@ -45,15 +45,15 @@ p <- ggroc(list(roc_obj), size = 1, legacy.axes = TRUE)+
               panel.background = element_blank(),
               axis.line = element_blank(),
               legend.position="none") +
-        annotate("text", x=0.7, y=0.25, label= paste0("functional score\n\ AUC: ",round(auc_val,4)),family = "mono", colour="black") +
-        scale_colour_manual(values = c("darkblue")) +
+        annotate("text", x=0.7, y=0.2, label= paste0("functional score\n\ AUC: ",round(auc_val,4)),family = "mono", colour="black") +
+        scale_colour_manual(values = c("black")) +
         scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.25)) +
         annotate("point", x=best_thresh$`1-specificity`, y=best_thresh$sensitivity, colour="red", size=2.5) +
         annotate("text", x=0.7, y=(best_thresh$sensitivity-0.05), label= paste0(" threshold: ",round(best_thresh$threshold,5)),family = "mono", colour="black") +
         annotate("text", x=0.7, y=(best_thresh$sensitivity-0.1), label= paste0("  sensitivity: ", round(best_thresh$sensitivity,5)),family = "mono", colour="black") +
         annotate("text", x=0.7, y=(best_thresh$sensitivity-0.15), label= paste0("1-specificity: ", round(best_thresh$`1-specificity`,5)),family = "mono", colour="black") +
-        ylab("Sensitivity") +
-        xlab("1-Specificity")
+        ylab("Sensitivity (True Positive Rate)") +
+        xlab("1-Specificity (False Positve Rate)")
 
 ggsave("results/regression_analysis/roc_curve.png", p, dpi = 300)
 
