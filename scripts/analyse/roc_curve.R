@@ -5,14 +5,14 @@ library(ggplot2)
 
 # Read in data
 df <- read_tsv("results/precursor_combined_results.tsv") |>
-    select(sanger_dna_id, group, proportion)
+    select(sanger_dna_id, group, cn_proportion)
 
 # Convert to binary outcome (1 = Progressor, 0 = Non-progressor)
 df <- df |>
   mutate(group_outcome = ifelse(group == "Progressor", 1, 0)) 
 
 # ROC analysis
-roc_obj <- roc(df$group_outcome, df$proportion,
+roc_obj <- roc(df$group_outcome, df$cn_proportion,
                levels = c(0, 1), direction = "<")
 
 # See results
@@ -60,7 +60,7 @@ ggsave("results/regression_analysis/roc_curve.png", p, dpi = 300)
 # Get positve and negative predictive values 
 # Apply threshold to classify samples
 df <- df |>
-  mutate(pred_progression = ifelse(proportion >= best_thresh$threshold, "Progressor", "Non-progressor"))
+  mutate(pred_progression = ifelse(cn_proportion >= best_thresh$threshold, "Progressor", "Non-progressor"))
 
 # Confusion matrix
 conf <- table(Observed = df$group, Predicted = df$pred_progression)
