@@ -1,42 +1,104 @@
 library(pROC)
-library(plyr)
-library(readr)
 library(dplyr)
+library(readr)
 library(ggplot2)
-library(PRROC)
 
 # Read in data
 df <- read_tsv("results/precursor_combined_results.tsv") |>
     select(sanger_dna_id, group, proportion)
 
-result <-roc(df$group, df$proportion, ci=FALSE)
+# Convert to binary outcome (1 = Progressor, 0 = Non-progressor)
+df <- df |>
+  mutate(group_outcome = ifelse(group == "Progressor", 1, 0)) 
 
-#can use this to get values and filter for which parameters you want
-all <- coords(result, ret = "all", transpose = FALSE) #%>% select(precision, recall)
-ideal <- coords(result, "best", ret=c("threshold", "sensitivity", "1-specificity", "specificity","precision","recall"))
-write.csv(all,"results/regression_analysis/group_cna_output.csv", row.names = FALSE)
-write.csv(ideal,"results/regression_analysis//group_cna_output_thresholds.csv", row.names = FALSE)
+# ROC analysis
+roc_obj <- roc(df$group_outcome, df$proportion,
+               levels = c(0, 1), direction = "<")
 
-g <- ggroc(list(result), size = 1, legacy.axes = TRUE)+
-        theme_classic()+
-        #theme(panel.border = element_rect(colour = "black", fill=NA, size=1))+
-        theme(axis.text.x = element_text(vjust = 0.5, hjust=1, colour="black", size=10))+
-        theme(axis.text.y = element_text(vjust = 0.5, hjust=1, colour="black", size=10))+
-        theme(axis.title.x = element_text(size = 12, colour = "black"))+
-        theme(axis.title.y = element_text(size = 12, colour = "black"))+
-        geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), color="grey", linetype="dashed")+
-        theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-                panel.background = element_blank(), axis.line = element_blank())+
-        theme(legend.position="none")+
-        annotate("text", x=0.7, y=0.25, label= paste0("functional score\n\ AUC: ",round(result$auc,4)),family = "mono", colour="black") +
-        scale_colour_manual(values = c("black"))+
-       # scale_y_continuous(breaks = seq(0,0.25,0.5,0.75,1), limits = c(0,1))
-        scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.25))+
-        annotate("point", x=ideal$`1-specificity`, y=ideal$sensitivity, colour="red", size=2.5)+
-        annotate("text", x=0.7, y=(ideal$sensitivity-0.05), label= paste0(" threshold: ",round(ideal$threshold,5)),family = "mono", colour="black") +
-        annotate("text", x=0.7, y=(ideal$sensitivity-0.1), label= paste0("  sensitivity: ", round(ideal$sensitivity,5)),family = "mono", colour="black") +
-        annotate("text", x=0.7, y=(ideal$sensitivity-0.15), label= paste0("1-specificity: ", round(ideal$`1-specificity`,5)),family = "mono", colour="black") +
-        ylab("Sensitivity")+
+# See results
+# Area under curve (AUC)
+auc_val <- auc(roc_obj)
+auc_val
+
+# See all results
+all <- coords(roc_obj, ret = "all", transpose = FALSE) 
+
+# Best threshold (Youden index)
+best_thresh <- coords(
+    roc_obj, "best",
+    ret = c("threshold", "sensitivity", "1-specificity", "specificity", "precision", "recall"),
+    transpose = FALSE
+    )
+best_thresh
+
+# Plot ROC
+# pdf("results/regression_analysis/roc.pdf")
+# plot(roc_obj, print.auc = TRUE, col = "darkorange", lwd = 2, legacy.axes = TRUE)
+# dev.off()
+
+p <- ggroc(list(roc_obj), size = 1, legacy.axes = TRUE)+
+        theme_classic(base_size = 12) +
+        geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), color="grey", linetype="dashed") +
+        theme(axis.text.x = element_text(vjust = 0.5, hjust=1, colour="black", size=10),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              panel.background = element_blank(),
+              axis.line = element_blank(),
+              legend.position="none") +
+        annotate("text", x=0.7, y=0.25, label= paste0("functional score\n\ AUC: ",round(auc_val,4)),family = "mono", colour="black") +
+        scale_colour_manual(values = c("darkblue")) +
+        scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.25)) +
+        annotate("point", x=best_thresh$`1-specificity`, y=best_thresh$sensitivity, colour="red", size=2.5) +
+        annotate("text", x=0.7, y=(best_thresh$sensitivity-0.05), label= paste0(" threshold: ",round(best_thresh$threshold,5)),family = "mono", colour="black") +
+        annotate("text", x=0.7, y=(best_thresh$sensitivity-0.1), label= paste0("  sensitivity: ", round(best_thresh$sensitivity,5)),family = "mono", colour="black") +
+        annotate("text", x=0.7, y=(best_thresh$sensitivity-0.15), label= paste0("1-specificity: ", round(best_thresh$`1-specificity`,5)),family = "mono", colour="black") +
+        ylab("Sensitivity") +
         xlab("1-Specificity")
 
-ggsave("results/regression_analysis/roc.png", g)
+ggsave("results/regression_analysis/roc_curve.png", p, dpi = 300)
+
+# Get positve and negative predictive values 
+# Apply threshold to classify samples
+df <- df |>
+  mutate(pred_progression = ifelse(proportion >= best_thresh$threshold, "Progressor", "Non-progressor"))
+
+# Confusion matrix
+conf <- table(Observed = df$group, Predicted = df$pred_progression)
+conf
+
+# Extract values
+TP <- conf["Progressor", "Progressor"]
+FP <- conf["Non-progressor", "Progressor"]
+TN <- conf["Non-progressor", "Non-progressor"]
+FN <- conf["Progressor", "Non-progressor"]
+
+# Predictive values
+PPV <- TP / (TP + FP)
+NPV <- TN / (TN + FN)
+
+PPV
+NPV
+
+# Write results
+# Build results summary
+results_summary <- tibble::tibble(
+  Metric = c("AUC",
+             "Threshold",
+             "Sensitivity",
+             "1-Specificity",
+             "PPV",
+             "NPV",
+             "TP", "FP", "TN", "FN"),
+  Value = c(
+    as.numeric(auc_val),
+    best_thresh$threshold,
+    best_thresh$sensitivity,
+    best_thresh$`1-specificity`,
+    PPV,
+    NPV,
+    TP, FP, TN, FN
+  )
+)
+
+write_tsv(results_summary, "results/regression_analysis/roc_metrics.tsv")
+
