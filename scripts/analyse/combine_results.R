@@ -7,7 +7,8 @@ cn_clusters <- read_tsv("results/copy_number/precursors/cn_clusters.tsv") |>
     select(sample, `2`) |>
     rename(cn_cluster = `2`)
 cn_prop <- read_tsv("data/copy_number/proportions/all_cn_props.tsv") |>
-    select(Sample, proportion)
+    select(Sample, proportion) |>
+    rename(cn_proportion = proportion)
 tp53_status <- read_tsv("results/p53_mutations/p53_status.tsv")
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 pre_samples <- c(
