@@ -89,3 +89,9 @@ p_combined <- p / p2 + plot_layout(heights = c(3, 1))
 
 ggsave("plots/copy_number/proportions/group_cn_props.png",
        p_combined, width = 6, height = 5)
+
+df_progs <- df_all |>
+    filter(group == "Progressor") |>
+    arrange(desc(proportion)) |>
+    arrange(timepoint) |>
+    write_tsv("results/tables/progs_cn_status.tsv")
