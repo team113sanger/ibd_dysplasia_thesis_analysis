@@ -10,6 +10,7 @@ shorten_consequence <- function(data) {
     mutate(across(everything(), ~ gsub("inframe_deletion", "Inframe indel", .))) %>%
     mutate(across(everything(), ~ gsub("inframe_insertion", "Inframe indel", .))) %>%
     mutate(across(everything(), ~ gsub("stop_lost", "Stop codon lost", .))) %>%
+    mutate(across(everything(), ~ gsub("protein_altering_variant", "Inframe indel", .))) %>%
     mutate(across(everything(), ~ gsub("start_lost", "Start codon lost", .)))
 
   return(data)
