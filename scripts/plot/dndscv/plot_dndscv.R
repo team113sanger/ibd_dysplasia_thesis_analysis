@@ -36,6 +36,7 @@ muts_df <- combined_df |>
     )
   )
 
+# Only significant genes
 sig_muts_sums <- muts_df |>
   filter(qglobal_cv < 0.05) |>
   group_by(gene_name, group, mutation_type) |>
@@ -62,22 +63,22 @@ counts_barplot <- ggplot(sig_muts_sums, aes(x = reorder(gene_name, -total), y = 
   geom_col() +
   geom_text(
     data = gene_pct,
-    aes(x = gene_name, y = total_mut + 1.5 , label = paste0(percent_samples, "%")),
+    aes(x = gene_name, y = total_mut + 1.7 , label = paste0(percent_samples, "%")),
     inherit.aes = FALSE, 
     vjust = 1, size = 3, angle = 45
   ) +
-  facet_wrap(~group, scales = "free_x") +
+  facet_wrap(~group, scales = "free_x", strip.position = "top") +
   scale_fill_manual(values = mutation_colours) +
   labs(
     x = "Gene",
     y = "Mutation Count",
     fill = "Mutation Type"
   ) +
-  theme_classic(base_size = 13) +
+  theme_classic(base_size = 12) +
   theme(
     panel.grid = element_blank(),
-    axis.line.y = element_line(colour = "black"),
-    axis.line.x = element_blank(),
+    axis.line = element_line(colour = "black"),
+   # axis.line.x = element_blank(),
     axis.ticks.x = element_blank(),
     axis.text.x = element_text(angle = 90, hjust = 1.2, face = "italic"),
     strip.background = element_blank(),
@@ -89,7 +90,8 @@ counts_barplot <- ggplot(sig_muts_sums, aes(x = reorder(gene_name, -total), y = 
   ) +
   scale_y_continuous(limits = c(0,18))
 
-ggsave("plots/dndscv/precursors/dndscv_barplot.png", plot = counts_barplot, height = 4, width = 4.7, dpi = 300)
+ggsave("plots/dndscv/precursors/dndscv_barplot.png",
+      plot = counts_barplot, height = 4, width = 4.7, dpi = 300)
 
 ### TP53 Plot ###
 tp53_df <- muts_df |>
