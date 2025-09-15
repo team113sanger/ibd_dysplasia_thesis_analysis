@@ -91,7 +91,7 @@ ci_barplot <- ggplot(ci_df, aes(x = gene_name, y = mle, fill = type)) +
   scale_fill_manual(values = mutation_colours) +
   scale_y_log10(trans = "pseudo_log", breaks = c(1, 10, 100, 1000, 10000)) +
   labs(
-    x = NULL,
+    x = "Genes under positive selection",
     y = "dN/dS ratio",
     fill = NULL
   ) +
