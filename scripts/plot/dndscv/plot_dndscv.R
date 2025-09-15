@@ -87,7 +87,7 @@ barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) 
               facet_wrap(~group, scales = "free_x") +
               scale_fill_manual(values = mutation_colours) +
               labs(
-                x = "Gene",
+                x = "TP53",
                 y = "Mutation Count",
                 fill = "Mutation Type"
               ) +
@@ -96,8 +96,9 @@ barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) 
                 panel.grid = element_blank(),
                 axis.line.y = element_line(colour = "black"),
                 axis.line.x = element_blank(),
+                axis.title.x = element_text(face = "italic"),
                 axis.ticks.x = element_blank(),
-                axis.text.x = element_text(angle = 45, hjust = 1),
+                axis.text.x = element_blank(),
                 strip.background = element_blank(),
                 strip.text = element_blank(),
                 legend.position = "right",
