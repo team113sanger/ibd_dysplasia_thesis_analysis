@@ -40,16 +40,6 @@ sig_muts_sums <- muts_df |>
 
 ##### Plot ##### 
 ### Barplot ###
-# Set gene order
-ordered_genes <- sig_muts_sums |>
-  group_by(gene_name) |>
-  summarise(TotalMut = sum(total)) |>
-  arrange(desc(TotalMut)) |>
-  pull(gene_name)
-
-plot_df <- sig_muts_sums |>
-  mutate(gene_name = factor(gene_name, levels = ordered_genes))
-
 # Define colours
 mutation_colours <- c(
   "Synonymous" = "#8DA0CB",   # slate blue-grey
@@ -60,7 +50,7 @@ mutation_colours <- c(
 )
 
 # Plot
-counts_barplot <- ggplot(plot_df, aes(x = gene_name, y = total, fill = mutation_type)) +
+counts_barplot <- ggplot(sig_muts_sums, aes(x = reorder(gene_name, -total), y = total, fill = mutation_type)) +
   geom_col() +
   facet_wrap(~group, scales = "free_x") +
   scale_fill_manual(values = mutation_colours) +
@@ -84,7 +74,7 @@ counts_barplot <- ggplot(plot_df, aes(x = gene_name, y = total, fill = mutation_
     legend.title = element_text(size = 9)
   )
 
-ggsave("plots/dndscv/precursors/dndscv_barplot.png", plot = counts_barplot, height = 4, width = 6, dpi = 300)
+ggsave("plots/dndscv/precursors/dndscv_barplot.png", plot = counts_barplot, height = 4, width = 4.7, dpi = 300)
 
 ### TP53 Plot ###
 tp53_df <- muts_df |>
@@ -119,8 +109,6 @@ barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) 
 # Prep
 ci_df <- bind_rows(prog_ci, non_prog_ci) |>
   rename(gene_name = gene) |>
-  filter(gene_name %in% ordered_genes) |>
-  mutate(gene_name = factor(gene_name, levels = ordered_genes)) |>
   tidyr::pivot_longer(cols = starts_with(c("mis", "tru")),
                       names_to = c("type", ".value"),
                       names_pattern = "(mis|tru)_(.*)") |>
