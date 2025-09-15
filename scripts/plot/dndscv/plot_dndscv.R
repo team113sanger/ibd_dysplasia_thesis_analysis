@@ -126,7 +126,7 @@ dotplot <- ggplot(ci_df, aes(x = gene_name, y = mle, colour = type)) +
   ) +
   geom_hline(yintercept = 1, linetype = "dashed", colour = "grey30") +
   scale_color_manual(values = c("#68a334ff", "#9f2727ff")) +
-  scale_y_log10() +
+  scale_y_log10(trans = "pseudo_log", breaks = c(1, 10, 100, 1000, 10000)) +
   facet_wrap(~group, scales = "free_x") +
   theme_classic(base_size = 13) +
   theme(
