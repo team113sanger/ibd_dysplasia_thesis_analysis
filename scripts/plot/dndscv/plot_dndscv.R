@@ -93,7 +93,7 @@ tp53_df <- muts_df |>
   summarise(total = sum(count), .groups = "drop")
 
 barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) +
-              geom_col(position = "stack") +
+              geom_col(position = "stack", width = 0.7) +
               facet_wrap(~group, scales = "free_x") +
               scale_fill_manual(values = mutation_colours) +
               labs(
@@ -109,7 +109,7 @@ barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) 
                 axis.ticks.x = element_blank(),
                 axis.text.x = element_text(angle = 45, hjust = 1),
                 strip.background = element_blank(),
-                strip.text = element_text(face = "bold"),
+                strip.text = element_blank(),
                 legend.position = "right",
                 legend.key.size = unit(0.4, "cm"),
                 legend.text = element_text(size = 9),
@@ -120,16 +120,20 @@ barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) 
 ci_df <- bind_rows(prog_ci, non_prog_ci) |>
   rename(gene_name = gene) |>
   filter(gene_name %in% ordered_genes) |>
-  mutate(gene_name = factor(gene_name, levels = ordered_genes))
+  mutate(gene_name = factor(gene_name, levels = ordered_genes)) |>
+  tidyr::pivot_longer(cols = starts_with(c("mis", "tru")),
+                      names_to = c("type", ".value"),
+                      names_pattern = "(mis|tru)_(.*)")
 
 # Dot plot of truncating dN/dS with error bars
-dotplot <- ggplot(ci_df, aes(x = gene_name, y = tru_mle, colour = group)) +
-  geom_point(size = 2, position = position_dodge(width = 0.6)) +
-  geom_errorbar(aes(ymin = tru_low, ymax = tru_high),
+dotplot <- ggplot(ci_df, aes(x = gene_name, y = mle, colour = type)) +
+  geom_point(size = 2, position = position_dodge(width = 0.7)) +
+  geom_errorbar(aes(ymin = low, ymax = high),
     width = 0.3,
-    position = position_dodge(width = 0.6)
+    position = position_dodge(width = 0.7)
   ) +
   geom_hline(yintercept = 1, linetype = "dashed", colour = "grey30") +
+  scale_color_brewer(palette = 'Accent')+
   scale_y_log10() +
   facet_wrap(~group, scales = "free_x") +
   theme_classic(base_size = 13) +
@@ -139,12 +143,14 @@ dotplot <- ggplot(ci_df, aes(x = gene_name, y = tru_mle, colour = group)) +
     axis.ticks.x = element_blank(),
     axis.line.x = element_blank(),
     strip.background = element_blank(),
-    strip.text = element_blank(),
-    legend.position = "none"
+    strip.text = element_text(face = "bold"),
+    legend.text = element_text(size = 9),
+    legend.title = element_text(size = 9),
+    legend.position = "right"
   ) +
-  labs(y = "Truncating dN/dS")
+  labs(y = "Truncating dN/dS", colour = "Mutation Type")
 
 # Combine
-combined_plot <- dotplot / barplot + plot_layout(heights = c(1, 2))
+combined_plot <- dotplot / barplot + plot_layout(heights = c(1, 1.5))
 
-ggsave("plots/dndscv/precursors/dndscv_tp53_plot.png", plot = combined_plot, height = 6, width = 5, dpi = 300)
+ggsave("plots/dndscv/precursors/dndscv_tp53_plot.png", plot = combined_plot, height = 5, width = 5.2, dpi = 300)
