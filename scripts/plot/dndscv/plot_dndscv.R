@@ -18,6 +18,9 @@ non_prog_ci <- read_tsv("data/variants/dndscv/non_prog_gene_ci.tsv") |>
 
 combined_df <- bind_rows(prog, non_prog)
 
+n_prog <- 19
+n_nprog <- 21
+
 # Reshape and filter data
 muts_df <- combined_df |>
   select(gene_name, qglobal_cv, group, n_syn, n_mis, n_non, n_spl, n_ind) |>
@@ -38,6 +41,11 @@ sig_muts_sums <- muts_df |>
   group_by(gene_name, group, mutation_type) |>
   summarise(total = sum(count), .groups = "drop")
 
+gene_pct <- sig_muts_sums |>
+  group_by(group, gene_name) |>
+  summarise(total_mut = sum(total), .groups = "drop") |>
+  mutate(percent_samples = round(100 * total_mut / ifelse(group == "prog", n_prog, n_nprog), 1))
+
 ##### Plot ##### 
 ### Barplot ###
 # Define colours
@@ -52,6 +60,12 @@ mutation_colours <- c(
 # Plot
 counts_barplot <- ggplot(sig_muts_sums, aes(x = reorder(gene_name, -total), y = total, fill = mutation_type)) +
   geom_col() +
+  geom_text(
+    data = gene_pct,
+    aes(x = gene_name, y = total_mut + 1.5 , label = paste0(percent_samples, "%")),
+    inherit.aes = FALSE, 
+    vjust = 1, size = 3, angle = 45
+  ) +
   facet_wrap(~group, scales = "free_x") +
   scale_fill_manual(values = mutation_colours) +
   labs(
@@ -65,14 +79,15 @@ counts_barplot <- ggplot(sig_muts_sums, aes(x = reorder(gene_name, -total), y = 
     axis.line.y = element_line(colour = "black"),
     axis.line.x = element_blank(),
     axis.ticks.x = element_blank(),
-    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.x = element_text(angle = 90, hjust = 1.2, face = "italic"),
     strip.background = element_blank(),
     strip.text = element_text(face = "bold"),
     legend.position = "right",
     legend.key.size = unit(0.4, "cm"),
     legend.text = element_text(size = 9),
     legend.title = element_text(size = 9)
-  )
+  ) +
+  scale_y_continuous(limits = c(0,18))
 
 ggsave("plots/dndscv/precursors/dndscv_barplot.png", plot = counts_barplot, height = 4, width = 4.7, dpi = 300)
 
