@@ -44,7 +44,7 @@ sig_muts_sums <- muts_df |>
 gene_pct <- sig_muts_sums |>
   group_by(group, gene_name) |>
   summarise(total_mut = sum(total), .groups = "drop") |>
-  mutate(percent_samples = round(100 * total_mut / ifelse(group == "prog", n_prog, n_nprog), 1))
+  mutate(percent_samples = round(100 * total_mut / ifelse(group == "Progressor", n_prog, n_nprog), 1))
 
 ##### Plot ##### 
 ### Barplot ###
