@@ -109,4 +109,4 @@ ci_barplot <- ggplot(ci_df, aes(x = gene_name, y = mle, fill = type)) +
 combined_plot <- counts_barplot / ci_barplot + plot_layout(heights = c(1, 1))
 
 ggsave("plots/dndscv/precursors/dndscv_n_progressors_plot.png",
-        plot = combined_plot, height = 3.5, width = 3.2, dpi = 300)
+        plot = combined_plot, height = 3, width = 3.2, dpi = 300)
