@@ -85,7 +85,7 @@ ci_barplot <- ggplot(ci_df, aes(x = gene_name, y = mle, fill = type)) +
   geom_errorbar(
     aes(ymin = low, ymax = high),
     position = position_dodge(width = 0.8),
-    width = 0.3
+    width = 0.2
   ) +
     geom_hline(yintercept = 1, linetype = "dashed", colour = "grey30") +
   scale_fill_manual(values = mutation_colours) +
