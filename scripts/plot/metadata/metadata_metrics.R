@@ -4,7 +4,7 @@ library(dplyr)
 
 sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
-            mutate(patient_id = str_remove(sanger_dna_id, "[a-z]$")) |>
+            mutate(patient_id = str_remove(sanger_dna_id, "[a-z]$")) |> #keep to remove multiple lesions per patient
             filter(sanger_dna_id %in% sample_list)
 
 patient_coint <- meta |>
