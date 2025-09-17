@@ -24,13 +24,6 @@ ibd_forms_count <- meta |>
 ibd_forms_count
 
 site_count <- meta |>
-    mutate(site_general = case_when(
-           site %in% c("Caecum", "Ascending", "Proximal Ascending", "Distal Ascending") ~ "Right colon",
-           site %in% c("Hepatic Flexure", "Transverse", "Splenic Flexure") ~ "Transverse colon",
-           site %in% c("Descending", "Sigmoid", "Rectosigmoid") ~ "Left colon",
-           site %in% c("Rectum") ~ "Rectum",
-           TRUE ~ "Other"
-         )) |>
     distinct(patient_id, .keep_all = TRUE) |>
     count(site_general)
 site_count
