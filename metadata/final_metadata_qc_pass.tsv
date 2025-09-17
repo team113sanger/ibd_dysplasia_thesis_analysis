@@ -39,7 +39,7 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 20CPB	PD62045c	T	Follow Up	High grade	High grade dysplasia	NA	NA	NA	NA	NA	NA	NA	Male	40	NA	Progressor	Other	PD62045
 21CPA	PD62046a	T1	Precursor	Low grade	Low grade dysplasia	UC	14 years	2 years 4 months	Rectum	No	No	No	Male	73	None	Progressor	Rectum	PD62046
 21CPB	PD62046c	T2	Follow up	High grade	High grade dysplasia	UC	14 years	2 years 4 months	Rectum	No	No	No	Male	75	None	Progressor	Rectum	PD62046
-22CPA	PD62047a	T1	Precursor	Not specified	dysplasia in TA, not specified	UC	6 years	4 years	Sigmoid	No	No	Yes	Male	53	None	Progressor	Left colon	PD62047
+22CPA	PD62047a	T1	Precursor	NOS	dysplasia in TA, not specified	UC	6 years	4 years	Sigmoid	No	No	Yes	Male	53	None	Progressor	Left colon	PD62047
 22CPH	PD62047g	T6	Follow up	High grade	Flat high grade dysplasia (focal)	UC	6 years	4 years	Rectum	No	No	Yes	Male	63	None	Progressor	Rectum	PD62047
 22CPI	PD62047h	T7	Follow up	High grade	High grade dysplasia in TVA ? Invasion	UC	6 years	4 years	Rectum	No	No	Yes	Male	64	None	Progressor	Rectum	PD62047
 24CPB-1	PD62048a	T1	Follow up	Adenocarcinoma	Adenocaricnoma in TVA	UC	2 years	3 months	Transverse	No	No	Yes	Male	66	This patient had adenocarcinoma arising in background of multiple adenomata - ? Get precursor from background, assess on review.	Progressor	Transverse colon	PD62048

@@ -56,7 +56,7 @@ meta_tidy <- meta_pass |>
     str_detect(grade_of_dysplasia, regex("adenocarcinoma", ignore_case = TRUE)) ~ "Adenocarcinoma",
     str_detect(grade_of_dysplasia, regex("adenocaricnoma", ignore_case = TRUE)) ~ "Adenocarcinoma",
     str_detect(grade_of_dysplasia, regex("moderate", ignore_case = TRUE)) ~ "Moderate",
-    str_detect(grade_of_dysplasia, regex("not specified", ignore_case = TRUE)) ~ "Not specified", #Check this is correct
+    str_detect(grade_of_dysplasia, regex("not specified", ignore_case = TRUE)) ~ "NOS", #Check this is correct
     TRUE ~ grade_of_dysplasia
   )) |>
   mutate(ibd_diagnosis = case_when(
