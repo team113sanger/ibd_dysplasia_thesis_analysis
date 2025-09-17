@@ -1,58 +1,56 @@
-source("scripts/plotting/oncoplots/oncoplot_utils.R")
+source("scripts/plot/oncoplots/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
 library(readr)
 library(ComplexHeatmap)
 library(grid)
+library(maftools)
 
 # Load in data
-# oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
-#   pull(`Hugo Symbol`)
+oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
+  pull(`Hugo Symbol`)
 
-tmb_raw <- read_tsv("data/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
+tmb_raw <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "TMB"))
+samples <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
-  mutate(group = paste(group, " ", precursor_or_follow_up, sep = ""))
+  mutate(group = paste(group, " ", precursor_or_follow_up, sep = "")) |>
+  filter(sanger_dna_id %in% samples)
 
 # Add levels
 metadata[["group"]] <- factor(
   metadata[["group"]],
   levels = c(
-    "Non-progressor Precursor", "Non-progressor Follow up",
+    "Non-progressor Precursor",  "Non-progressor Follow up",
     "Progressor Precursor", "Progressor Follow up"
   )
 )
-# samples_to_plot <- metadata %>%
-#   filter(precursor_or_follow_up == "Precursor") %>%
-#   pull(sanger_dna_id)
-
-plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")
 
 # metadata[["grade_of_dysplasia"]] <- factor(
 #   metadata[["grade_of_dysplasia"]],
 #   levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
 # )
 
-maf <- read_tsv("data/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
-  filter(Hugo_Symbol %in% plot_genes) |>
-  # filter(Tumor_Sample_Barcode %in% samples_to_plot) |>
-  # group_by(Hugo_Symbol) |>
-  # filter(n_distinct(Tumor_Sample_Barcode) >= 7) |>
-  # ungroup() |>
+maf <- read_tsv("data/variants/7100_3235-filtered_mutations_matched_allTum_keepPA.maf") |>
+  filter(Tumor_Sample_Barcode %in% samples) |>
+  filter(!Hugo_Symbol %in% maftools:::flags(top = 20)) |>
+  filter(Hugo_Symbol %in% oncoKB) |>
+  group_by(Hugo_Symbol) |>
+  filter(n_distinct(Tumor_Sample_Barcode) >= 4) |>
+  ungroup() |>
   select(Hugo_Symbol, Tumor_Sample_Barcode, Main_consequence_VEP) |>
   shorten_consequence() |>
-  left_join(metadata |> select(sanger_dna_id, study_id),
+  left_join(metadata |> select(sanger_dna_id),
     by = c("Tumor_Sample_Barcode" = "sanger_dna_id")
   ) |>
-  select(Hugo_Symbol, study_id, Main_consequence_VEP) |>
-  arrange(study_id)
+  arrange(Tumor_Sample_Barcode)
 
 # Transform data
 mat_df <- maf |>
-  group_by(Hugo_Symbol, study_id) |>
+  group_by(Hugo_Symbol, Tumor_Sample_Barcode) |>
   summarise(Main_consequence_VEP = paste(unique(Main_consequence_VEP), collapse = ";"), .groups = "drop") |>
-  pivot_wider(names_from = study_id, values_from = Main_consequence_VEP, values_fill = "")
+  pivot_wider(names_from = Tumor_Sample_Barcode, values_from = Main_consequence_VEP, values_fill = "")
 
 mat <- as.matrix(mat_df[, -1])
 rownames(mat) <- mat_df$Hugo_Symbol
@@ -82,12 +80,8 @@ alter_fun <- list(
 
 # Add TMB
 tmb <- tmb_raw |>
-  left_join(metadata |> select(sanger_dna_id, study_id),
-    by = c("Sample" = "sanger_dna_id")
-  ) |>
-  select(study_id, TMB) |>
-  filter(study_id %in% colnames(mat)) |>
-  arrange(study_id)
+  filter(Sample %in% colnames(mat)) |>
+  arrange(Sample)
 
 top_anno <- HeatmapAnnotation(
   "TMB\n(per Mb)" = anno_barplot(tmb$TMB, baseline = 0),
@@ -99,13 +93,13 @@ top_anno <- HeatmapAnnotation(
 
 # Add metadata
 metadata <- metadata |>
-  filter(study_id %in% colnames(mat)) |>
-  arrange(study_id)
+  filter(sanger_dna_id %in% colnames(mat)) |>
+  arrange(sanger_dna_id)
 
 bottom_anno <- HeatmapAnnotation(
   "Grade" = as.vector(metadata$grade_of_dysplasia),
   "IBD" = as.vector(metadata$ibd_diagnosis),
-  "Site" = as.vector(metadata$site),
+  "Site" = as.vector(metadata$general_site),
   show_legend = c(
     "Grade" = T,
     "IBD" = T,
@@ -116,28 +110,26 @@ bottom_anno <- HeatmapAnnotation(
       "Low grade" = "#ffffcc",
       "High grade" = "#66c2a5",
       "Adenocarcinoma" = "#225ea8",
-      "NOS" = "lightgrey"
+      "NOS" = "lightgrey",
+      "Moderate" = "#F1E6C8",
+      "Not specified" = 'grey'
     ),
-    "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8"),
+    "IBD" = c(
+        "Crohn's" = "lightpink",
+        "IBDU" = "darkorchid",
+        "UC" = "darkseagreen"),
     "Site" = c(
-      "Sigmoid" = "#d0e3e8",
-      "Transverse" = "#A4C8E1",
-      "Rectum" = "#7FB1CC",
-      "Ascending" = "#5B9BB1",
-      "Distal Ascending" = "#009688",
-      "Proximal Ascending" = "#66C2A5",
-      "Splenic Flexure" = "#A0DAB3",
-      "Hepatic Flexure" = "#F1E6C8",
-      "Caecum" = "#FFEA78",
-      "Descending" = "#FFD700",
-      "Rectosigmoid" = "#F4A582"
+      "Left colon"  = "#d0e3e8",
+      "Transverse colon" = "#A4C8E1",
+      "Right colon" = "#7FB1CC",
+      "Rectum" = "#5B9BB1"
     )
   ),
   gap = unit(c(0, 0, 1), "mm"),
   border = T, na_col = "#e6e6e6",
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
-  simple_anno_size = unit(0.4, "cm")
+  simple_anno_size = unit(0.3, "cm")
 )
 
 # Create plot
@@ -154,7 +146,7 @@ p <- oncoPrint(
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
   width = unit(17, "cm"),
-  height = unit(6, "cm"),
+  height = unit(7, "cm"),
   remove_empty_columns = FALSE,
   # border = T,
   row_names_gp = gpar(fontsize = 8),
@@ -162,12 +154,12 @@ p <- oncoPrint(
 )
 
 pdf(
-  file = paste0("plots/variants_by_group.pdf"),
-  width = 9, height = 5
+  file = paste0("plots/oncoplots/variants_by_group.pdf"),
+  width = 8, height = 6
 )
 draw(p,
-  heatmap_legend_side = "right",
-  annotation_legend_side = "right",
+  heatmap_legend_side = "bottom",
+  annotation_legend_side = "bottom",
   merge_legend = TRUE,
 )
 dev.off()
