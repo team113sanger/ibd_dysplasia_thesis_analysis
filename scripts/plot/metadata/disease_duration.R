@@ -42,7 +42,7 @@ p1 <- ggplot(meta, aes(x = group, y = disease_duration_years, fill = group)) +
         stat_compare_means(method = "wilcox.test", label.y = max(meta$disease_duration_years, na.rm = TRUE) * 1.05)
 
 
-ggsave("plots/metadata/disease_duration.png", p1, width =3, height =3)
+ggsave("plots/metadata/disease_duration.png", p1, width =4, height =4)
 
 prog <- meta |>
   filter(group =="Progressor")
@@ -63,7 +63,8 @@ ks_p <- signif(ks_test$p.value, 3)
 p2 <- ggplot(meta, aes(x = disease_duration_years, color = group)) +
         stat_ecdf(size = 1) +
         theme_classic() +
-        labs(colour = NULL, x = "Disease duration to dysplasia") +
+        labs(colour = NULL, x = "Disease duration to dysplasia",
+            y = "ECDF") +
         theme(legend.position = c(0.75, 0.3)) +
         annotate("text", 
            x = 2,
@@ -71,7 +72,7 @@ p2 <- ggplot(meta, aes(x = disease_duration_years, color = group)) +
            label = paste0("KS p = ", ks_p),
            hjust = 0,
            size = 4)
-ggsave("plots/metadata/disease_duration_cdf.png", p2, width = 3.5, height =3.5)
+ggsave("plots/metadata/disease_duration_cdf.png", p2, width = 4, height =4)
 
 p3 <- ggplot(meta, aes(x = disease_duration_years, fill = group)) +
         geom_density(alpha = 0.4) +
