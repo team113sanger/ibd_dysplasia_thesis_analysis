@@ -2,6 +2,7 @@ library(ggplot2)
 library(cowplot)
 library(readr)
 library(dplyr)
+library(tibble)
 
 # load in chromosome sizes
 chrom_sizes <- read.table("metadata/rescources/GRCh38_chrom_sizes.csv", header = 0, stringsAsFactors = F, sep = ",")
