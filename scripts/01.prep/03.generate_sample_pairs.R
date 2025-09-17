@@ -3,9 +3,6 @@ library(dplyr)
 
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv")
 
-metadata <- metadata |>
-  mutate(patient_id = sub("([A-Za-z]+\\d+)[a-zA-Z]$", "\\1", sanger_dna_id))
-
 sample_pairs <- metadata |>
   group_by(patient_id) |>
   filter(all(c("Precursor", "Follow up") %in% precursor_or_follow_up)) |>
@@ -15,12 +12,6 @@ sample_pairs <- metadata |>
     "PD62030c", "PD62031d", "PD62033c", "PD62041c", "PD62047g",
     "PD62064c", "PD62065a", "PD62065e", "PD62068a", "PD62068c",
     "PD62068d", "PD62068e", "PD62075c", "PD62075e"
-  )) |>
-  # Separate independent lesions from the same patient
-  mutate(patient_id = case_when(
-    sanger_dna_id %in% c("PD62037c", "PD62037d") ~ paste0(patient_id, "x"),
-    sanger_dna_id %in% c("PD62038c", "PD62038d") ~ paste0(patient_id, "x"),
-    TRUE ~ patient_id
   ))
 
 write_tsv(sample_pairs, "metadata/sample_pairs.tsv")

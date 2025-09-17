@@ -90,14 +90,22 @@ meta_fin <- meta_filtered |>
     group = if_else(
       sanger_dna_id == "PD62045c", "Progressor", group
     ),
-  )
-
-# Fix incorrect labels in metadata
-meta_fin <- meta_fin |>
+  ) |>
+  # Fix incorrect labels in metadata
   mutate(precursor_or_follow_up = case_when(
     sanger_dna_id == "PD62064d" ~ "Follow up",
     sanger_dna_id == "PD62064c" ~ "Precursor",
     TRUE ~ precursor_or_follow_up
   ))
 
-write_tsv(meta_fin, "metadata/final_metadata_qc_pass.tsv")
+# Add patient ID column
+meta_fin_fin <- meta_fin |>
+  mutate(patient_id = sub("([A-Za-z]+\\d+)[a-zA-Z]$", "\\1", sanger_dna_id)) |>
+  # Separate independent lesions from the same patient
+  mutate(patient_id = case_when(
+    sanger_dna_id %in% c("PD62037c", "PD62037d") ~ paste0(patient_id, "x"),
+    sanger_dna_id %in% c("PD62038c", "PD62038d") ~ paste0(patient_id, "x"),
+    TRUE ~ patient_id
+  ))
+
+write_tsv(meta_fin_fin, "metadata/final_metadata_qc_pass.tsv")
