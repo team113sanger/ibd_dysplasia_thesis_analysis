@@ -68,7 +68,14 @@ meta_tidy <- meta_pass |>
     family_history = str_to_title(family_history),
     pancolitis = str_to_title(pancolitis),
     site = str_to_title(site)
-  )
+  ) |>
+  mutate(site_general = case_when(
+        site %in% c("Caecum", "Ascending", "Proximal Ascending", "Distal Ascending") ~ "Right colon",
+        site %in% c("Hepatic Flexure", "Transverse", "Splenic Flexure") ~ "Transverse colon",
+        site %in% c("Descending", "Sigmoid", "Rectosigmoid") ~ "Left colon",
+        site %in% c("Rectum") ~ "Rectum",
+        TRUE ~ "Other"
+      ))
 
 # Remove extra PD62028a/3CPA case in 'non-progressor' group
 # Remove N-prog lesion from patient with lesions in both N-prog & prog groups
