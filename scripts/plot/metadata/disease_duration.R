@@ -2,6 +2,7 @@ library(readr)
 library(dplyr)
 library(ggplot2)
 library(stringr)
+library(ggpubr)
 
 sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
@@ -21,6 +22,12 @@ duration_stats <- meta |>
   )
 duration_stats
 
+# wilcox
+wilcox_test <- wilcox.test(
+  disease_duration_years ~ group,
+  data = meta
+)
+
 p1 <- ggplot(meta, aes(x = group, y = disease_duration_years, fill = group)) +
         geom_boxplot(outlier.shape = 21, alpha = 0.6, outlier.fill = "black") +
         scale_fill_manual(values = c("Non-progressor" = "darkseagreen", 
@@ -31,7 +38,9 @@ p1 <- ggplot(meta, aes(x = group, y = disease_duration_years, fill = group)) +
           y = "Disease Duration (years)"
         ) +
         theme_classic() +
-        theme(legend.position = "none")
+        theme(legend.position = "none") +
+        stat_compare_means(method = "wilcox.test", label.y = max(meta$disease_duration_years, na.rm = TRUE) * 1.05)
+
 
 ggsave("plots/metadata/disease_duration.png", p1, width =3, height =3)
 
@@ -43,11 +52,25 @@ nprog <- meta |>
   filter(group =="Non-progressor")
 hist(nprog$disease_duration_years)
 
+# KS test
+ks_test <- ks.test(
+  meta$disease_duration_years[meta$group == "Progressor"],
+  meta$disease_duration_years[meta$group == "Non-progressor"]
+)
+
+ks_p <- signif(ks_test$p.value, 3)
+
 p2 <- ggplot(meta, aes(x = disease_duration_years, color = group)) +
         stat_ecdf(size = 1) +
         theme_classic() +
         labs(colour = NULL, x = "Disease duration to dysplasia") +
-        theme(legend.position = c(0.75, 0.3))
+        theme(legend.position = c(0.75, 0.3)) +
+        annotate("text", 
+           x = 2,
+           y = 0.9, 
+           label = paste0("KS p = ", ks_p),
+           hjust = 0,
+           size = 4)
 ggsave("plots/metadata/disease_duration_cdf.png", p2, width = 3.5, height =3.5)
 
 p3 <- ggplot(meta, aes(x = disease_duration_years, fill = group)) +
