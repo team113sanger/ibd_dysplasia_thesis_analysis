@@ -1,4 +1,4 @@
-source("scripts/plotting/oncoplot_utils.R")
+source("scripts/plot/oncoplots/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
