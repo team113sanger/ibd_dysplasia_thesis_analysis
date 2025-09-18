@@ -35,32 +35,33 @@ tmb <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "T
 
 
 p <- ggplot(tmb, aes(x = group, y = TMB, fill = group)) +
-  geom_boxplot(outlier.shape = NA, alpha = 0.6) +
-  geom_jitter(width = 0.2, size = 1, alpha = 0.7) +
-  facet_wrap(~precursor_or_follow_up) +
-  theme_bw(base_size = 10) +
-  scale_y_log10() +
-  #scale_fill_brewer(palette = "Accent") +
-  scale_fill_manual(labels = c("P" = "Progressor", "NP" = "Non-progressor"),
-                    values = c("P" = "chocolate", "NP" = "darkseagreen")) +
-  labs(
-    x = NULL,
-    y = "TMB (mut/Mb)",
-    fill = NULL
-  ) +
-  theme(
-    legend.position = "bottom",
-    legend.text = element_text(size = 8),
-    strip.background = element_blank(),
-    strip.text = element_text(face = "bold"),
-    panel.border = element_blank()
-  ) +
-  stat_compare_means(
-    method = "wilcox.test",
-    comparisons = list(c("NP", "P")),
-    label = "p.signif",
-    hide.ns = FALSE,
-    size = 3
-  )
+        geom_violin(alpha = 0.3, color = NA) +  
+        geom_boxplot(alpha = 0.6, width = 0.2) +  
+        geom_jitter(width = 0.15, size = 0.5, alpha = 0.7) +
+        facet_wrap(~precursor_or_follow_up) +
+        theme_bw(base_size = 10) +
+        scale_y_log10() +
+        scale_fill_manual(
+          labels = c("P" = "Progressor", "NP" = "Non-progressor"),
+          values = c("P" = "chocolate", "NP" = "darkseagreen")
+        ) +
+        labs(
+          x = NULL,
+          y = "TMB (mut/Mb)",
+          fill = NULL
+        ) +
+        theme(
+          legend.position = "bottom",
+          legend.text = element_text(size = 8),
+          strip.background = element_blank(),
+          strip.text = element_text(face = "bold")
+        ) +
+        stat_compare_means(
+          method = "wilcox.test",
+          comparisons = list(c("NP", "P")),
+          label = "p.signif",
+          hide.ns = FALSE,
+          size = 3
+        )
 
-ggsave("plots/tmb/compare_group_tmb.png", p, width = 4, height = 3.5, dpi = 300)
+ggsave("plots/tmb/compare_group_tmb.png", p, width = 4.3, height = 3.5, dpi = 300)
