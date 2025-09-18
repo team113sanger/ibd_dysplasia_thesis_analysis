@@ -84,7 +84,7 @@ tmb <- tmb_raw |>
   arrange(Sample)
 
 top_anno <- HeatmapAnnotation(
-  "TMB\n(per Mb)" = anno_barplot(tmb$TMB, baseline = 0),
+  "TMB" = anno_barplot(tmb$TMB, baseline = 0),
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
   border = T,
@@ -146,7 +146,7 @@ p <- oncoPrint(
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
   width = unit(17, "cm"),
-  height = unit(7, "cm"),
+  height = unit(8, "cm"),
   remove_empty_columns = FALSE,
   # border = T,
   row_names_gp = gpar(fontsize = 8),
