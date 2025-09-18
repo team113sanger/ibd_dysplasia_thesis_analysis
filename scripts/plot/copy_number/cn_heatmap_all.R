@@ -123,17 +123,17 @@ p <- ggplot(data = tidy_cnv_calls) +
   labs(x = "Chromosomes", y = NULL, fill = "Copy number") +
   theme(
     axis.ticks = element_blank(),
-    axis.text.x = element_text(angle = 90, hjust = 1, vjust =0.5, size = 6),
-    axis.text.y = element_text(size = 4),
-    legend.position = "top",
+    axis.text.x = element_text(size = 4),
+    axis.text.y = element_blank(),
+    legend.position = "bottom",
     panel.grid = element_blank(),
     strip.background = element_blank(),
     legend.text = element_text(size = 8),
     legend.title = element_text(size = 9),
     strip.text = element_text(face = "bold"),
-    legend.key.size = unit(0.5, "cm"),
+    legend.key.size = unit(0.4, "cm"),
     axis.title.y = element_text(size = 9)
   )
 
 # ggsave("plots/copy_number/heatmap/cn_heatmap_all.pdf", plot = p, width = 10, height = length(sample_list) / 6)
-ggsave("plots/copy_number/heatmap/cn_heatmap_all.png", plot = p, width = 8, height = 4.5)
+ggsave("plots/copy_number/heatmap/cn_heatmap_all.png", plot = p, width = 8, height = 4.5, dpi = 300)
