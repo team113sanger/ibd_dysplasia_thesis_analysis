@@ -26,6 +26,24 @@ muts_df <- prog |>
     )
   )
 
+ratios_df <- prog |>
+  filter(qglobal_cv < 0.05) |>
+  select(gene_name, wmis_cv, wnon_cv, wspl_cv, wind_cv) |>
+  pivot_longer(
+    cols = starts_with("w"),
+    names_to = "mutation_type",
+    values_to = "w_dnds"
+  ) |>
+  mutate(
+    mutation_type = recode(mutation_type,
+      wmis_cv = "Missense",
+      wnon_cv = "Nonsense",
+      wspl_cv = "Splice",
+      wind_cv = "Indel"
+    ),
+    gene_name = factor(gene_name, levels = unique(gene_name)) # preserve order
+  )
+
 ci_df <- prog_ci |>
   rename(gene_name = gene) |>
   tidyr::pivot_longer(cols = starts_with(c("mis", "tru")),
@@ -44,6 +62,10 @@ genes_order <- muts_df |>
 
 muts_df <- muts_df |>
     mutate(gene_name = factor(gene_name, labels = genes_order))
+
+ratios_df <- ratios_df |>
+    mutate(gene_name = factor(gene_name, labels = genes_order))
+
 
 ci_df <- ci_df |>
     mutate(gene_name = factor(gene_name, labels = genes_order))
@@ -65,7 +87,7 @@ counts_barplot <- ggplot(muts_df, aes(x = gene_name, y = count, fill = mutation_
   scale_fill_manual(values = mutation_colours) +
   labs(
     x = NULL,
-    y = "Total Mutations",
+    y = "Total mutations",
     fill = NULL
   ) +
   theme_classic(base_size = 8) +
@@ -77,6 +99,24 @@ counts_barplot <- ggplot(muts_df, aes(x = gene_name, y = count, fill = mutation_
     legend.text  = element_text(size = 6),
     legend.key.size = unit(0.3, "cm")  
   )
+
+# ratios barplot
+ratios_barplot <- ggplot(ratios_df, aes(x = gene_name, y = w_dnds, fill = mutation_type)) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
+  labs(
+    x = NULL,
+    y = "dN/dS ratio",
+    fill = NULL
+  ) +
+  theme_classic(base_size = 8) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks = element_blank(),
+    legend.position = "right",
+    legend.text  = element_text(size = 6),
+    legend.key.size = unit(0.3, "cm")
+  ) +
+  scale_fill_manual(values = mutation_colours) 
 
 # dnds ratios barplot
 # Plot
@@ -97,7 +137,7 @@ ci_barplot <- ggplot(ci_df, aes(x = gene_name, y = mle, fill = type)) +
   ) +
   theme_classic(base_size = 8) +
   theme(
-    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, face = "italic"),
+    axis.text.x = element_text(face = "bold.italic"),
     axis.line.x = element_blank(),
     axis.ticks.x = element_blank(),
     legend.position = "right",
@@ -106,7 +146,7 @@ ci_barplot <- ggplot(ci_df, aes(x = gene_name, y = mle, fill = type)) +
   )
 
 # Combine plots
-combined_plot <- counts_barplot / ci_barplot + plot_layout(heights = c(1, 1))
+combined_plot <- counts_barplot / ratios_barplot / ci_barplot + plot_layout(heights = c(1, 1, 1))
 
 ggsave("plots/dndscv/precursors/dndscv_progressors_plot.png",
-        plot = combined_plot, height = 3, width = 3.2, dpi = 300)
+        plot = combined_plot, height = 3, width = 3.4, dpi = 300)
