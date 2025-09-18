@@ -56,7 +56,7 @@ barplot <- ggplot(tp53_df, aes(x = gene_name, y = total, fill = mutation_type)) 
                 y = "Total Mutations",
                 fill = NULL
               ) +
-              theme_classic(base_size = 13) +
+              theme_classic(base_size = 10) +
               theme(
                 panel.grid = element_blank(),
                 axis.line.y = element_line(colour = "black"),
@@ -95,7 +95,7 @@ dotplot <- ggplot(ci_df, aes(x = gene_name, y = mle, colour = type)) +
   scale_color_manual(values = c("#68a334ff", "#9f2727ff")) +
   scale_y_log10(trans = "pseudo_log", breaks = c(1, 10, 100, 1000, 10000)) +
   facet_wrap(~group, scales = "free_x") +
-  theme_classic(base_size = 13) +
+  theme_classic(base_size = 10) +
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank(),
@@ -112,4 +112,4 @@ dotplot <- ggplot(ci_df, aes(x = gene_name, y = mle, colour = type)) +
 # Combine
 combined_plot <- dotplot / barplot + plot_layout(heights = c(1, 1.5))
 
-ggsave("plots/dndscv/precursors/dndscv_tp53_plot.png", plot = combined_plot, height = 5, width = 5.2, dpi = 300)
+ggsave("plots/dndscv/precursors/dndscv_tp53_plot.png", plot = combined_plot, height = 4, width = 4.2, dpi = 300)
