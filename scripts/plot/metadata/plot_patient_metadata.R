@@ -1,5 +1,6 @@
 library(readr)
 library(ggplot2)
+library(stringr)
 
 sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
@@ -18,7 +19,7 @@ meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
 p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, shape = sex)) +
         geom_point(size = 2, alpha = 0.99) +
         facet_wrap(~ group, scales = "free_x") +
-        theme_bw() +
+        theme_bw(base_size = 9) +
         scale_colour_brewer(palette = "Dark2") +
         theme(
             axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6),
@@ -29,7 +30,7 @@ p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, 
             panel.border = element_blank(),
             strip.background = element_blank(),
             strip.text = element_text(face = "bold"),
-            text = element_text(family = "serif", colour = "black")
+          #  text = element_text(family = "serif", colour = "black")
         ) +
         labs(
             x = NULL,
@@ -37,5 +38,5 @@ p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, 
             colour = "Sex",
             shape = "IBD Diagnosis"
         )
-ggsave("plots/metadata/patient_overview.png", p, width = 6.8, height = 3)
+ggsave("plots/metadata/patient_overview.png", p, width = 6.5, height = 3)
 
