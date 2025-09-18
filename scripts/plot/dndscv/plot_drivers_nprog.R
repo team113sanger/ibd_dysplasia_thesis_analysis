@@ -88,7 +88,8 @@ counts_barplot <- ggplot(muts_df, aes(x = gene_name, y = count, fill = mutation_
   labs(
     x = NULL,
     y = "Total mutations",
-    fill = NULL
+    fill = NULL,
+    title = "Non Progressor"
   ) +
   theme_classic(base_size = 8) +
   theme(
