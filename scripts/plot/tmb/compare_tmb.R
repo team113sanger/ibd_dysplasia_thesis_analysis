@@ -28,7 +28,9 @@ tmb <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "T
         group =="Non-progressor" ~ "NP",
         group == "Progressor" ~ "P",
         TRUE ~ group
-    )
+    ),
+    precursor_or_follow_up = factor(precursor_or_follow_up, label = c("Precursor", "Follow up")),
+
   )
 
 
