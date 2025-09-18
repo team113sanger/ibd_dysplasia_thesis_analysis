@@ -30,13 +30,15 @@ p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, 
             panel.border = element_blank(),
             strip.background = element_blank(),
             strip.text = element_text(face = "bold"),
+            legend.position = "right",
+            legend.title = element_text(size = 9)
           #  text = element_text(family = "serif", colour = "black")
         ) +
         labs(
             x = NULL,
             y = NULL,
-            colour = "Sex",
-            shape = "IBD Diagnosis"
+            colour = "IBD Diagnosis",
+            shape = "Sex"
         )
 ggsave("plots/metadata/patient_overview.png", p, width = 6.5, height = 3)
 
