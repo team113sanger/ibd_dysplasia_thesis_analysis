@@ -7,15 +7,8 @@ sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
             filter(sanger_dna_id %in% sample_list) |>
-            mutate(patient_id = str_remove(sanger_dna_id, "[a-z]$")) |> #keep to remove multiple lesions per patient
-            distinct(patient_id, .keep_all = TRUE) |>
-            mutate(site_general = case_when(
-                site %in% c("Caecum", "Ascending", "Proximal Ascending", "Distal Ascending") ~ "Right colon",
-                site %in% c("Hepatic Flexure", "Transverse", "Splenic Flexure") ~ "Transverse colon",
-                site %in% c("Descending", "Sigmoid", "Rectosigmoid") ~ "Left colon",
-                site %in% c("Rectum") ~ "Rectum",
-                TRUE ~ "Other"
-            ))
+            mutate(patient_id = str_remove(sanger_dna_id, "[a-z]$")) |> #keep to remove multiple indep lesions per patient
+            distinct(patient_id, .keep_all = TRUE)
 
 p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, shape = sex)) +
         geom_point(size = 2, alpha = 0.99) +
