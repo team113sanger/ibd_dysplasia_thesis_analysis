@@ -7,8 +7,8 @@ library(dplyr)
 progressors <- read_tsv("metadata/progressors_raw.tsv") |>
   clean_names() |>
   mutate(group = "Progressor") |>
-  select(-macrodissection_coring) |>
-  mutate(study_id = str_replace(study_id, "^16CPC-1$", "16CPC")) #Check later is this is correct 
+  select(-macrodissection_coring)
+  #mutate(study_id = str_replace(study_id, "^16CPC-1$", "16CPC")) #Check later is this is correct (16CPC in sanger metadata, 16CPC123 in other)
 
 non_progressors <- read_tsv("metadata/non-progressors_raw.tsv") |>
   clean_names() |>
@@ -55,7 +55,7 @@ meta_tidy <- meta_pass |>
     str_detect(grade_of_dysplasia, regex("high grade", ignore_case = TRUE)) ~ "High grade",
     str_detect(grade_of_dysplasia, regex("adenocarcinoma", ignore_case = TRUE)) ~ "Adenocarcinoma",
     str_detect(grade_of_dysplasia, regex("adenocaricnoma", ignore_case = TRUE)) ~ "Adenocarcinoma",
-    str_detect(grade_of_dysplasia, regex("moderate", ignore_case = TRUE)) ~ "Moderate",
+    str_detect(grade_of_dysplasia, regex("moderate", ignore_case = TRUE)) ~ "Low grade", # Check later is okay 
     str_detect(grade_of_dysplasia, regex("not specified", ignore_case = TRUE)) ~ "NOS", #Check this is correct
     TRUE ~ grade_of_dysplasia
   )) |>
@@ -86,27 +86,32 @@ meta_filtered <- meta_tidy |>
 
 # Fix samples with missing metadata (not in prog/non-prog sheets)
 # PD62045c, PD62041d 
-meta_fin <- meta_filtered |>
+meta_edit <- meta_filtered |>
   mutate(
     precursor_or_follow_up = if_else(
-      sanger_dna_id == "PD62045c", "Follow Up", precursor_or_follow_up
+      sanger_dna_id %in% c("PD62045c", "PD62041d"), "Follow up", precursor_or_follow_up
     ),
     grade_of_dysplasia = if_else(
-      sanger_dna_id == "PD62045c", "High grade", grade_of_dysplasia
+      sanger_dna_id %in% c("PD62045c", "PD62041d"), "High grade", grade_of_dysplasia # Need to follow up if PD62041d really is high grade
     ),
     group = if_else(
-      sanger_dna_id == "PD62045c", "Progressor", group
-    ),
+      sanger_dna_id %in% c("PD62045c", "PD62041d"), "Progressor", group
+    )
   ) |>
   # Fix incorrect labels in metadata
   mutate(precursor_or_follow_up = case_when(
     sanger_dna_id == "PD62064d" ~ "Follow up",
     sanger_dna_id == "PD62064c" ~ "Precursor",
     TRUE ~ precursor_or_follow_up
+  )) |>
+  # Move high grade sample in NP to P 
+  mutate(group = case_when(
+    sanger_dna_id == "PD62082c" ~ "Progressor", # check later why this was in NP
+    TRUE ~ group
   ))
 
 # Add patient ID column
-meta_fin_fin <- meta_fin |>
+meta_fin <- meta_edit |>
   mutate(patient_id = sub("([A-Za-z]+\\d+)[a-zA-Z]$", "\\1", sanger_dna_id)) |>
   # Separate independent lesions from the same patient
   mutate(patient_id = case_when(
@@ -115,4 +120,4 @@ meta_fin_fin <- meta_fin |>
     TRUE ~ patient_id
   ))
 
-write_tsv(meta_fin_fin, "metadata/final_metadata_qc_pass.tsv")
+write_tsv(meta_fin, "metadata/final_metadata_qc_pass.tsv")
