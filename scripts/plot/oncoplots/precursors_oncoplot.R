@@ -144,7 +144,7 @@ p <- oncoPrint(
   row_names_side = "left",
   pct_digits = 1,
   show_column_names = TRUE,
-  #column_split = factor(metadata$group),
+  column_split = factor(metadata$group),
   column_gap = unit(1, "mm"),
   column_names_gp = gpar(fontsize = 5),
   top_annotation = top_anno,
