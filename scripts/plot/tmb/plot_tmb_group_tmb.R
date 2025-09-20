@@ -40,9 +40,9 @@ p <- ggplot(tmb, aes(x = group, y = TMB, fill = group)) +
           inherit.aes = FALSE,
           vjust = 1.5,
           color = "black",
-          size = 4
+          size = 3
         ) +
-        theme_bw(base_size = 14) +
+        theme_bw(base_size = 10) +
         scale_y_log10() +
         scale_fill_manual(
           labels = c("P" = "Progressor", "NP" = "Non-progressor"),
@@ -62,9 +62,8 @@ p <- ggplot(tmb, aes(x = group, y = TMB, fill = group)) +
         stat_compare_means(
           method = "wilcox.test",
           comparisons = list(c("NP", "P")),
-          label = "p.signif",
           hide.ns = FALSE,
           size = 3
         )
 
-ggsave("plots/tmb/compare_group_tmb.png", p, width = 6, height = 5.5, dpi = 300)
+ggsave("plots/tmb/tmb_by_group.png", p, width = 4, height = 4.2, dpi = 300)

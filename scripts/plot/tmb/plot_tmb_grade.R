@@ -51,7 +51,7 @@ p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)
     size = 4
   ) +
   labs(
-    y = "TMB (Mutations/Mb)", fill = NULL
+    y = "TMB (Mut/Mb)", fill = NULL
   ) +
   theme_bw(base_size = 14) +
   theme(
@@ -80,12 +80,12 @@ p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)
     inherit.aes = FALSE,
     vjust = 1.5,
     color = "black",
-    size = 4
+    size = 3
   ) +
   labs(
-    y = "TMB (Mutations/Mb)", fill = NULL
+    y = "TMB (Mut/Mb)", fill = NULL
   ) +
-  theme_bw(base_size = 14) +
+  theme_bw(base_size = 10) +
   theme(
     legend.position = "bottom",
     axis.title.x = element_blank(),
@@ -100,11 +100,12 @@ p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)
       c("LGD", "HGD"),
       c("LGD", "AC"),
       c("HGD", "AC")
-    )
+    ),
+    size = 2.5
   ) +
-  stat_compare_means(method = "kruskal.test", label.y = 3) 
+  stat_compare_means(method = "kruskal.test", label.y = 3, size = 3) 
 
-ggsave("plots/tmb/tmb_by_grade.png", p, width = 5, height = 5.5)
+ggsave("plots/tmb/tmb_by_grade.png", p, width = 4, height = 4)
 
 
 
