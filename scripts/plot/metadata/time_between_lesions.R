@@ -58,7 +58,7 @@ p2 <- ggplot(meta_time, aes(x = total_months, fill = group)) +
 ggsave("plots/metadata/time_between_hist.png", p2, width =4, height = 4)
 
 
-nonprgs <- meta_time %>%
+nonprgs <- meta_time |>
   filter(group == "Non-progressor")
 
 summary(nonprgs$total_months)
@@ -66,7 +66,7 @@ hist(nonprgs$total_months, breaks = 10, main = "Non-progressors: Time Between Le
 
 threshold <- quantile(nonprgs$total_months, 0.1, na.rm = TRUE)  # 10th percentile
 
-tail_patients <- nonprgs %>%
+tail_patients <- nonprgs |>
   filter(total_months <= threshold)
 
 p <- ggplot(nonprgs, aes(x = total_months)) +

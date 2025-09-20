@@ -3,7 +3,7 @@ library(dplyr)
 library(ggplot2)
 
 # Read data
-cn_props <- read_tsv("data/copy_number/proportions/all_cn_props.tsv") %>%
+cn_props <- read_tsv("data/copy_number/proportions/all_cn_props.tsv") |>
   rename(sanger_dna_id = Sample)
 
 # Sample lists
@@ -14,8 +14,8 @@ prog_fol  <- read_lines("metadata/sample_lists/progressor_follow_up_samples_ppat
 
 # Functions
 subset_groups <- function(df, set1, set2, set1_label = "Non-Progressor", set2_label = "Progressor") {
-  df %>%
-    filter(sanger_dna_id %in% c(set1, set2)) %>%
+  df |>
+    filter(sanger_dna_id %in% c(set1, set2)) |>
     mutate(group = ifelse(sanger_dna_id %in% set1, set1_label, set2_label))
 }
 

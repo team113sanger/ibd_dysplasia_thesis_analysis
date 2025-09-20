@@ -18,14 +18,14 @@ prog_fol  <- read_lines("metadata/sample_lists/progressor_follow_up_samples_ppat
 
 # Functions
 subset_groups <- function(df, set1, set2, set1_label, set2_label, timepoint) {
-  df %>%
-    filter(sanger_dna_id %in% c(set1, set2)) %>%
+  df |>
+    filter(sanger_dna_id %in% c(set1, set2)) |>
     mutate(group = ifelse(sanger_dna_id %in% set1, set1_label, set2_label),
            timepoint = timepoint)
 }
 
 add_TP53_status <- function(df, p53_df) {
-  df %>%
+  df |>
     mutate(p53 = ifelse(sanger_dna_id %in% p53_df$Tumor_Sample_Barcode, "Mut", "WT"))
 }
 
@@ -33,7 +33,7 @@ add_TP53_status <- function(df, p53_df) {
 df_all <- bind_rows(
   subset_groups(cn_props, nprog_pre, prog_pre, "Non-Progressor", "Progressor", "Precursor"),
   subset_groups(cn_props, nprog_fol, prog_fol, "Non-Progressor", "Progressor", "Follow-up")
-) %>%
+) |>
   add_TP53_status(p53_status)
 
 df_all[["timepoint"]] <- factor(
@@ -41,12 +41,12 @@ df_all[["timepoint"]] <- factor(
   levels = c("Precursor", "Follow-up")
 )
 # Wilcoxon per facet (by group now)
-wilcox_labels <- df_all %>%
-  group_by(timepoint) %>%
+wilcox_labels <- df_all |>
+  group_by(timepoint) |>
   summarise(
     p = wilcox.test(proportion ~ group)$p.value,
     .groups = "drop"
-  ) %>%
+  ) |>
   mutate(label = paste0("Wilcox p = ", signif(p, 3)))
 
 # Boxplot/violin

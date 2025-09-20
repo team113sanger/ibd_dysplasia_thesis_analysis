@@ -19,12 +19,12 @@ metadata$grade_of_dysplasia <- factor(
   levels = c("NOS", "Low grade", "High grade", "Adenocarcinoma")
 )
 
-samples_to_plot <- metadata %>%
+samples_to_plot <- metadata |>
   filter(
     (grade_of_dysplasia == "Low grade" & precursor_or_follow_up == "Precursor") |
       grade_of_dysplasia == "High grade" |
       grade_of_dysplasia == "Adenocarcinoma"
-  ) %>%
+  ) |>
   pull(sanger_dna_id)
 
 # plot_genes <- c("TP53", "KRAS", "APC", "RNF43", "RBM10", "MSH3", "POLD1", "APOBEC3A", "PIK3CA")

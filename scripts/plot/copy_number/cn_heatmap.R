@@ -81,7 +81,7 @@ for (i in 1:length(sample_list)) {
 cnv_calls_1 <- cnv_calls[1:28751, ]
 
 # Write out cnv
-cnv_calls_1_df <- as.data.frame(cnv_calls_1) %>%
+cnv_calls_1_df <- as.data.frame(cnv_calls_1) |>
   rownames_to_column("bin")
 
 write_tsv(cnv_calls_1_df, "results/copy_number/cnv_calls.txt")
@@ -91,9 +91,9 @@ tidy_cnv_calls <- reshape2::melt(cnv_calls_1)
 colnames(tidy_cnv_calls) <- c("bin", "sample", "cn_state")
 
 tidy_cnv_calls$cn_state <- as.character(tidy_cnv_calls$cn_state)
-tidy_cnv_calls <- tidy_cnv_calls %>%
-  left_join(segments %>%
-    select(Sample, Group) %>%
+tidy_cnv_calls <- tidy_cnv_calls |>
+  left_join(segments |>
+    select(Sample, Group) |>
     distinct(), by = c("sample" = "Sample"))
 
 p <- ggplot(data = tidy_cnv_calls) +

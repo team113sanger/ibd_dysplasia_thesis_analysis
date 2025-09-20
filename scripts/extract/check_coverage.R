@@ -15,7 +15,7 @@ write_tsv(adenocarcinomas, "results/adenocarcinomas_cov.tsv")
 
 # plot barplot of pass/failed samples
 # Replace values in the 'pass' column using mutate
-cov_plot <- cov %>%
+cov_plot <- cov |>
   mutate(pass = ifelse(pass == TRUE, "PASS", "FAIL"))
 
 # Create the barplot

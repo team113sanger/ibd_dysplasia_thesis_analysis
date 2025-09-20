@@ -22,7 +22,7 @@ rownames(num_mat) <- cnv_mat$bin
 colnames(num_mat) <- colnames(cnv_mat)[-1]
 
 # Merge clusters with metadata
-annot_data <- clusters %>%
+annot_data <- clusters |>
   left_join(metadata, by = c("sample" = "sanger_dna_id"))
 
 # ================================

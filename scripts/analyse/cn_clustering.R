@@ -15,7 +15,7 @@ dist_mat <- dist(t(num_mat), method = "euclidean")
 hc_mat <- hclust(dist_mat, method = "ward.D")
 
 # Cut into different cluster numbers (2, 3 and 4 clusters)
-CN_clusters <- as.data.frame(cutree(hc_mat, k = c(2, 3, 4))) %>%
+CN_clusters <- as.data.frame(cutree(hc_mat, k = c(2, 3, 4))) |>
   tibble::rownames_to_column("sample")
 
 # Save results

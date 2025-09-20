@@ -35,8 +35,8 @@ tmb[["grade_of_dysplasia"]] <- factor(
   levels = c("LGD", "HGD", "AC")
 )
 
-n_counts <- tmb %>%
-  group_by(group, grade_of_dysplasia) %>%
+n_counts <- tmb |>
+  group_by(group, grade_of_dysplasia) |>
   summarise(n = n(), .groups = "drop")
 
 p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +
@@ -89,8 +89,8 @@ combined_tmb[["grade_of_dysplasia"]] <- factor(
   levels = c("LGD", "HGD", "AC", "AC_2018")
 )
 
-n_counts <- combined_tmb %>%
-  group_by(group, grade_of_dysplasia) %>%
+n_counts <- combined_tmb |>
+  group_by(group, grade_of_dysplasia) |>
   summarise(n = n(), .groups = "drop")
 
 p2 <- ggplot(combined_tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +

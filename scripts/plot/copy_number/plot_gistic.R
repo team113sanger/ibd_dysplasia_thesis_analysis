@@ -10,18 +10,18 @@ gistic <- read_tsv("data/copy_number/gistic/scores.gistic.tsv")
 chrom_order <- c(1:22, "X", "Y")
 
 # compute chromosome lengths from your tibble
-chrom_lengths <- gistic %>%
-  group_by(Chromosome) %>%
-  summarise(chr_len = max(End), .groups = "drop") %>%
+chrom_lengths <- gistic |>
+  group_by(Chromosome) |>
+  summarise(chr_len = max(End), .groups = "drop") |>
   arrange(factor(Chromosome, levels = chrom_order))
 
 # cumulative offset for plotting
-chrom_lengths <- chrom_lengths %>%
+chrom_lengths <- chrom_lengths |>
   mutate(chr_start = lag(cumsum(chr_len), default = 0),
          chr_mid   = chr_start + chr_len / 2)
 
-gistic_plot <- gistic %>%
-  inner_join(chrom_lengths, by = "Chromosome") %>%
+gistic_plot <- gistic |>
+  inner_join(chrom_lengths, by = "Chromosome") |>
   mutate(
     Chromosome = factor(Chromosome, levels = chrom_order),
     start_cum = Start + chr_start,
