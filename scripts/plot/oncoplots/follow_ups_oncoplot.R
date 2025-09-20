@@ -157,11 +157,11 @@ p <- oncoPrint(
 
 pdf(
   file = paste0("plots/oncoplots/follow_ups_oncoplot.pdf"),
-  width = 7, height = 5
+  width = 7, height = 6
 )
 draw(p,
-  heatmap_legend_side = "right",
-  annotation_legend_side = "right",
+  heatmap_legend_side = "bottom",
+  annotation_legend_side = "bottom",
   merge_legend = TRUE,
 )
 dev.off()

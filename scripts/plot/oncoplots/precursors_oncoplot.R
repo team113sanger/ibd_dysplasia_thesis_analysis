@@ -150,7 +150,7 @@ p <- oncoPrint(
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
   width = unit(12, "cm"),
-  height = unit(6, "cm"),
+  height = unit(7, "cm"),
   # border = T,
   row_names_gp = gpar(fontsize = 8),
   column_title_gp = gpar(fontsize = 12)
@@ -158,11 +158,11 @@ p <- oncoPrint(
 
 pdf(
   file = paste0("plots/oncoplots/precursors_oncoplot.pdf"),
-  width = 7, height = 5
+  width = 7, height = 6
 )
 draw(p,
-  heatmap_legend_side = "right",
-  annotation_legend_side = "right",
+  heatmap_legend_side = "bottom",
+  annotation_legend_side = "bottom",
   merge_legend = TRUE,
 )
 dev.off()
