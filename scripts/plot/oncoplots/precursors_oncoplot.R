@@ -1,4 +1,4 @@
-source("scripts/plotting/oncoplot_utils.R")
+source("scripts/plot/oncoplots/oncoplot_utils.R")
 
 library(dplyr)
 library(tidyr)
@@ -11,22 +11,24 @@ oncoKB <- read_tsv("metadata/rescources/cancerGeneList.tsv") |>
   pull(`Hugo Symbol`)
 
 metadata <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
-  filter(group == "Non-progressor")
+  filter(sanger_dna_id %in% read_lines("metadata/sample_lists/all_one_ppat.list")) |>
+  filter(precursor_or_follow_up == "Precursor") |>
+  filter(!grade_of_dysplasia == "High grade")
 
-metadata$precursor_or_follow_up <- factor(
-  metadata$precursor_or_follow_up,
-  levels = c("Precursor", "Follow up")
+metadata$group <- factor(
+  metadata$group,
+  levels = c("Non-progressor", "Progressor")
 )
 
-non_progressors <- metadata |>
+samples <- metadata |>
   pull(sanger_dna_id)
 
 tmb_raw <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("Sample", "TMB")) |>
-  filter(Sample %in% non_progressors)
+  filter(Sample %in% samples)
 
-maf <- read_tsv("data/variants/7100_3235-filtered_mutations_all_indepTum_keepPA.maf") |>
+maf <- read_tsv("data/variants/7100_3235-filtered_mutations_matched_allTum_keepPA.maf") |>
   filter(Hugo_Symbol %in% oncoKB) |>
-  filter(Tumor_Sample_Barcode %in% non_progressors) |>
+  filter(Tumor_Sample_Barcode %in% samples) |>
   group_by(Hugo_Symbol) |>
   filter(n_distinct(Tumor_Sample_Barcode) >= 3) |>
   ungroup() |>
@@ -51,11 +53,11 @@ mat <- mat[, order(colnames(mat))]
 
 # Define plot parameters
 col <- c(
-  "Missense" = "forestgreen",
-  "Nonsense" = "firebrick",
-  "Splice site" = "orange2",
+  "Missense" = "#20854E",
+  "Nonsense" = "#9f2727ff",
+  "Splice site" = "#E6AB02",
   "Frameshift" = "mediumpurple3",
-  "Inframe indel" = "sienna4",
+  "Inframe indel" = "#7d6a56ff",
   "Start codon lost" = "dodgerblue4",
   "Stop codon lost" = "pink"
 )
@@ -80,7 +82,7 @@ tmb <- tmb_raw |>
   arrange(study_id)
 
 top_anno <- HeatmapAnnotation(
-  "TMB\n(per Mb)" = anno_barplot(tmb$TMB, baseline = 0),
+  "TMB" = anno_barplot(tmb$TMB, baseline = 0),
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
   border = T,
@@ -94,20 +96,44 @@ metadata <- metadata |>
 
 bottom_anno <- HeatmapAnnotation(
   "Grade" = as.vector(metadata$grade_of_dysplasia),
+  "Group" = as.vector(metadata$group),
   "IBD" = as.vector(metadata$ibd_diagnosis),
+  "Site" = as.vector(metadata$site_general),
   show_legend = c(
     "Grade" = T,
-    "IBD" = T
+    "IBD" = T,
+    "Site" = T,
+    "Group" =T
   ),
   col = list(
-    "Grade" = c("Low grade" = "#ffffcc", "High grade" = "#66c2a5", "Adenocarcinoma" = "#225ea8", "NOS" = "lightgrey"),
-    "IBD" = c("Crohn's" = "#ffffcc", "IBDU" = "#66c2a5", "UC" = "#225ea8")
+    "Grade" = c(
+      "Low grade" = "#ffffcc",
+      "High grade" = "#66c2a5",
+      "Adenocarcinoma" = "#225ea8",
+      "NOS" = "lightgrey",
+      "Moderate" = "#F1E6C8",
+      "Not specified" = 'grey'
+    ),
+    "IBD" = c(
+        "Crohn's" = "#EE4C97",
+        "IBDU" = "#FFDC91",
+        "UC" = "#5B8FA8"),
+    "Site" = c(
+      "Left colon"  = "#7375B5",
+      "Transverse colon" = "#919C4C",
+      "Right colon" = "#F5C04A",
+      "Rectum" = "#E68C7C"
+    ),
+    "Group" = c(
+      "Progressor" = "#dd882dff",
+      "Non-progressor" = "#388643ff"
+    )
   ),
-  gap = unit(c(0, 0, 1), "mm"),
+  gap = unit(c(1, 1, 1, 1), "mm"),
   border = T, na_col = "#e6e6e6",
   annotation_name_side = "left",
   annotation_name_gp = gpar(fontsize = 10),
-  simple_anno_size = unit(0.4, "cm")
+  simple_anno_size = unit(0.3, "cm")
 )
 
 # Create plot
@@ -118,21 +144,21 @@ p <- oncoPrint(
   row_names_side = "left",
   pct_digits = 1,
   show_column_names = TRUE,
-  column_split = factor(metadata$precursor_or_follow_up),
+  #column_split = factor(metadata$group),
   column_gap = unit(1, "mm"),
   column_names_gp = gpar(fontsize = 5),
   top_annotation = top_anno,
   bottom_annotation = bottom_anno,
-  width = unit(15, "cm"),
-  height = unit(8, "cm"),
+  width = unit(12, "cm"),
+  height = unit(6, "cm"),
   # border = T,
   row_names_gp = gpar(fontsize = 8),
   column_title_gp = gpar(fontsize = 12)
 )
 
 pdf(
-  file = paste0("plots/oncoplots/non_progressors_all.pdf"),
-  width = 8, height = 6
+  file = paste0("plots/oncoplots/precursors_oncoplot.pdf"),
+  width = 7, height = 5
 )
 draw(p,
   heatmap_legend_side = "right",
