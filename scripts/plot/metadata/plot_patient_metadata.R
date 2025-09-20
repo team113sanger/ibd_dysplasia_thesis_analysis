@@ -1,6 +1,7 @@
 library(readr)
 library(ggplot2)
 library(stringr)
+library(dplyr)
 
 sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
@@ -19,7 +20,7 @@ meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
 p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, shape = sex)) +
         geom_point(size = 2, alpha = 0.99) +
         facet_wrap(~ group, scales = "free_x") +
-        theme_bw(base_size = 9) +
+        theme_bw(base_size = 10) +
         scale_colour_brewer(palette = "Dark2") +
         theme(
             axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6),
