@@ -61,14 +61,14 @@ genes_order <- muts_df |>
     unique()
 
 muts_df <- muts_df |>
-    mutate(gene_name = factor(gene_name, labels = genes_order))
+    mutate(gene_name = factor(gene_name, levels = genes_order))
 
 ratios_df <- ratios_df |>
-    mutate(gene_name = factor(gene_name, labels = genes_order))
+    mutate(gene_name = factor(gene_name, levels = genes_order))
 
 
 ci_df <- ci_df |>
-    mutate(gene_name = factor(gene_name, labels = genes_order))
+    mutate(gene_name = factor(gene_name, levels = genes_order))
 
 
 # Define colour palette
