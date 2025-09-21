@@ -17,6 +17,7 @@ maf_new <- maf |>
   select(
     Sample_ID = Tumor_Sample_Barcode, Chromosome, Start_Position, End_Position,
     Reference_Allele, Variant_Allele = Tumor_Seq_Allele2, Hugo_Symbol
-  )
+  ) |>
+  arrange(Start_Position)
 
 write_tsv(maf_new, "results/p53_mutations/p53_muts.txt")

@@ -24,7 +24,7 @@ PD62068c	splice_acceptor_variant	SNP	-	0.61	Non-progressor	Precursor	High grade
 PD62068d	splice_acceptor_variant	SNP	-	0.65	Non-progressor	Follow up	High grade
 PD62077a	missense_variant	SNP	p.R248Q	0.43	Non-progressor	Precursor	Low grade
 PD62081c	missense_variant	SNP	p.A159P	0.59	Non-progressor	Precursor	NOS
-PD62082c	missense_variant	SNP	p.C275Y	0.19	Non-progressor	Follow up	High grade
+PD62082c	missense_variant	SNP	p.C275Y	0.19	Progressor	Follow up	High grade
 PD62028a	frameshift_variant	DEL	p.K373Rfs*49	0.34	Progressor	Precursor	Low grade
 PD62028c	frameshift_variant	DEL	p.K373Rfs*49	0.646	Progressor	Follow up	High grade
 PD62037d	frameshift_variant	INS	p.F341Efs*7	0.579	Progressor	Follow up	High grade
