@@ -32,34 +32,34 @@ PA_muts_count <- nrow(mafPA_split)
 PA_muts_count
 
 # Gene counts by group
-all_gene_counts <- mafPA_split %>%
-  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53", "RNF43")) %>%
-  count(group_status, Hugo_Symbol) %>%
+all_gene_counts <- mafPA_split |>
+  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53", "RNF43")) |>
+  count(group_status, Hugo_Symbol) |>
   arrange(Hugo_Symbol, group_status)
 
 all_gene_counts
 
-distinct_gene_counts <- mafPA_split %>%
-  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53", "RNF43")) %>%
-  mutate(group_status = paste(group, precursor_or_follow_up, sep = "_")) %>%
-  distinct(Tumor_Sample_Barcode, Hugo_Symbol, group_status) %>% 
-  count(group_status, Hugo_Symbol) %>%
+distinct_gene_counts <- mafPA_split |>
+  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53", "RNF43")) |>
+  mutate(group_status = paste(group, precursor_or_follow_up, sep = "_")) |>
+  distinct(Tumor_Sample_Barcode, Hugo_Symbol, group_status) |> 
+  count(group_status, Hugo_Symbol) |>
   arrange(Hugo_Symbol, group_status)
 
 distinct_gene_counts
 
 # Gene counts by grade
-all_gene_counts <- mafPA_split %>%
-  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) %>%
-  count(grade_of_dysplasia, Hugo_Symbol) %>%
+all_gene_counts <- mafPA_split |>
+  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) |>
+  count(grade_of_dysplasia, Hugo_Symbol) |>
   arrange(Hugo_Symbol, grade_of_dysplasia)
 
 all_gene_counts
 
-distinct_gene_counts <- mafPA_split %>%
-  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) %>%
-  distinct(Tumor_Sample_Barcode, Hugo_Symbol, grade_of_dysplasia) %>% 
-  count(grade_of_dysplasia, Hugo_Symbol) %>%
+distinct_gene_counts <- mafPA_split |>
+  filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) |>
+  distinct(Tumor_Sample_Barcode, Hugo_Symbol, grade_of_dysplasia) |> 
+  count(grade_of_dysplasia, Hugo_Symbol) |>
   arrange(Hugo_Symbol, grade_of_dysplasia)
 
 distinct_gene_counts
