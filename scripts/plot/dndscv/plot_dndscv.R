@@ -17,6 +17,9 @@ non_prog_ci <- read_tsv("data/variants/dndscv/non_prog_pre_gene_ci.tsv") |>
 
 # combine dfs
 combined_muts <- bind_rows(prog, non_prog)
+  # arrange(qglobal_cv) |>
+  # select(gene_name, group, starts_with("q")) # view top results
+
 combine_ci <- bind_rows(prog_ci, non_prog_ci) |>
   rename(gene_name = gene) 
 
