@@ -15,7 +15,7 @@ write_tsv(p53_muts, "results/p53_mutations/p53_status.tsv")
 maf_new <- maf |>
   filter(Hugo_Symbol == "TP53") |>
   select(
-    Sample_ID = Tumor_Sample_Barcode, Chromosome, Start_Position, End_Position,
+    Sample_ID = Tumor_Sample_Barcode, Chromosome, Start_Position, End_Position, HGVSp_Short,
     Reference_Allele, Variant_Allele = Tumor_Seq_Allele2, Hugo_Symbol
   ) |>
   arrange(Start_Position)
