@@ -19,18 +19,18 @@ meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
 make_gene_plot <- function(status_filter) {
   
   # filter metadata by precursor/follow-up
-  meta_sub <- meta %>% filter(precursor_or_follow_up == status_filter)
+  meta_sub <- meta |> filter(precursor_or_follow_up == status_filter)
   
   # filter maf
-  filt_maf <- maf %>%
-    filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) %>%
-    filter(Tumor_Sample_Barcode %in% meta_sub$sanger_dna_id) %>%
+  filt_maf <- maf |>
+    filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) |>
+    filter(Tumor_Sample_Barcode %in% meta_sub$sanger_dna_id) |>
     distinct(Tumor_Sample_Barcode, Hugo_Symbol)
   
   # mutation status per gene/sample
-  gene_status <- meta_sub %>%
-    select(Tumor_Sample_Barcode = sanger_dna_id, group) %>%
-    crossing(Hugo_Symbol = c("APC", "KRAS", "TP53")) %>%
+  gene_status <- meta_sub |>
+    select(Tumor_Sample_Barcode = sanger_dna_id, group) |>
+    crossing(Hugo_Symbol = c("APC", "KRAS", "TP53")) |>
     mutate(has_mutation = ifelse(
       paste(Tumor_Sample_Barcode, Hugo_Symbol) %in%
         paste(filt_maf$Tumor_Sample_Barcode, filt_maf$Hugo_Symbol),
@@ -38,8 +38,8 @@ make_gene_plot <- function(status_filter) {
     ))
   
   # counts
-  gene_counts <- gene_status %>%
-    group_by(group, Hugo_Symbol) %>%
+  gene_counts <- gene_status |>
+    group_by(group, Hugo_Symbol) |>
     summarise(
       mutated = sum(has_mutation),
       non_mutated = n() - mutated,
@@ -47,8 +47,8 @@ make_gene_plot <- function(status_filter) {
     )
   
   # fisher test
-  fisher_results <- gene_counts %>%
-    group_by(Hugo_Symbol) %>%
+  fisher_results <- gene_counts |>
+    group_by(Hugo_Symbol) |>
     summarise(
       p_value = fisher.test(
         matrix(c(mutated[group == "Prog"],
@@ -60,9 +60,9 @@ make_gene_plot <- function(status_filter) {
     )
   
   # proportions
-  gene_props <- gene_counts %>%
+  gene_props <- gene_counts |>
     mutate(total = mutated + non_mutated,
-           prop_mutated = mutated / total) %>%
+           prop_mutated = mutated / total) |>
     left_join(fisher_results, by = "Hugo_Symbol")
   
   # plot
@@ -71,13 +71,13 @@ make_gene_plot <- function(status_filter) {
     facet_wrap(~ Hugo_Symbol, ncol = 1) +
     labs(y = "Proportion mutated", x = NULL) +
     scale_y_continuous(labels = scales::percent_format(), limits = c(0,1)) +
-    scale_fill_manual(values = c("Prog" = "darkorange", "N-Prog" = "darkseagreen")) +
+    scale_fill_manual(values = c("Prog" = "chocolate", "N-Prog" = "darkseagreen")) +
     theme_classic(base_size = 10) +
     theme(legend.position = "none",
           strip.text = element_text(face = "bold"),
           panel.border = element_rect(colour = "black", fill = NA, linewidth = 0.5)) +
     geom_text(
-      data = gene_props %>% distinct(Hugo_Symbol, p_value),
+      data = gene_props |> distinct(Hugo_Symbol, p_value),
       aes(x = 1.5, y = 0.95, label = paste0("Fisher p=", signif(p_value, 2))),
       inherit.aes = FALSE, size = 3
     )
