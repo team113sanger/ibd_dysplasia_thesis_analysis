@@ -49,6 +49,11 @@ distinct_gene_counts <- mafPA_split |>
 distinct_gene_counts
 
 # Gene counts by grade
+mafPA_split <- mafPA_split |>
+  filter(!(precursor_or_follow_up == "Follow up" & group == "Non-progressor"))
+
+mafPA_split |>     distinct(Tumor_Sample_Barcode, .keep_all = TRUE) |> count(grade_of_dysplasia)
+
 all_gene_counts <- mafPA_split |>
   filter(Hugo_Symbol %in% c("APC", "KRAS", "TP53")) |>
   count(grade_of_dysplasia, Hugo_Symbol) |>
