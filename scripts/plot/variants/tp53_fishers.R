@@ -81,4 +81,5 @@ p <- ggplot(tp53_props, aes(x = group, y = prop_mutated, fill = group)) +
             size = 3
         )
 
-ggsave("plots/variants/tp53_fishers.png", p, width = 4, height = 2.2)
+ggsave("plots/variants/tp53_fishers.png", p, width = 4, height = 2.2, dpi = 300)
+ggsave("plots/variants/tp53_fishers.pdf", p, width = 4, height = 2.2)
