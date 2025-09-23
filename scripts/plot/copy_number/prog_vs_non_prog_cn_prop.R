@@ -26,7 +26,6 @@ perform_wilcox <- function(df){
 }
 
 plot_boxplot <- function(df, p_label){
-  #ggpubr::ggboxplot(df, x = "group", y = "proportion", add = "jitter") +
   ggplot(df, aes(x = group, y = proportion, fill = group)) +
     stat_boxplot(geom ='errorbar', width = 0.2) +
     geom_boxplot(color = "#383838ff", linewidth = 0.4, width = 0.6, outlier.size = 1, outlier.shape = 21) +
