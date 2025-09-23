@@ -52,32 +52,29 @@ wilcox_labels <- df_all |>
 
 # Boxplot
 p <- ggplot(df_all, aes(x = p53, y = proportion, fill = p53)) +
-    geom_violin(width = 1, alpha = 0.8, linewidth = 0.3) +
-    geom_boxplot(color = "#383838ff", alpha = 0.15, linewidth = 0.3, outlier.shape = NA, width = 0.5) +
-    geom_jitter(fill = "#585858", size = 1, stroke = 0, alpha = 0.4, width = 0.1, height = 0.1) +
-    labs(x = NULL, y = "CNA Proportion") +
-    scale_fill_viridis_d(end = 0.8) +
-    theme_classic(base_size = 10) +
-    facet_wrap(~timepoint) +
-    geom_text(
-      data = wilcox_labels,
-      aes(x = 1.5, y = 1.05 * max(df_all$proportion), label = label),
-      inherit.aes = FALSE,
-      size = 3,
-      fontface = "italic") +
-      theme(
-        strip.background = element_blank(),
-        strip.text = element_text(face = "bold"),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank())
-    
-ggsave("plots/copy_number/proportions/p53_cn_props.png", p, width = 6, height = 4)
+      stat_boxplot(geom ='errorbar', width = 0.2) +
+      geom_boxplot(color = "#333333ff", linewidth = 0.3, outlier.size = 1, width = 0.6, outlier.shape = 21) +
+      labs(x = NULL, y = "CNA Proportion") +
+      scale_fill_manual(values = c("#3BA091", "#CC5151")) +
+      theme_classic(base_size = 10) +
+      facet_wrap(~timepoint) +
+      geom_text(
+        data = wilcox_labels,
+        aes(x = 1.5, y = 1.05 * max(df_all$proportion), label = label),
+        inherit.aes = FALSE,
+        size = 3,
+        fontface = "italic") +
+        theme(
+          strip.background = element_blank(),
+          strip.text = element_text(face = "bold"),
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank())
 
 # Counts plot
 p2 <- ggplot(df_all, aes(x = p53, fill = group)) +
         geom_bar(position = "stack") +
         labs(x = "TP53 Status", y = "Frequency", fill = "Group") +
-        scale_fill_manual(values = c("Progressor" = "darkorange", "Non-Progressor" = "darkseagreen")) +
+        scale_fill_manual(values = c("Progressor" = "#EF9B4A", "Non-Progressor" = "darkseagreen")) +
         theme_classic(base_size = 10) +
         facet_wrap(~timepoint) +
         theme(
@@ -88,4 +85,4 @@ p2 <- ggplot(df_all, aes(x = p53, fill = group)) +
 p_combined <- p / p2 + 
   plot_layout(heights = c(3, 1)) 
 
-ggsave("plots/copy_number/proportions/p53_cn_props.png", p_combined, width = 6, height = 4)
+ggsave("plots/copy_number/proportions/p53_cn_props.png", p_combined, width = 5.3, height = 4)
