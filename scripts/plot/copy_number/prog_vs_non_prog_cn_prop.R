@@ -26,10 +26,11 @@ perform_wilcox <- function(df){
 }
 
 plot_boxplot <- function(df, p_label){
+  #ggpubr::ggboxplot(df, x = "group", y = "proportion", add = "jitter") +
   ggplot(df, aes(x = group, y = proportion, fill = group)) +
-    geom_violin(width = 1, alpha = 0.8, linewidth = 0.3) +
-    geom_boxplot(color = "#383838ff", alpha = 0.15, linewidth = 0.3, outlier.shape = NA, width = 0.5) +
-    geom_jitter(fill = "#585858", size = 1, stroke = 0, alpha = 0.4, width = 0.1, height = 0.1) +
+    stat_boxplot(geom ='errorbar', width = 0.2) +
+    geom_boxplot(color = "#383838ff", linewidth = 0.4, width = 0.6, outlier.size = 1, outlier.shape = 21) +
+    # geom_point(aes(x = group, y = proportion), position = position_identity(), size = 1, alpha = 1, colour = "black") +
     labs(y = "CNA Proportion", x = NULL) +
     scale_fill_manual(values = c("Progressor" = "darkorange", "Non-Progressor" = "darkseagreen")) +
     theme_classic() +
@@ -38,15 +39,16 @@ plot_boxplot <- function(df, p_label){
              x = 2, y = max(df$proportion, na.rm = TRUE) * 1.05,
              label = paste0("Wilcox Test: ", p_label),
              hjust = 1, vjust = 0, size = 3, fontface = "italic", colour = "black"
-    )
+    ) 
 }
 
 plot_density <- function(df, p_label){
   ggplot(df, aes(x = proportion, fill = group)) +
     geom_density(alpha = 0.5) +
-    labs(x = "CNA Proportion", y = "Density") +
+    labs(x = "CNA Proportion", y = "Density", fill = NULL) +
     scale_fill_manual(values = c("Progressor" = "darkorange", "Non-Progressor" = "darkseagreen")) +
     theme_classic() +
+    theme(legend.position = c(0.7, 0.7)) +
     annotate("text",
              x = max(df$proportion, na.rm = TRUE) * 0.9,
              y = max(density(df$proportion)$y) * 0.9,
@@ -62,9 +64,9 @@ p_boxplot_pre <- plot_boxplot(df_pre, p_label_pre)
 p_density_pre <- plot_density(df_pre, p_label_pre)
 
 ggsave("plots/copy_number/proportions/nprog_vs_prog_precursor_boxplot.png", p_boxplot_pre,
-       width = 3, height = 2.5)
+       width = 2.9, height = 2.5)
 ggsave("plots/copy_number/proportions/nprog_vs_prog_precursor_density.png", p_density_pre,
-       width = 5, height = 4)
+       width = 3, height = 3)
 
 # Compare follow ups
 df_fol <- subset_groups(cn_props, nprog_fol, prog_fol)
@@ -73,6 +75,6 @@ p_boxplot_fol <- plot_boxplot(df_fol, p_label_fol)
 p_density_fol <- plot_density(df_fol, p_label_fol)
 
 ggsave("plots/copy_number/proportions/nprog_vs_prog_followup_boxplot.png", p_boxplot_fol,
-       width = 3, height = 2.5)
+       width = 2.9, height = 2.5)
 ggsave("plots/copy_number/proportions/nprog_vs_prog_followup_density.png", p_density_fol,
-       width = 5, height = 4)
+       width = 3, height = 3)
