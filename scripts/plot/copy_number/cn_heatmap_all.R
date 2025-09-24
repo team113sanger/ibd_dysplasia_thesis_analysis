@@ -121,14 +121,14 @@ pp <- ggplot(data = precursor_calls) +
   theme(
     axis.ticks = element_blank(),
     axis.text.x = element_text(size = 5),
-    axis.text.y = element_text(size = 7),
+    axis.text.y = element_text(size = 6.5),
     legend.position = "none",
     panel.grid = element_blank(),
     strip.background = element_blank(),
     legend.text = element_text(size = 8),
     legend.title = element_text(size = 9),
     strip.text = element_text(face = "bold"),
-    plot.title = element_text(size = 9),
+    plot.title = element_text(size = 9, face = "bold"),
     legend.key.size = unit(0.4, "cm"),
     axis.title.y = element_text(size = 9) 
   )
@@ -159,13 +159,13 @@ pf <- ggplot(data = follow_up_calls) +
   theme(
     axis.ticks = element_blank(),
     axis.text.x = element_text(size = 5),
-    axis.text.y = element_text(size = 7),
+    axis.text.y = element_text(size = 6.5),
     legend.position = "bottom",
     panel.grid = element_blank(),
     strip.background = element_blank(),
     legend.text = element_text(size = 8),
     legend.title = element_text(size = 9),
-    plot.title = element_text(size = 9),
+    plot.title = element_text(size = 9, face = "bold"),
     strip.text = element_text(face = "bold"),
     legend.key.size = unit(0.4, "cm"),
     axis.title.y = element_text(size = 9) 
@@ -178,4 +178,4 @@ library(patchwork)
 combined <- pp / pf  
 
 ggsave("plots/copy_number/heatmap/cn_heatmap_combined.png",
-       plot = combined, width = 6.5, height = 9, dpi = 300)
+       plot = combined, width = 6.5, height = 9.2, dpi = 300)
