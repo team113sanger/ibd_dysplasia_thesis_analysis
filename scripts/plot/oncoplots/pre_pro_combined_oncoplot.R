@@ -15,6 +15,7 @@ TMB_PATH <- "data/variants/mutations_per_Mb.tsv"
 SAMPLE_LIST_PATH <- "metadata/sample_lists/progressor_precursor_samples_ppat.tsv"
 TP53_LOH <- "results/tables/tp53_cn_loh.tsv"
 APC_LOH <- "results/tables/apc_cn_loh.tsv"
+CN_PROP <- "data/copy_number/proportions/all_cn_props.tsv"
 
 ######## Read in data ########
 maf <- read_tsv(MAF_PATH)
@@ -24,6 +25,7 @@ tmb <- read_tsv(TMB_PATH, col_names = FALSE) |>
   filter(X1 %in% sample_list)
 tp53_loh <- read_tsv(TP53_LOH)
 apc_loh <- read_tsv(APC_LOH)
+cn_props <- read_tsv(CN_PROP)
 
 # Define genes to plot
 plot_genes <- c("TP53", "APC", "KRAS", "RNF43", "RBM10", "LRP1B", "FBXW7", "PIK3CA", "SMAD4", "IDH1", "MSH3", "POLD1", "MLH3")
@@ -108,6 +110,50 @@ variants_plot <- ggplot(data = variants_expanded) +
 
 variants_plot
 variants_plot_leg <- as_ggplot(get_legend(variants_plot + theme(legend.text = element_text(size = 8), legend.title = element_text(size = 9))))
+
+######## Prepare CN Props data ########
+cn_props <- cn_props |>
+  select(Sample, proportion) |>
+  filter(Sample %in% sample_list)
+
+cnprops_long <- cn_props |>
+  pivot_longer(cols = c(proportion), names_to = "Category", values_to = "Value") |>
+  mutate(Category = "CN Proportion") |>
+  bind_rows(
+    tibble(
+      Sample   = "PD62028a",
+      Category = "CN Proportion",
+      Value    = NA_real_  
+    )
+  )
+
+cnprops_long[["Sample"]] <-
+  factor(cnprops_long[["Sample"]], levels = samples_order)
+
+######## CN Props Plot ########
+cnprops_plot <- ggplot(data = cnprops_long) +
+  geom_tile(aes(
+    x = Sample, y = Category,
+    fill = Value
+  ), color = "white", lwd = 0.3) +
+  scale_fill_viridis_c(direction = -1, limits = c(0, 1), na.value = "snow2") +
+  scale_color_identity(guide = "none") +
+  theme(
+    axis.ticks = element_blank(),
+    axis.title.x = element_blank(), axis.text.x = element_blank(),
+    legend.justification = c("left", "top"),
+    axis.title.y = element_blank(),
+    legend.position = "right", legend.box = "horizontal",
+    panel.background = element_rect(fill = "snow3"),
+    panel.grid.major = element_blank(), panel.grid.minor = element_blank()
+  ) +
+  scale_x_discrete(expand = c(0, 0), guide = guide_axis(angle = 90)) +
+  scale_y_discrete(expand = c(0, 0)) +
+  labs(fill = "CN Proportion Scale")
+# coord_fixed()
+
+cnprops_plot
+cnprops_plot_leg <- as_ggplot(get_legend(cnprops_plot + theme(legend.text = element_text(size = 8), legend.title = element_text(size = 9))))
 
 ######## Prepare LOH data ########
 ## TP53 ##
@@ -270,23 +316,19 @@ tmb_plot
 ######## Combine Plots ########
 
 all_legends <- list(
-  loh_plot_leg, variants_plot_leg
+  cnprops_plot_leg, loh_plot_leg, variants_plot_leg
 )
 
 all_plots <- list(
   tmb_plot,
+  cnprops_plot + theme(legend.position = "none"),
   loh_plot + theme(legend.position = "none"),
-  # gistic_plot + theme(
-  #   legend.position = "none",
-  #   axis.text.x = element_blank(),
-  #   axis.title.x = element_blank()
-  # ),
   variants_plot + theme(legend.position = "none"),
   metadata_plot + theme(legend.position = "none")
 )
 
-p <- plot_grid(plotlist = all_plots, ncol = 1, align = "v", axis = "lr", rel_heights = c(1.2, 0.8, 4, 2.5))
-legend_p1 <- plot_grid(plotlist = all_legends, ncol = 1, align = "vh", axis = "l", rel_heights = c(1, 2, 1.4))
+p <- plot_grid(plotlist = all_plots, ncol = 1, align = "v", axis = "lr", rel_heights = c(1.2, 0.5, 0.8, 4, 2.5))
+legend_p1 <- plot_grid(plotlist = all_legends, ncol = 1, align = "vh", axis = "l", rel_heights = c(1.2, 0.8, 2))
 legend_p2 <- plot_grid(legend_p1, metadata_plot_leg, ncol = 2, rel_heights = c(1, 0.75))
 plot_grid(p, legend_p2, ncol = 2, rel_widths = c(1, 0.7))
 
