@@ -11,11 +11,8 @@ chrom_sizes$V1 <- gsub("^chr", "", chrom_sizes$V1)
 
 # Read in metadata
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
-  select(sanger_dna_id, group, precursor_or_follow_up) |>
+  select(sanger_dna_id, study_id, group, precursor_or_follow_up) |>
   mutate(facet_group = paste(group, precursor_or_follow_up, sep = " "))
-
-facet_wrap(~facet_group, scales = "free_y")
-
 
 samples <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
@@ -82,58 +79,103 @@ for (i in 1:length(sample_list)) {
 cnv_calls_1 <- cnv_calls[1:28751, ]
 
 # Write out cnv
-cnv_calls_1_df <- as.data.frame(cnv_calls_1) %>%
+cnv_calls_1_df <- as.data.frame(cnv_calls_1) |>
   rownames_to_column("bin")
 
-write_tsv(cnv_calls_1_df, "results/copy_number/cnv_all_calls.txt")
+#write_tsv(cnv_calls_1_df, "results/copy_number/cnv_all_calls.txt")
 
 # Single Plot
 tidy_cnv_calls <- reshape2::melt(cnv_calls_1)
 colnames(tidy_cnv_calls) <- c("bin", "sample", "cn_state")
 
 tidy_cnv_calls$cn_state <- as.character(tidy_cnv_calls$cn_state)
-tidy_cnv_calls <- tidy_cnv_calls %>%
-  left_join(meta, by = c("sample" = "sanger_dna_id")) |>
-  mutate(facet_group = factor(paste(group, precursor_or_follow_up, sep = " "), 
-        levels = c(
-        "Non-progressor Precursor",
-        "Non-progressor Follow up",
-        "Progressor Precursor",
-        "Progressor Follow up")))
+tidy_cnv_calls <- tidy_cnv_calls |>
+  left_join(meta, by = c("sample" = "sanger_dna_id"))
 
-p <- ggplot(data = tidy_cnv_calls) +
-  geom_tile(aes(x = bin, y = sample, fill = cn_state)) +
+precursor_calls <- tidy_cnv_calls |>
+  filter(precursor_or_follow_up == "Precursor")
+
+follow_up_calls <- tidy_cnv_calls |>
+  filter(precursor_or_follow_up == "Follow up")
+
+pp <- ggplot(data = precursor_calls) +
+  geom_tile(aes(x = bin, y = study_id, fill = cn_state)) +
   geom_hline(yintercept = ((1:length(sample_list)) - 0.5), color = "gray80", size = 0.3) +
   geom_vline(xintercept = chrom_sizes$V3[1:22] / bin_size, color = "gray80", size = 0.3) +
-  facet_wrap(~facet_group, scales = "free_y") +
+  facet_wrap(~group, scales = "free_y", ncol = 1) +
   scale_fill_manual(
-    values = c("0" = "white", "1" = "palevioletred2", "2" = "skyblue2", "3" = "mediumaquamarine"),
+    values = c("0" = "white", "1" = "#B04968", "2" = "#4776A2", "3" = "#69C2A7"),
     labels = c("0" = "No change", "2" = "Loss", "1" = "Gain", "3" = "cn-LOH"),
     guide = guide_legend(
-      override.aes = list(color = "black", size = 0.5)
+      override.aes = list(color = "black", size = 0.5),
     )
   ) +
-  theme_bw() +
+  theme_bw(base_size = 10) +
   scale_x_continuous(
     expand = c(0, 0),
     breaks = c(chrom_sizes$V3[1:22] - (chrom_sizes$V2[1:22]) / 2) / bin_size,
     labels = c(1:22)
   ) +
   scale_y_discrete(expand = c(0, 0)) +
-  labs(x = "Chromosomes", y = NULL, fill = "Copy number") +
+  labs(x = "Chromosomes", y = NULL, fill = NULL, title = "Precursor") +
   theme(
     axis.ticks = element_blank(),
-    axis.text.x = element_text(size = 4),
-    axis.text.y = element_blank(),
-    legend.position = "bottom",
+    axis.text.x = element_text(size = 5),
+    axis.text.y = element_text(size = 7),
+    legend.position = "none",
     panel.grid = element_blank(),
     strip.background = element_blank(),
     legend.text = element_text(size = 8),
     legend.title = element_text(size = 9),
     strip.text = element_text(face = "bold"),
+    plot.title = element_text(size = 9),
     legend.key.size = unit(0.4, "cm"),
-    axis.title.y = element_text(size = 9)
+    axis.title.y = element_text(size = 9) 
   )
 
 # ggsave("plots/copy_number/heatmap/cn_heatmap_all.pdf", plot = p, width = 10, height = length(sample_list) / 6)
-ggsave("plots/copy_number/heatmap/cn_heatmap_all.png", plot = p, width = 8, height = 4.5, dpi = 300)
+ggsave("plots/copy_number/heatmap/precursors/cn_heatmap_pre.png", plot = p, width = 5.5, height = 5, dpi = 300)
+
+pf <- ggplot(data = follow_up_calls) +
+  geom_tile(aes(x = bin, y = study_id, fill = cn_state)) +
+  geom_hline(yintercept = ((1:length(sample_list)) - 0.5), color = "gray80", size = 0.3) +
+  geom_vline(xintercept = chrom_sizes$V3[1:22] / bin_size, color = "gray80", size = 0.3) +
+  facet_wrap(~group, scales = "free_y", ncol = 1) +
+  scale_fill_manual(
+    values = c("0" = "white", "1" = "#B04968", "2" = "#4776A2", "3" = "#69C2A7"),
+    labels = c("0" = "No change", "2" = "Loss", "1" = "Gain", "3" = "cn-LOH"),
+    guide = guide_legend(
+      override.aes = list(color = "black", size = 0.5),
+    )
+  ) +
+  theme_bw(base_size = 10) +
+  scale_x_continuous(
+    expand = c(0, 0),
+    breaks = c(chrom_sizes$V3[1:22] - (chrom_sizes$V2[1:22]) / 2) / bin_size,
+    labels = c(1:22)
+  ) +
+  scale_y_discrete(expand = c(0, 0)) +
+  labs(x = "Chromosomes", y = NULL, fill = "Copy number", title = "Follow Up") +
+  theme(
+    axis.ticks = element_blank(),
+    axis.text.x = element_text(size = 5),
+    axis.text.y = element_text(size = 7),
+    legend.position = "bottom",
+    panel.grid = element_blank(),
+    strip.background = element_blank(),
+    legend.text = element_text(size = 8),
+    legend.title = element_text(size = 9),
+    plot.title = element_text(size = 9),
+    strip.text = element_text(face = "bold"),
+    legend.key.size = unit(0.4, "cm"),
+    axis.title.y = element_text(size = 9) 
+  )
+
+# ggsave("plots/copy_number/heatmap/cn_heatmap_all.pdf", plot = p, width = 10, height = length(sample_list) / 6)
+ggsave("plots/copy_number/heatmap/follow_ups/cn_heatmap_fol.png", plot = p, width = 5.5, height = 5, dpi = 300)
+
+library(patchwork)
+combined <- pp / pf  
+
+ggsave("plots/copy_number/heatmap/cn_heatmap_combined.png",
+       plot = combined, width = 6.5, height = 9, dpi = 300)
