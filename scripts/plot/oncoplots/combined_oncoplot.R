@@ -76,12 +76,12 @@ variants_expanded <- expand_dataframe(variants_unique_full, "No mutation")
 
 ######## Variant Plot #########
 consequence_palette <- c(
-  "Missense" = "forestgreen",
-  "Nonsense" = "firebrick",
-  "Splice site" = "orange2",
+  "Missense" = "#68a334ff",
+  "Nonsense" = "#9f2727ff",
+  "Splice site" = "#E6AB02",
   "Frameshift" = "mediumpurple4",
-  "Inframe indel" = "sienna4",
-  "Multi hit" = "#f7b4ae",
+  "Inframe indel" = "#7d6a56ff",
+  "Multi hit" = "#EF9A9A",
   "Start codon lost" = "dodgerblue4",
   "No mutation" = "snow3"
 )
@@ -341,23 +341,23 @@ metadata_expanded <- meta |>
 ######## Metadata Plots ########
 metadata_palette <- c(
   # Sex
-  "Male"   = "lightskyblue3",
-  "Female" = "#CE6DBD",
+  "Male"   = "#AED581",
+  "Female" = "#B39DDB",
   
   # PSC (Yes/No)
-  "Yes" = "#B22D3C",
+  "Yes" = "#A1887F",
   "No"  = "gray80",
   
   # Diagnosis
-  "UC"     = "#5A9599",
+  "UC"     = "#B2DFDB",
   "Crohn's" = "#DF8F44",
-  "IBDU"   = "#490092",
+  "IBDU"   = "gray60",
   
   # Site
   "Left colon"       = "#B1746F",
-  "Right colon"      = "#A3CC51",
+  "Right colon"      = "#A5D6A7",
   "Transverse colon" = "#EFC000",
-  "Rectum"           = "#075149"
+  "Rectum"           = "#7986CB"
 )
 
 legend_order <- names(metadata_palette)
@@ -435,7 +435,7 @@ all_plots <- list(
   metadata_plot + theme(legend.position = "none")
 )
 
-p <- plot_grid(plotlist = all_plots, ncol = 1, align = "v", axis = "lr", rel_heights = c(1.2, 1, 4.6, 2.5))
+p <- plot_grid(plotlist = all_plots, ncol = 1, align = "v", axis = "lr", rel_heights = c(1.2, 0.8, 4.6, 2.5))
 legend_p1 <- plot_grid(plotlist = all_legends, ncol = 1, align = "vh", axis = "l", rel_heights = c(1, 2, 1.4))
 legend_p2 <- plot_grid(legend_p1, metadata_plot_leg, ncol = 2, rel_heights = c(1, 0.75))
 plot_grid(p, legend_p2, ncol = 2, rel_widths = c(1, 0.6))
