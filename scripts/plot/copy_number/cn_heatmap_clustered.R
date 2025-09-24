@@ -103,12 +103,13 @@ HM <- Heatmap(
   col = cnv_colors,
   cluster_rows = FALSE,        # keep bins in genomic order
   cluster_columns = FALSE,     # do not cluster samples
-  show_column_names = TRUE,
+  show_column_names = FALSE,
   show_row_names = FALSE,
   top_annotation = top_annotation,
   bottom_annotation = bottom_annotation,
   border = TRUE,
   column_split = annot_data$`2`,  # split samples by cluster assignment
+  column_title = NULL,     
   row_split = chr_vector,
   row_title_rot = 0,
   row_title_gp = gpar(fontsize = 10),
@@ -118,7 +119,7 @@ HM <- Heatmap(
 # ================================
 # 6. Save plot
 # ================================
-pdf("plots/copy_number/heatmap/precursors/cn_clustered_heatmap_2.pdf", width = 8, height = 10)
+pdf("plots/copy_number/heatmap/precursors/cn_clustered_heatmap_2.pdf", width = 5.5, height = 7)
 draw(
     HM,
     heatmap_legend_side = "right",
