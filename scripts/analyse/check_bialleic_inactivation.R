@@ -6,12 +6,14 @@ meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
     select(sanger_dna_id, study_id, group)
 cn_loh <- read_tsv("data/copy_number/cn_LOH_check.tsv") |>
     left_join(meta, by = c(sample = "sanger_dna_id"))
+samples <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
 
 apc_loh <- cn_loh |>
     filter(gene == "APC") |>
     filter(cn %in% c("cn-LOH", "LOH-del", "LOH-amp")) |>
     select(sample, study_id, gene, cn, group) |>
+    filter(sample %in% samples) |>
     write_tsv("results/tables/apc_cn_loh.tsv")
 
 apc_maf <- maf |>
@@ -20,13 +22,14 @@ apc_maf <- maf |>
     rename(sample = Tumor_Sample_Barcode)
 
 combine_apc <- apc_loh |>
-    left_join(tp53_maf) |>
+    left_join(apc_maf) |>
     arrange(Main_consequence_VEP)
 
 tp53_loh <- cn_loh |>
     filter(gene == "TP53") |>
     filter(cn %in% c("cn-LOH", "LOH-del", "LOH-amp")) |>
     select(sample, study_id, gene, cn, group) |>
+    filter(sample %in% samples) |>
     write_tsv("results/tables/tp53_cn_loh.tsv")
 
 tp53_maf <- maf |>
