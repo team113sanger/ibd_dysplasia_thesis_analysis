@@ -11,10 +11,8 @@ library(tibble)
 
 MAF_PATH <- "data/variants/7100_3235-filtered_mutations_matched_allTum_keepPA.maf"
 METADATA_PATH <- "metadata/final_metadata_qc_pass.tsv"
-#GISTIC_CGC_PATH <- "/lustre/scratch125/casm/team113da/projects/dermatlas_pu6_project_dir/6678_2860_DERMATLAS_Hidradenoma_papilliferum_WES/analysis/gistic2/release_v3/one_tumour_per_patient/MIN_0/gistic_cancer_genes.tsv"
-GISTIC_PATH <- "data/copy_number/gistic/prog_pre/QC_gistic_cohort_summary.tsv"
 TMB_PATH <- "data/variants/mutations_per_Mb.tsv"
-SAMPLE_LIST_PATH <- "metadata/sample_lists/progressor_precursor_samples_ppat.tsv"
+SAMPLE_LIST_PATH <- "metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv"
 TP53_LOH <- "results/tables/tp53_cn_loh.tsv"
 APC_LOH <- "results/tables/apc_cn_loh.tsv"
 
@@ -22,8 +20,6 @@ APC_LOH <- "results/tables/apc_cn_loh.tsv"
 maf <- read_tsv(MAF_PATH)
 sample_list <- read_lines(SAMPLE_LIST_PATH) 
 metadata <- read_tsv(METADATA_PATH)
-#gistic_cgc <- read_tsv(GISTIC_CGC_PATH)
-gistic <- read_tsv(GISTIC_PATH)
 tmb <- read_tsv(TMB_PATH, col_names = FALSE) |>
   filter(X1 %in% sample_list)
 tp53_loh <- read_tsv(TP53_LOH)
@@ -113,152 +109,6 @@ variants_plot <- ggplot(data = variants_expanded) +
 variants_plot
 variants_plot_leg <- as_ggplot(get_legend(variants_plot + theme(legend.text = element_text(size = 8), legend.title = element_text(size = 9))))
 
-######## Prepare Focal CNA Data -- collapsed ########
-# gistic_filtered <- gistic |>
-#   filter(qc_and_max_10Mb == "PASS") 
-
-# gistic_per_sample <- gistic_filtered |>
-#   distinct(gistic_peak, .keep_all = TRUE) |>
-#   separate_rows(samples, sep = ",") |>
-#   select(gistic_peak, samples, gistic_call) |>
-#   # mutate(gistic_peak = case_when(
-#   #   gistic_peak == "Deletion Peak 18" ~ "18q21.33 \n(SERPINB3, SERPINB4)",
-#   #   TRUE ~ gistic_peak
-#   # )) |>
-#   mutate(gistic_call = case_when(
-#     gistic_call == "gain" ~ "Amplification",
-#     gistic_call == "loss" ~ "Deletion",
-#     TRUE ~ gistic_call
-#   ))
-
-# gistic_order <- rev(unique(gistic_per_sample$gistic_peak))
-
-# gistic_all <- add_missing_samples(sample_list[["X1"]], gistic_per_sample, "No sig. CNA")
-
-# gistic_all[["samples"]] <-
-#   factor(gistic_all[["samples"]], levels = samples_order)
-
-# gistic_expanded <- expand_dataframe(gistic_all, "No sig. CNA")
-
-# gistic_expanded <- gistic_expanded |>
-#   mutate(gistic_call = if_else(samples %in% c(
-#     "PD54739a"
-#   ), "No data", gistic_call))
-
-# ######## Focal Gistic CNA ########
-# cna_palette <- c(
-#   "Amplification" = "indianred3",
-#   "Deletion" = "steelblue3",
-#   # "Deletion (Chromosome arm)" = "steelblue4",
-#   "No sig. CNA" = "snow3",
-#   "No data" = "snow2"
-# )
-# legend_order <- names(cna_palette)
-
-# gistic_plot <- ggplot(data = gistic_expanded) +
-#   geom_tile(aes(
-#     x = samples, y = gistic_peak,
-#     fill = gistic_call
-#   ), color = "white", lwd = 0.3) +
-#   scale_fill_manual(values = cna_palette, breaks = legend_order) +
-#   scale_color_identity(guide = "none") +
-#   theme(
-#     legend.position = "top", axis.ticks = element_blank(),
-#     legend.justification = c("left", "top"),
-#     axis.title.x = element_blank(), axis.text.x = element_blank(),
-#     axis.text.y = element_text(size = 8), axis.title.y = element_blank(),
-#     panel.background = element_rect(fill = "snow3"),
-#     panel.grid.major = element_blank(), panel.grid.minor = element_blank()
-#   ) +
-#   scale_x_discrete(expand = c(0, 0), guide = guide_axis(angle = 90)) +
-#   scale_y_discrete(expand = c(0, 0)) +
-#   labs(fill = "Focal CNA", x = "Sample")
-
-# gistic_plot
-# gistic_plot_leg <- as_ggplot(
-#   get_legend(gistic_plot + theme(
-#     legend.position = "right",
-#     legend.text = element_text(size = 8),
-#     legend.title = element_text(size = 9)
-#   ))
-# )
-
-
-# ######## Prepare Focal CNA Data (CGC only) -- collapsed ########
-
-# cna <- gistic_cgc |>
-#   filter(qc_and_max_10Mb == "PASS")
-
-# cna_per_sample <- cna |>
-#   distinct(gistic_peak, .keep_all = TRUE) |>
-#   separate_rows(samples, sep = ",") |>
-#   select(gistic_peak, samples, gistic_call) |>
-#   mutate(gistic_peak = case_when(
-#     gistic_peak == "Deletion Peak 18" ~ "18q21.33 \n(SERPINB3, SERPINB4)",
-#     TRUE ~ gistic_peak
-#   )) |>
-#   mutate(gistic_call = case_when(
-#     gistic_call == "gain" ~ "Amplification",
-#     gistic_call == "loss" ~ "Deletion",
-#     TRUE ~ gistic_call
-#   ))
-
-# cna_order <- rev(unique(cna_per_sample$gistic_peak))
-
-# cna_all <- add_missing_samples(sample_list[["X1"]], cna_per_sample, "No sig. CNA")
-
-# cna_all[["samples"]] <-
-#   factor(cna_all[["samples"]], levels = samples_order)
-
-# # cna_all[["gistic_name"]] <-
-# #   factor(cna_all[["gistic_name"]], levels = cna_order)
-
-# cna_expanded <- expand_dataframe(cna_all, "No sig. CNA")
-
-# cna_expanded <- cna_expanded |>
-#   mutate(gistic_call = if_else(samples %in% c(
-#     "PD54739a"
-#   ), "No data", gistic_call))
-
-# ######## CNA Plot (Collapsed) ########
-# cna_palette <- c(
-#   "Amplification" = "indianred3",
-#   "Deletion" = "steelblue3",
-#   # "Deletion (Chromosome arm)" = "steelblue4",
-#   "No sig. CNA" = "snow3",
-#   "No data" = "snow2"
-# )
-# legend_order <- names(cna_palette)
-
-# cna_plot <- ggplot(data = cna_expanded) +
-#   geom_tile(aes(
-#     x = samples, y = gistic_peak,
-#     fill = gistic_call
-#   ), color = "white", lwd = 0.3) +
-#   scale_fill_manual(values = cna_palette, breaks = legend_order) +
-#   scale_color_identity(guide = "none") +
-#   theme(
-#     legend.position = "top", axis.ticks = element_blank(),
-#     legend.justification = c("left", "top"),
-#     axis.title.x = element_blank(), axis.text.x = element_blank(),
-#     axis.text.y = element_text(size = 8), axis.title.y = element_blank(),
-#     panel.background = element_rect(fill = "snow3"),
-#     panel.grid.major = element_blank(), panel.grid.minor = element_blank()
-#   ) +
-#   scale_x_discrete(expand = c(0, 0), guide = guide_axis(angle = 90)) +
-#   scale_y_discrete(expand = c(0, 0)) +
-#   labs(fill = "Focal CNA", x = "Sample")
-
-# cna_plot
-# cna_plot_leg <- as_ggplot(
-#   get_legend(cna_plot + theme(
-#     legend.position = "right",
-#     legend.text = element_text(size = 8),
-#     legend.title = element_text(size = 9)
-#   ))
-# )
-
-
 ######## Prepare LOH data ########
 ## TP53 ##
 loh_data <- tp53_loh |>
@@ -342,14 +192,14 @@ metadata_expanded <- meta |>
 metadata_palette <- c(
   # Sex
   "Male"   = "#AED581",
-  "Female" = "#B39DDB",
+  "Female" = "#A1887F",
   
   # PSC (Yes/No)
-  "Yes" = "#A1887F",
+  "Yes" = "#9575CD",
   "No"  = "gray80",
   
   # Diagnosis
-  "UC"     = "#B2DFDB",
+  "UC"     = "#83A8CC",
   "Crohn's" = "#DF8F44",
   "IBDU"   = "gray60",
   
@@ -435,12 +285,12 @@ all_plots <- list(
   metadata_plot + theme(legend.position = "none")
 )
 
-p <- plot_grid(plotlist = all_plots, ncol = 1, align = "v", axis = "lr", rel_heights = c(1.2, 0.8, 4.6, 2.5))
+p <- plot_grid(plotlist = all_plots, ncol = 1, align = "v", axis = "lr", rel_heights = c(1.2, 0.8, 4, 2.5))
 legend_p1 <- plot_grid(plotlist = all_legends, ncol = 1, align = "vh", axis = "l", rel_heights = c(1, 2, 1.4))
 legend_p2 <- plot_grid(legend_p1, metadata_plot_leg, ncol = 2, rel_heights = c(1, 0.75))
-plot_grid(p, legend_p2, ncol = 2, rel_widths = c(1, 0.6))
+plot_grid(p, legend_p2, ncol = 2, rel_widths = c(1, 0.7))
 
-ggsave("plots/oncoplots/combined_pre_pro.pdf",
-  height = 6, width = 8
+ggsave("plots/oncoplots/combined_pre_npro.pdf",
+  height = 5, width = 6.5
 )
 
