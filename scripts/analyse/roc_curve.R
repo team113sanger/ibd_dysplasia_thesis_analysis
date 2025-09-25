@@ -3,102 +3,84 @@ library(dplyr)
 library(readr)
 library(ggplot2)
 
+set.seed(123) # for reproducibility
+
 # Read in data
 df <- read_tsv("results/precursor_combined_results.tsv") |>
-    select(sanger_dna_id, group, cn_proportion)
+  select(sanger_dna_id, group, cn_proportion) |>
+  mutate(group_outcome = ifelse(group == "Progressor", 1, 0))
 
-# Convert to binary outcome (1 = Progressor, 0 = Non-progressor)
-df <- df |>
-  mutate(group_outcome = ifelse(group == "Progressor", 1, 0)) 
+# Train-test split (75/25)
+train_idx <- sample(seq_len(nrow(df)), size = 0.75 * nrow(df))
+train_df <- df[train_idx, ]
+test_df  <- df[-train_idx, ]
 
-# ROC analysis
-roc_obj <- roc(df$group_outcome, df$cn_proportion,
-               levels = c(0, 1), direction = "<")
+# ROC analysis on training set
+roc_train <- roc(train_df$group_outcome, train_df$cn_proportion,
+                 levels = c(0, 1), direction = "<")
 
-# See results
-# Area under curve (AUC)
-auc_val <- auc(roc_obj)
-auc_val
+auc_train <- auc(roc_train)
 
-# See all results
-all <- coords(roc_obj, ret = "all", transpose = FALSE) 
-
-# Best threshold (Youden index)
+# Best threshold from training
 best_thresh <- coords(
-    roc_obj, "best",
-    ret = c("threshold", "sensitivity", "1-specificity", "specificity", "precision", "recall"),
-    transpose = FALSE
-    )
-best_thresh
+  roc_train, "best",
+  ret = c("threshold", "sensitivity", "specificity"),
+  transpose = FALSE
+)
 
-# Plot ROC
-# pdf("results/regression_analysis/roc.pdf")
-# plot(roc_obj, print.auc = TRUE, col = "darkorange", lwd = 2, legacy.axes = TRUE)
-# dev.off()
+# Apply threshold to test set
+test_df <- test_df |>
+  mutate(pred_progression = ifelse(cn_proportion >= best_thresh$threshold, 1, 0))
 
-p <- ggroc(list(roc_obj), size = 1, legacy.axes = TRUE)+
-        theme_classic(base_size = 12) +
-        geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1), color="grey", linetype="dashed") + #random classifier baseline
-        theme(axis.text.x = element_text(vjust = 0.5, hjust=1, colour="black", size=10),
-              panel.grid.major = element_blank(),
-              panel.grid.minor = element_blank(),
-              panel.background = element_blank(),
-              axis.line = element_blank(),
-              legend.position="none") +
-        annotate("text", x=0.7, y=0.2, label= paste0("functional score\n\ AUC: ",round(auc_val,4)),family = "mono", colour="black") +
-        scale_colour_manual(values = c("black")) +
-        scale_y_continuous(limits = c(0, 1), breaks = seq(0, 1, by = 0.25)) +
-        annotate("point", x=best_thresh$`1-specificity`, y=best_thresh$sensitivity, colour="red", size=2.5) +
-        annotate("text", x=0.7, y=(best_thresh$sensitivity-0.05), label= paste0(" threshold: ",round(best_thresh$threshold,5)),family = "mono", colour="black") +
-        annotate("text", x=0.7, y=(best_thresh$sensitivity-0.1), label= paste0("  sensitivity: ", round(best_thresh$sensitivity,5)),family = "mono", colour="black") +
-        annotate("text", x=0.7, y=(best_thresh$sensitivity-0.15), label= paste0("1-specificity: ", round(best_thresh$`1-specificity`,5)),family = "mono", colour="black") +
-        ylab("Sensitivity (True Positive Rate)") +
-        xlab("1-Specificity (False Positve Rate)")
+# Confusion matrix on test set
+conf <- table(Observed = test_df$group_outcome, Predicted = test_df$pred_progression)
 
-ggsave("results/regression_analysis/roc_curve.png", p, dpi = 300)
+TP <- conf["1", "1"]
+FP <- conf["0", "1"]
+TN <- conf["0", "0"]
+FN <- conf["1", "0"]
 
-# Get positve and negative predictive values 
-# Apply threshold to classify samples
-df <- df |>
-  mutate(pred_progression = ifelse(cn_proportion >= best_thresh$threshold, "Progressor", "Non-progressor"))
-
-# Confusion matrix
-conf <- table(Observed = df$group, Predicted = df$pred_progression)
-conf
-
-# Extract values
-TP <- conf["Progressor", "Progressor"]
-FP <- conf["Non-progressor", "Progressor"]
-TN <- conf["Non-progressor", "Non-progressor"]
-FN <- conf["Progressor", "Non-progressor"]
-
-# Predictive values
 PPV <- TP / (TP + FP)
 NPV <- TN / (TN + FN)
 
-PPV
-NPV
+# ROC on test set
+roc_test <- roc(test_df$group_outcome, test_df$cn_proportion,
+                levels = c(0, 1), direction = "<")
+auc_test <- auc(roc_test)
 
-# Write results
-# Build results summary
+p_both <- ggroc(list(Train = roc_train, Test = roc_test), size = 1, legacy.axes = TRUE) +
+  theme_classic(base_size = 12) +
+  geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1),
+               color = "grey", linetype = "dashed") +
+  scale_color_manual(values = c("Train" = "blue", "Test" = "red")) +
+  labs(color = "Dataset") +
+  annotate("text", x = 0.7, y = 0.3,
+           label = paste0("Train AUC: ", round(auc_train, 3)),
+           family = "mono", colour = "blue") +
+  annotate("text", x = 0.7, y = 0.2,
+           label = paste0("Test AUC: ", round(auc_test, 3)),
+           family = "mono", colour = "red") +
+  theme(axis.line = element_blank(),
+        legend.position = c(0.9, 0.55)) +
+  ylab("Sensitivity (TPR)") +
+  xlab("1-Specificity (FPR)")
+
+ggsave("results/regression_analysis/roc_curve_train_test.png", p_both, dpi = 300, 
+        width = 5.5, height = 5.5)
+
+# Results summary
 results_summary <- tibble::tibble(
-  Metric = c("AUC",
-             "Threshold",
-             "Sensitivity",
-             "1-Specificity",
-             "PPV",
-             "NPV",
-             "TP", "FP", "TN", "FN"),
+  Metric = c("Train AUC", "Test AUC", "Threshold (train)",
+             "Sensitivity (train)", "Specificity (train)",
+             "PPV (test)", "NPV (test)", "TP", "FP", "TN", "FN"),
   Value = c(
-    as.numeric(auc_val),
+    as.numeric(auc_train),
+    as.numeric(auc_test),
     best_thresh$threshold,
     best_thresh$sensitivity,
-    best_thresh$`1-specificity`,
-    PPV,
-    NPV,
-    TP, FP, TN, FN
+    best_thresh$specificity,
+    PPV, NPV, TP, FP, TN, FN
   )
 )
 
-write_tsv(results_summary, "results/regression_analysis/roc_metrics.tsv")
-
+write_tsv(results_summary, "results/regression_analysis/roc_metrics_train_test.tsv")
