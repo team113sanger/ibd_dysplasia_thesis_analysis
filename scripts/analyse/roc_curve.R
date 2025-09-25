@@ -24,7 +24,7 @@ auc_train <- auc(roc_train)
 # Best threshold from training
 best_thresh <- coords(
   roc_train, "best",
-  ret = c("threshold", "sensitivity", "specificity"),
+  ret = c("threshold", "sensitivity", "1-specificity"),
   transpose = FALSE
 )
 
@@ -48,18 +48,22 @@ roc_test <- roc(test_df$group_outcome, test_df$cn_proportion,
                 levels = c(0, 1), direction = "<")
 auc_test <- auc(roc_test)
 
-p_both <- ggroc(list(Train = roc_train, Test = roc_test), size = 1, legacy.axes = TRUE) +
+p_both <- ggroc(list(Train = roc_train, Test = roc_test), size = 0.8, legacy.axes = TRUE) +
   theme_classic(base_size = 12) +
   geom_segment(aes(x = 0, xend = 1, y = 0, yend = 1),
                color = "grey", linetype = "dashed") +
-  scale_color_manual(values = c("Train" = "blue", "Test" = "red")) +
+  scale_color_manual(values = c("Train" = "darkorchid3", "Test" = "palegreen4")) +
   labs(color = "Dataset") +
   annotate("text", x = 0.7, y = 0.3,
            label = paste0("Train AUC: ", round(auc_train, 3)),
-           family = "mono", colour = "blue") +
+           family = "mono", colour = "darkorchid3") +
   annotate("text", x = 0.7, y = 0.2,
            label = paste0("Test AUC: ", round(auc_test, 3)),
-           family = "mono", colour = "red") +
+           family = "mono", colour = "palegreen4") +
+  annotate("point",
+           x = best_thresh$`1-specificity`,
+           y = best_thresh$sensitivity,
+           colour = "red", size = 2) +
   theme(axis.line = element_blank(),
         legend.position = c(0.9, 0.55)) +
   ylab("Sensitivity (TPR)") +
@@ -71,14 +75,14 @@ ggsave("results/regression_analysis/roc_curve_train_test.png", p_both, dpi = 300
 # Results summary
 results_summary <- tibble::tibble(
   Metric = c("Train AUC", "Test AUC", "Threshold (train)",
-             "Sensitivity (train)", "Specificity (train)",
+             "Sensitivity (train)", "1-Specificity (train)",
              "PPV (test)", "NPV (test)", "TP", "FP", "TN", "FN"),
   Value = c(
     as.numeric(auc_train),
     as.numeric(auc_test),
     best_thresh$threshold,
     best_thresh$sensitivity,
-    best_thresh$specificity,
+    best_thresh$`1-specificity`,
     PPV, NPV, TP, FP, TN, FN
   )
 )
