@@ -39,3 +39,14 @@ sex_count_by_group <-  meta |>
     group_by(sex, group) |>
     count()
 sex_count_by_group
+
+age_metrics <- meta |>
+  group_by(group) |>
+  summarise(
+    median_age = median(age, na.rm = TRUE),
+    min_age = min(age, na.rm = TRUE),
+    max_age = max(age, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+age_metrics
