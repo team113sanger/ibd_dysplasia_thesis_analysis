@@ -3,7 +3,7 @@ Train AUC	0.6979166666666666
 Test AUC	0.75
 Threshold (train)	0.11004434730787144
 Sensitivity (train)	0.5
-Specificity (train)	0.875
+1-Specificity (train)	0.125
 PPV (test)	0.8
 NPV (test)	0.6
 TP	4
