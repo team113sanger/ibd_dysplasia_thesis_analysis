@@ -30,6 +30,7 @@ precursors <- maf_meta %>%
 p_pre <- ggplot(precursors, aes(x = progression_status, y = VAF_tum, fill = progression_status)) +
   geom_boxplot(outlier.shape = 21, alpha = 0.6, width = 0.6) +
   facet_wrap(~ Hugo_Symbol, scales = "free_y") +
+    coord_cartesian(ylim = c(0, 1)) +               # <- lock to 0–1
   scale_fill_brewer(palette = "Set2") +
   theme_bw(base_size = 12) +
   theme(legend.position = "none",
@@ -54,6 +55,7 @@ p_follow <- ggplot(followups, aes(x = progression_status, y = VAF_tum, fill = pr
   geom_boxplot(outlier.shape = 21, alpha = 0.6, width = 0.6) +
   facet_wrap(~ Hugo_Symbol, scales = "free_y") +
   scale_fill_brewer(palette = "Set2") +
+    coord_cartesian(ylim = c(0, 1)) +               # <- lock to 0–1
   theme_bw(base_size = 12) +
   theme(legend.position = "none",
         strip.text = element_text(face ="italic")) +
