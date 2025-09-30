@@ -1,0 +1,44 @@
+sanger_dna_id	study_id	group	precursor_or_follow_up	grade_of_dysplasia	diagnosis
+PD62030d	5CPC	Progressor	Follow up	Adenocarcinoma	Adenocarcinoma
+PD62031a	6CPA	Progressor	Precursor	Low grade	Low grade dysplasia
+PD62033a	8CPA	Progressor	Precursor	Low grade	Low grade dysplasia in TVA
+PD62033c	8CPB	Progressor	Precursor	Low grade	Low grade dysplasia in TVA
+PD62033d	8CPC	Progressor	Follow up	High grade	high grade dysplasia in TVA
+PD62034a	9CPA	Progressor	Precursor	Low grade	Low grade dysplasia in VA
+PD62036a	11CPA	Progressor	Follow up	Adenocarcinoma	Unknown
+PD62037a	12CPA	Progressor	Precursor	Low grade	Low grade dysplasia
+PD62037c	12CPB	Progressor	Precursor	Low grade	Low grade dysplasia
+PD62038e	13CPD	Progressor	Follow up	Adenocarcinoma	Adenocarcinoma
+PD62039d	NA	NA	NA	NA	NA
+PD62045a	20CPA	Progressor	Follow up	Adenocarcinoma	Adenocarcinoma
+PD62045c	20CPB	NA	Follow Up	High grade	High grade dysplasia
+PD62047a	22CPA	Progressor	Precursor	Not specified	dysplasia in TA, not specified
+PD62053a	2CNPA	Non-progressor	Precursor	Moderate	Moderate
+PD62053c	2CNPC	Non-progressor	Follow up	Low grade	Low grade
+PD62054a	3CNPA	Non-progressor	Precursor	NOS	NOS
+PD62057a	6CNPA	Non-progressor	Precursor	Low grade	Low grade
+PD62064a	14CNPA	Non-progressor	Precursor	Low grade	low grade*
+PD62064c	14CNPB	Non-progressor	Precursor	Low grade	low grade**
+PD62064d	14CNPC	Non-progressor	Follow up	Low grade	low grade*
+PD62065c	15CNPC	Non-progressor	Precursor	Low grade	low grade**
+PD62065e	15CNPE-1	Non-progressor	Follow up	Low grade	low grade
+PD62067a	17CNPA	Non-progressor	Precursor	Low grade	low grade
+PD62068a	18CNPA-1	Non-progressor	Precursor	NOS	NOS**
+PD62068e	18CNPB-2	Non-progressor	Follow up	Low grade	low grade**
+PD62068f	18CNPC	Non-progressor	Precursor	Low grade	Low grade***
+PD62068g	18CNPD	Non-progressor	Follow up	NOS	NOS***
+PD62070d	21CNPC	Non-progressor	Follow up	Low grade	Low grade
+PD62072a	23CNPA	Non-progressor	Precursor	Low grade	Low grade
+PD62074d	25CNPC	Non-progressor	Follow up	Low grade	low grade
+PD62075a	26CNPA	Non-progressor	Precursor	Low grade	Low grade
+PD62076a	28CNPA	Non-progressor	Precursor	Low grade	Low grade
+PD62076c	28CNPB	Non-progressor	Follow up	Low grade	Low grade
+PD62078a	30CNPA	Non-progressor	Precursor	Moderate	Moderate
+PD62078c	30CNPB	Non-progressor	Follow up	Moderate	Moderate
+PD62079c	31CNPB	Non-progressor	Follow up	Low grade	Low grade
+PD62080a	32CNPA	Non-progressor	Precursor	Low grade	Low grade
+PD62080c	32CNPB	Non-progressor	Follow up	Low grade	Low grade
+PD62081a	33CNPA-1	Non-progressor	Precursor	Low grade	low grade**
+PD62082c	34CNPB	Non-progressor	Follow up	High grade	High grade
+PD62083c	35CNPB	Non-progressor	Follow up	Low grade	Low grade
+PD62083d	35CNPC	Non-progressor	Follow up	Low grade	Low grade

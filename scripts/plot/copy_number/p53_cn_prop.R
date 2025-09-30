@@ -1,0 +1,88 @@
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(viridis)
+
+# Read data
+p53_status <- read_tsv("results/p53_mutations/p53_status.tsv")
+cn_props <- read_tsv("data/copy_number/proportions/all_cn_props.tsv") |>
+  select(Sample, proportion) |>
+  rename(sanger_dna_id = Sample)
+
+# Sample lists
+nprog_pre <- read_lines("metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv")
+prog_pre  <- read_lines("metadata/sample_lists/progressor_precursor_samples_ppat.tsv")
+nprog_fol <- read_lines("metadata/sample_lists/non_progressor_follow_up_samples_ppat.tsv")
+prog_fol  <- read_lines("metadata/sample_lists/progressor_follow_up_samples_ppat.tsv")
+
+# Functions
+subset_groups <- function(df, set1, set2, set1_label, set2_label, timepoint) {
+  df |>
+    filter(sanger_dna_id %in% c(set1, set2)) |>
+    mutate(group = ifelse(sanger_dna_id %in% set1, set1_label, set2_label),
+           timepoint = timepoint)
+}
+
+add_TP53_status <- function(df, p53_df) {
+  df |>
+    mutate(p53 = ifelse(sanger_dna_id %in% p53_df$Tumor_Sample_Barcode, "Mut", "WT"))
+}
+
+# Build combined dataset
+df_all <- bind_rows(
+  subset_groups(cn_props, nprog_pre, prog_pre, "Non-Progressor", "Progressor", "Precursor"),
+  subset_groups(cn_props, nprog_fol, prog_fol, "Non-Progressor", "Progressor", "Follow-up")
+) |>
+  add_TP53_status(p53_status)
+
+df_all[["timepoint"]] <- factor(
+  df_all[["timepoint"]],
+  levels = c("Precursor", "Follow-up")
+)
+
+# Wilcoxon per facet
+wilcox_labels <- df_all |>
+  group_by(timepoint) |>
+  summarise(
+    p = wilcox.test(proportion ~ p53)$p.value,
+    .groups = "drop"
+  ) |>
+  mutate(label = paste0("Wilcox p = ", signif(p, 3)))
+
+# Boxplot
+p <- ggplot(df_all, aes(x = p53, y = proportion, fill = p53)) +
+      stat_boxplot(geom ='errorbar', width = 0.2) +
+      geom_boxplot(color = "#333333ff", linewidth = 0.3, outlier.size = 1, width = 0.6, outlier.shape = 21) +
+      labs(x = NULL, y = "CNA Proportion") +
+      scale_fill_manual(values = c("#3BA091", "#CC5151")) +
+      theme_classic(base_size = 10) +
+      facet_wrap(~timepoint) +
+      geom_text(
+        data = wilcox_labels,
+        aes(x = 1.5, y = 1.05 * max(df_all$proportion), label = label),
+        inherit.aes = FALSE,
+        size = 3,
+        fontface = "italic") +
+        theme(
+          strip.background = element_blank(),
+          strip.text = element_text(face = "bold"),
+          axis.text.x = element_blank(),
+          axis.ticks.x = element_blank())
+
+# Counts plot
+p2 <- ggplot(df_all, aes(x = p53, fill = group)) +
+        geom_bar(position = "stack") +
+        labs(x = "TP53 Status", y = "Frequency", fill = "Group") +
+        scale_fill_manual(values = c("Progressor" = "#EF9B4A", "Non-Progressor" = "darkseagreen")) +
+        theme_classic(base_size = 10) +
+        facet_wrap(~timepoint) +
+        theme(
+          legend.position = "right",
+          strip.text = element_blank())
+
+# Arrange plots
+p_combined <- p / p2 + 
+  plot_layout(heights = c(3, 1)) 
+
+ggsave("plots/copy_number/proportions/p53_cn_props.png", p_combined, width = 5.3, height = 4)

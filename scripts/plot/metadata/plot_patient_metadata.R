@@ -1,0 +1,41 @@
+library(readr)
+library(ggplot2)
+library(stringr)
+library(dplyr)
+
+sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
+
+meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
+  filter(sanger_dna_id %in% sample_list) |>
+  mutate(
+    patient_id = sanger_dna_id |> str_remove("[a-z]$"),
+    study_patient_id = study_id |> str_remove("-\\d+$") |> str_remove("[A-Z]$")
+  ) |>
+  distinct(study_patient_id, .keep_all = TRUE)
+
+p <- ggplot(meta, aes(x = study_patient_id, y = site_general, colour = ibd_diagnosis, shape = sex)) +
+        geom_point(size = 2, alpha = 0.99) +
+        facet_wrap(~ group, scales = "free_x") +
+        theme_bw(base_size = 10) +
+        scale_colour_brewer(palette = "Dark2") +
+        theme(
+            axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1, size = 6),
+            panel.grid.major = element_line(colour = "grey90"),
+            panel.grid.minor = element_blank(),
+            axis.line = element_blank(),
+            axis.ticks = element_blank(),
+            panel.border = element_blank(),
+            strip.background = element_blank(),
+            strip.text = element_text(face = "bold"),
+            legend.position = "right",
+            legend.title = element_text(size = 9)
+          #  text = element_text(family = "serif", colour = "black")
+        ) +
+        labs(
+            x = NULL,
+            y = NULL,
+            colour = "IBD Diagnosis",
+            shape = "Sex"
+        )
+ggsave("plots/metadata/patient_overview.png", p, width = 6.5, height = 3)
+

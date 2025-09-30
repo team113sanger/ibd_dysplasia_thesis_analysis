@@ -1,0 +1,1123 @@
+LvdW ID	Case ID	Collaborator	Country	HMDMC	Diagnosis	Phenotype	T/N linked	Tissue	Site	Tumour type	Sex	Age	Location of normal	Sample received	Sample extracted	No. cores	DNA (uL)	RNA (uL)	Notes from sample prep	Slide scanned?	Sample location	Sanger DNA ID	Sanger RNA ID	Clinical notes
+7405	2CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TVA	T1	991	Colon	-	P	Female	71	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62027a	N/A	
+7406	2CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T2	991	Colon	-	P	Female	75	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62027c	N/A	
+7407	2NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	991	Lymph node	-	P	Female	75	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62027b	N/A	
+7408	3CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	992	Colon	-	P	Male	55	-	13.06.22	13.06.22	Scrolls (1 tube of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62028a	N/A	
+7409	3CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T2	992	Colon	-	P	Male	56	-	13.06.22	13.06.22	Cores	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62028c	N/A	
+7410	3NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	992	Colon	-	P	Male	56	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62028b	N/A	
+7411	4CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TA	T1	993	Colon	-	P	Female	80	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62029a	N/A	
+7412	4CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TVA	T2	993	Colon	-	P	Female	82	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62029c	N/A	
+7413	4CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia ? Invasive in TVA (focal HG change on review)	T3	993	Colon	-	P	Female	82	-	13.06.22	13.06.22	Cores	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62029d	N/A	
+7414	4NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	993	Lymph node	-	P	Female	84	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62029b	N/A	
+7415	5CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia (very small fragment)	T1	994	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62030a	N/A	
+7416	5CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	"High grade dysplasia, flat"	T2	994	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62030c	N/A	
+7417	5CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T3	994	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62030d	N/A	
+7418	5NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	994	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62030b	N/A	
+7419	6CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	995	Colon	-	P	Male	27	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62031a	N/A	
+7420	6CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma (focal invasion)	T2	995	Colon	-	P	Male	28	-	13.06.22	13.06.22	Cores	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62031c	N/A	
+7421	6CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia (background)	T3	995	Colon	-	P	Male	28	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62031d	N/A	
+7422	6NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	995	Lymph node	-	P	Male	28	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62031b	N/A	
+7423	7CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia in VA	T	996	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62032a	N/A	
+7424	7NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	996	Colon	-	P	Male	69	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62032b	N/A	
+7425	8CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TVA	T1	997	Colon	-	P	Male	55	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62033a	N/A	
+7426	8CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TVA	T2	997	Colon	-	P	Male	55	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62033c	N/A	
+7427	8CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	high grade dysplasia in TVA	T3	997	Colon	-	P	Male	55	-	13.06.22	13.06.22	Cores	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62033d	N/A	
+7428	8NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	997	Colon	-	P	Male	56	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62033b	N/A	
+7429	9CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in VA	T1	998	Colon	-	P	Female	64	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62034a	N/A	
+7430	9CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia in TVA	T2	998	Colon	-	P	Female	70	-	13.06.22	13.06.22	Cores	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62034c	N/A	
+7431	9NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	998	Duodenum	-	P	Female	71	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62034b	N/A	
+7432	10CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TA	T	999	Colon	-	P	Female	68	-	13.06.22	13.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62035a	N/A	
+7433	10NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	999	Colon	-	P	Female	71	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62035b	N/A	
+7612 (8392)	11CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Unknown	T1	1000	Colon	-	P	Male	67	-	04.09.22	08.09.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62036a	N/A	
+7434	11CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Tumour	T2	1000	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62036c	N/A	
+7435	11NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1000	Colon	-	P	Male	67	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62036b	N/A	
+7436	12CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	1001	Colon	-	P	Male	44	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62037a	N/A	
+7437	12CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T2	1001	Colon	-	P	Male	44	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62037c	N/A	
+7438	12CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T3	1001	Colon	-	P	Male	45	-	13.06.22	13.06.22	Cores	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62037d	N/A	
+7439	12CPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T4	1001	Colon	-	P	Male	45	-	13.06.22	13.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62037e	N/A	
+7440	12NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1001	Lymph node	-	P	Male	45	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62037b	N/A	
+7441	13CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	1002	Colon	-	P	Male	49	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62038a	N/A	
+7442	13CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in VA	T2	1002	Colon	-	P	Male	50	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62038c	N/A	
+7443	13CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T3	1002	Colon	-	P	Male	50	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62038d	N/A	
+7444	13CPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T4	1002	Colon	-	P	Male	50	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62038e	N/A	
+7445	13NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1002	Lymph node	-	P	Male	50	-	13.06.22	13.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62038b	N/A	
+7446	14CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TVA	T1	1003	Colon	-	P	Female	71	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62039a	N/A	
+7447	14CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T2	1003	Colon	-	P	Female	71	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62039c	N/A	
+7448	14NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1003	Lymph node	-	P	Female	71	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62039b	N/A	
+7610	37CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T3	1003	Colon	-	P	Female	71	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62039d	N/A	
+7611	37CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T4	1003	Colon	-	P	Female	71	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62039e	N/A	
+7449	15CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	"Dysplasia, not specified"	T	1004	Colon	-	P	Male	56	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62040a	N/A	
+7613 (8393)	15CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Unknown	T1	1004	Colon	-	P	Male	56	-	04.09.22	08.09.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62040c	N/A	
+7450	15NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1004	Lymph node	-	P	Male	56	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62040b	N/A	
+7451	16CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TA	T1	1005	Colon	-	P	Male	51	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62041a	N/A	
+7452	16CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade dysplasia in adenoma	T2	1005	Colon	-	P	Male	51	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62041c	N/A	
+7614 (8394)	16CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Unknown	T1	1005	Colon	-	P	Male	52	-	04.09.22	08.09.22	Cores (x4)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62041d	N/A	
+7453	16NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1005	Lymph node	-	P	Male	52	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62041b	N/A	
+7454	17CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TA	T1	1006	Colon	-	P	Female	73	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62042a	N/A	
+7455	17CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocaricnoma	T2	1006	Colon	-	P	Female	75	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62042c	N/A	
+7456	17NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1006	Lymph node	-	P	Female	75	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62042b	N/A	
+7457	18CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia in TVA	T1	1007	Colon	-	P	Female	75	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62043a	N/A	
+7458	18CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia (focal)	T2	1007	Colon	-	P	Female	76	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62043c	N/A	
+7459	18NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1007	Lymph node	-	P	Female	76	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62043b	N/A	
+7460	19CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	1008	Colon	-	P	Female	58	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62044a	N/A	
+7461	19CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma (focal invasion)	T2	1008	Colon	-	P	Female	64	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62044c	N/A	
+7462	19NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1008	Ileum	-	P	Female	64	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62044b	N/A	
+7463	20CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T	1009	Colon	-	P	Male	40	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62045a	N/A	
+10439	20CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T	1009	Colon	-	P	Male	40	-	09.04.23	18.04.23	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62045c	N/A	
+7464	20NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1009	Lymph node	-	P	Male	40	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62045b	N/A	
+7465	21CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	1010	Colon	-	P	Male	73	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62046a	N/A	
+7466	21CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T2	1010	Colon	-	P	Male	75	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62046c	N/A	
+7467	21NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1010	Colon	-	P	Male	73	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62046b	N/A	
+7468	22CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	"dysplasia in TA, not specified"	T1	1011	Colon	-	P	Male	53	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047a	N/A	
+7616z (8395)	22CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Unknown	T2	1011	Colon	-	P	Male	54	-	04.09.22	08.09.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047c	N/A	
+7469	22CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	LG flat dysplasia	T3	1011	Colon	-	P	Male	55	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047d	N/A	
+7470	22CPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T4	1011	Colon	-	P	Male	58	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047e	N/A	
+7471	22CPE-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Flat high grade dysplasia	T5	1011	Colon	-	P	Male	59	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047f	N/A	
+7472	22CPH	Mark Arends (and Katherine Quiohilag)	Edinburgh		Flat high grade dysplasia (focal)	T6	1011	Colon	-	P	Male	63	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047g	N/A	
+7473	22CPI	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia in TVA ? Invasion	T7	1011	Colon	-	P	Male	64	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047h	N/A	
+7474	22CPJ	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T8	1011	Colon	-	P	Male	65	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047i	N/A	
+7475	22NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1011	Colon	-	P	Male	63	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62047b	N/A	
+7476	24CPB-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocaricnoma in TVA	T1	1012	Colon	-	P	Male	66	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62048a	N/A	
+7477	24CPB-2	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocaricnoma in TVA	T2	1012	Colon	-	P	Male	66	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62048c	N/A	
+7478	24NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1012	Lymph node	-	P	Male	66	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62048b	N/A	
+7479	25CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	1013	Colon	-	P	Female	53	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62049a	N/A	
+7480	25CPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade dysplasia	T2	1013	Colon	-	P	Female	54	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62049c	N/A	
+7481	25NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1013	Gallbladder	-	P	Female	57	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62049b	N/A	
+7482	26CPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	high grade dysplasia in TVA	T1	1014	Colon	-	P	Male	48	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62050a	N/A	
+7483	26CPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcrinoma in TVA	T2	1014	Colon	-	P	Male	48	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62050c	N/A	
+7580	27CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	high grade*	T	1014	Colon	-	P	Male	52	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62050d	N/A	
+7581	27NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1014	Ileum	-	P	Male	59	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62050b	N/A	
+7484	27CPA-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia (background)	T1	1015	Colon	-	P	Female	35	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62051a	N/A	
+7485	27CPA-2	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Adenocarcinoma	T2	1015	Colon	-	P	Female	35	-	13.06.22	14.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62051c	N/A	
+7486	27NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1015	Colon	-	P	Female	35	-	13.06.22	14.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	"DNA in 'THOR' -20C (in box labelled ""HUMAN GUT ATLAS, Box 1"")"		N/A	"Message from Katy: ""I have identified a possible error with one of the controls - 27NP.  On review of the pathology report it is not completely clear whether this is normal or dysplastic tissue.  In the first instance I will aim to retrieve and review the slide, and if it is dysplastic I will have to get another section cut and sent.  Apologies for this, I'll aim to confirm next week if possible whether this is an appropriate control"" (18.11.22) . ""27NP can be discarded and a replacement will be sent"" (14.12.22)"
+10438	27NP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1015	Colon	-	P	Female	35	-	09.04.23	18.04.23	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62051b	N/A	
+7487	1CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1016	Colon	-	P	Male	45	-	13.06.22	15.06.22	Scrolls (1 tube of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62052a	N/A	
+7488	1CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1016	Colon	-	P	Male	47	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62052c	N/A	
+7489	1CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Indefinite	T3	1016	Colon	-	P	Male	50	-	13.06.22	15.06.22	Scrolls (1 tube of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62052d	N/A	
+7490	1NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1016	Colon	-	P	Male	50	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62052b	N/A	
+7491	2CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Moderate	T1	1017	Colon	-	P	Male	58	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62053a	N/A	
+7492	2CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1017	Colon	-	P	Male	61	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62053c	N/A	
+7493	2NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1017	Colon	-	P	Male	76	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62053b	N/A	
+7494	3CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS	T1	1018	Colon	-	P	Female	57	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62054a	N/A	
+7495	3CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1018	Colon	-	P	Female	58	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62054c	N/A	
+7496	3NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1018	Lymph node	-	P	Female	66	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62054b	N/A	
+7497	4CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1019	Colon	-	P	Male	76	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62055a	N/A	
+7498	4CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1019	Colon	-	P	Male	83	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62055c	N/A	
+7499	4NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1019	Colon	-	P	Male	83	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62055b	N/A	
+7500	5CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	high grade	T1	1020	Colon	-	P	Male	63	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62056a	N/A	
+7501	5CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS	T2	1020	Colon	-	P	Male	64	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62056c	N/A	
+7502	5NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1020	Ileum	-	P	Male	76	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62056b	N/A	
+7503	6CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1021	Colon	-	P	Male	56	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62057a	N/A	
+7504	6CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1021	Colon	-	P	Male	61	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62057c	N/A	
+7505	6NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1021	Duodenum	-	P	Male	68	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62057b	N/A	
+10440	8CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade dysplasia	T1	1022	Colon	-	P	Male	38	-	09.04.23	18.04.23	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62058a	N/A	
+7506	8CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1022	Colon	-	P	Male	38	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62058c	N/A	
+7507	8NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1022	Ileum	-	P	Male	39	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62058b	N/A	
+7508	9CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T1	1023	Colon	-	P	Male	74	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62059a	N/A	
+7509	9CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1023	Colon	-	P	Male	76	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62059c	N/A	
+7510	9CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T3	1023	Colon	-	P	Male	77	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62059d	N/A	
+7511	9NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1023	Colon	-	P	Male	77	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62059b	N/A	
+7512	10CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T1	1024	Colon	-	P	Male	55	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62060a	N/A	
+7513	10CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1024	Colon	-	P	Male	56	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62060c	N/A	
+7514	10NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1024	Lymph node	-	P	Male	56	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62060b	N/A	
+7515	11CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	high grade	T1	1025	Colon	-	P	Female	70	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62061a	N/A	
+7516	11CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	high grade	T2	1025	Colon	-	P	Female	70	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62061c	N/A	
+7517	11NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1025	Colon	-	P	Female	70	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62061b	N/A	
+7518	12CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Moderate	T1	1026	Colon	-	P	Male	66	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062a	N/A	
+7519	12CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1026	Colon	-	P	Male	67	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062c	N/A	
+7520	12CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Moderate	T3	1026	Colon	-	P	Male	67	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062d	N/A	
+7521	12CNPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Moderate	T4	1026	Colon	-	P	Male	67	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062e	N/A	
+7522	12CNPE	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T5	1026	Colon	-	P	U	U	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	DO NOT SEQUENCE	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062f	N/A	"DO NOT SEQUENCE - Katy said ""Please exclude 12CPNE - apologies for not making this clear but this was found to be non-dysplastic on further review"" (18.11.22)"
+7523	12CNPF	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T6	1026	Colon	-	P	Male	68	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062g	N/A	
+7524	12CNPG	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	moderate	T7	1026	Colon	-	P	Male	68	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062h	N/A	
+7525	12CNPH	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T8	1026	Colon	-	P	Male	68	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062i	N/A	
+7526	12NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1026	Colon	-	P	Male	74	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62062b	N/A	
+7527	13CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T1	1027	Colon	-	P	Male	80	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62063a	N/A	
+7528	13CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1027	Colon	-	P	Male	85	-	13.06.22	15.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62063c	N/A	
+7529	13NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1027	Ileum	-	P	Male	85	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62063b	N/A	
+7530	14CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade*	T1	1028	Colon	-	P	Male	73	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62064a	N/A	
+7531	14CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T2	1028	Colon	-	P	Male	74	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62064c	N/A	
+7532	14CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade*	T3	1028	Colon	-	P	Male	74	-	13.06.22	15.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62064d	N/A	
+7533	14CNPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T4	1028	Colon	-	P	Male	76	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62064e	N/A	
+7534	14NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1028	Colon	-	P	Male	74	-	13.06.22	15.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62064b	N/A	
+7535	15CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS*	T1	1029	Colon	-	P	Male	68	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62065a	N/A	
+7536	15CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T2	1029	Colon	-	P	Male	78	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62065c	N/A	
+7537	15CNPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T3	1029	Colon	-	P	Male	78	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62065d	N/A	
+7538	15CNPE-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T4	1029	Colon	-	P	Male	79	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62065e	N/A	
+7539	15CNPE-2	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T5	1029	Colon	-	P	Male	79	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62065f	N/A	
+7540	15NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1029	Ileum	-	P	Male	84	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62065b	N/A	
+7541	16CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T1	1030	Colon	-	P	Female	70	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62066a	N/A	
+7542	16CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1030	Colon	-	P	Female	72	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62066c	N/A	
+7543	16NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1030	Colon	-	P	Female	74	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62066b	N/A	
+7544	17CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T1	1031	Colon	-	P	Female	59	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62067a	N/A	
+7545	17CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1031	Colon	-	P	Female	60	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62067c	N/A	
+7546	17NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1031	Colon	-	P	Female	59	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62067b	N/A	
+7547	18CNPA-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS**	T1	1032	Colon	-	P	Female	79	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068a	N/A	
+7548	18CNPA-2	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade*	T2	1032	Colon	-	P	Female	79	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068c	N/A	
+7549	18CNPB-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade*	T3	1032	Colon	-	P	Female	80	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068d	N/A	
+7550	18CNPB-2	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T4	1032	Colon	-	P	Female	80	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068e	N/A	
+7551	18CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade***	T5	1032	Colon	-	P	Female	73	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068f	N/A	
+7552	18CNPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS***	T6	1032	Colon	-	P	Female	74	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068g	N/A	
+7553	18NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1032	Lymph node	-	P	Female	80	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62068b	N/A	
+7554	20CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1033	Colon	-	P	Male	49	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62069a	N/A	
+7555	20CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1033	Colon	-	P	Male	49	-	13.06.22	16.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62069c	N/A	
+7556	20NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1033	Tongue	-	P	Male	53	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62069b	N/A	
+7557	21CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1034	Colon	-	P	Male	70	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62070a	N/A	
+7558	21CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1034	Colon	-	P	Male	71	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62070c	N/A	
+7559	21CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T3	1034	Colon	-	P	Male	72	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62070d	N/A	
+7560	21NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1034	Colon	-	P	Male	75	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62070b	N/A	
+7561	22CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1035	Colon	-	P	Female	28	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62071a	N/A	
+7562	22CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1035	Colon	-	P	Female	34	-	13.06.22	16.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62071c	N/A	
+7563	22NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1035	Lymph node	-	P	Female	35	-	13.06.22	16.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62071b	N/A	
+7564	23CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1036	Colon	-	P	Male	77	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62072a	N/A	
+7565	23CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1036	Colon	-	P	Male	77	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62072c	N/A	
+7566	23CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T3	1036	Colon	-	P	Male	78	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62072d	N/A	
+7567	23NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1036	Colon	-	P	Male	82	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62072b	N/A	
+7568	24CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T	1037	Colon	-	P	Female	48	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62073a	N/A	
+7569	24NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1037	Duodenum	-	P	Female	62	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62073b	N/A	
+7570	25CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS	T1	1038	Colon	-	P	Male	56	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62074a	N/A	
+7571	25CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T2	1038	Colon	-	P	Male	58	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62074c	N/A	
+7572	25CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T3	1038	Colon	-	P	Male	59	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62074d	N/A	
+7573	25CNPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade	T4	1038	Colon	-	P	Male	60	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62074e	N/A	
+7574	25NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1038	Colon	-	P	Male	66	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62074b	N/A	
+7575	26CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1039	Colon	-	P	Female	57	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62075a	N/A	
+7576	26CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1039	Colon	-	P	Female	58	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62075c	N/A	
+7577	26CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T3	1039	Colon	-	P	Female	59	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62075d	N/A	
+7578	26CNPD	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T4	1039	Colon	-	P	Female	59	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62075e	N/A	
+7579	26NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1039	Colon	-	P	Female	63	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62075b	N/A	
+7582	28CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1041	Colon	-	P	Female	81	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62076a	N/A	
+7583	28CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1041	Colon	-	P	Female	83	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62076c	N/A	
+7584	28NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1041	Colon	-	P	Female	81	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62076b	N/A	
+7585	29CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1042	Colon	-	P	Female	46	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62077a	N/A	
+7586	29CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1042	Colon	-	P	Female	48	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62077c	N/A	
+7587	29NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1042	Duodenum	-	P	Female	50	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62077b	N/A	
+7588	30CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Moderate	T1	1043	Colon	-	P	Male	75	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62078a	N/A	
+7589	30CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Moderate	T2	1043	Colon	-	P	Male	75	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62078c	N/A	
+7590	30NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1043	Ileum	-	P	Male	76	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62078b	N/A	
+7591	31CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1044	Colon	-	P	Male	51	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62079a	N/A	
+7592	31CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1044	Colon	-	P	Male	53	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62079c	N/A	
+7593	31NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1044	Lymph node	-	P	Male	53	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62079b	N/A	
+7594	32CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1045	Colon	-	P	Male	43	-	04.09.22	08.09.22	Cores (x2)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62080a	N/A	
+7595	32CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1045	Colon	-	P	Male	47	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62080c	N/A	
+7596	32NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1045	Ileum	-	P	Male	47	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62080b	N/A	
+7597	33CNPA-1	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	low grade**	T1	1046	Colon	-	P	Male	60	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62081a	N/A	
+7598	33CNPA-2	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	NOS*	T2	1046	Colon	-	P	Male	60	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62081c	N/A	
+7599	33NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1046	Ileum	-	P	Male	69	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62081b	N/A	
+7600	34CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade	T1	1047	Colon	-	P	Male	36	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62082a	N/A	
+7601	34CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	High grade	T2	1047	Colon	-	P	Male	36	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62082c	N/A	
+7602	34NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1047	Lymph node	-	P	Male	42	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62082b	N/A	
+7603	35CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1048	Colon	-	P	Male	42	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62083a	N/A	
+7604	35CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1048	Colon	-	P	Male	43	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62083c	N/A	
+7605	35CNPC	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T3	1048	Colon	-	P	Male	47	-	13.06.22	17.06.22	Scrolls (1 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62083d	N/A	
+7606	35NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1048	Colon	-	P	Male	47	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62083b	N/A	
+7607	36CNPA	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T1	1049	Colon	-	P	Female	72	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62084a	N/A	
+7608	36CNPB	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Low grade	T2	1049	Colon	-	P	Female	75	-	13.06.22	17.06.22	Scratchings (macrodissection)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62084c	N/A	
+7609	36NNP	Mark Arends (and Katherine Quiohilag)	Edinburgh	22/0029	Normal	N	1049	Colon	-	P	Female	83	-	13.06.22	17.06.22	Scrolls (2 tubes of 4 scrolls)	45	-	-	No slides available	Samples submitted 02.06.23 (Study 7100)	PD62084b	N/A	
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
+																								
