@@ -31,7 +31,7 @@ n_counts <- tmb |>
 
 p <- ggplot(tmb, aes(x = group, y = TMB, fill = group)) +
         geom_violin(alpha = 0.3, color = NA) +  
-        geom_boxplot(alpha = 0.6, width = 0.2) +  
+        geom_boxplot(alpha = 0.6, width = 0.5) +  
         geom_jitter(width = 0.15, size = 0.5, alpha = 0.7) +
         facet_wrap(~precursor_or_follow_up) +
         geom_text(
@@ -50,7 +50,7 @@ p <- ggplot(tmb, aes(x = group, y = TMB, fill = group)) +
         ) +
         labs(
           x = NULL,
-          y = "TMB (mut/Mb)",
+          y = "TMB (Mut/Mb)",
           fill = NULL
         ) +
         theme(
@@ -66,4 +66,4 @@ p <- ggplot(tmb, aes(x = group, y = TMB, fill = group)) +
           size = 3
         )
 
-ggsave("plots/tmb/tmb_by_group.png", p, width = 4, height = 4.2, dpi = 300)
+ggsave("plots/tmb/tmb_by_group.png", p, width = 4, height = 4, dpi = 300)
