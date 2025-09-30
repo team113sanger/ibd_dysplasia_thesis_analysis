@@ -6,11 +6,14 @@ library(dplyr)
 sample_list <- read_lines("metadata/sample_lists/all_one_ppat.list")
 
 meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
-            filter(sanger_dna_id %in% sample_list) |>
-            mutate(patient_id = str_remove(sanger_dna_id, "[a-z]$")) |> #keep to remove multiple indep lesions per patient
-            distinct(patient_id, .keep_all = TRUE)
+  filter(sanger_dna_id %in% sample_list) |>
+  mutate(
+    patient_id = sanger_dna_id |> str_remove("[a-z]$"),
+    study_patient_id = study_id |> str_remove("-\\d+$") |> str_remove("[A-Z]$")
+  ) |>
+  distinct(study_patient_id, .keep_all = TRUE)
 
-p <- ggplot(meta, aes(x = patient_id, y = site_general, colour = ibd_diagnosis, shape = sex)) +
+p <- ggplot(meta, aes(x = study_patient_id, y = site_general, colour = ibd_diagnosis, shape = sex)) +
         geom_point(size = 2, alpha = 0.99) +
         facet_wrap(~ group, scales = "free_x") +
         theme_bw(base_size = 10) +
