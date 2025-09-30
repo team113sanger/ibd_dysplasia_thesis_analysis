@@ -69,7 +69,7 @@ p <- ggplot(gene_props, aes(x = grade_of_dysplasia, y = prop_mutated, fill = gra
   theme_classic(base_size = 10) +
   theme(
     legend.position = "none",
-    strip.text = element_text(face = "bold"),
+    strip.text = element_text(face = "bold.italic"),
     panel.border = element_rect(colour = "black", fill = NA, linewidth = 0.5)
   ) +
   geom_text(
