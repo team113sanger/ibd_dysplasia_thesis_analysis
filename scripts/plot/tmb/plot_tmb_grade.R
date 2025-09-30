@@ -26,45 +26,79 @@ tmb <- read_tsv("data/variants/mutations_per_Mb.tsv", col_names = c("sanger_dna_
           (grade_of_dysplasia == "LGD" & precursor_or_follow_up == "Precursor")
       ))
   ) |>
-  filter(!grade_of_dysplasia == "NOS")
+  filter(!grade_of_dysplasia == "NOS") |>
+  select(sanger_dna_id, tmb, grade_of_dysplasia, group)
+
+remap_tmb <- read_tsv("data/variants/ibd_crc_2018_remap/mutations_per_Mb.tsv",
+  col_names = c("sanger_dna_id", "tmb")
+) |>
+  mutate(
+    grade_of_dysplasia = "AC_2018",
+    group = "Progressor"
+  )
+
+tmb <- rbind(tmb, remap_tmb)
 
 tmb[["grade_of_dysplasia"]] <- factor(
   tmb[["grade_of_dysplasia"]],
-  levels = c("LGD", "HGD", "AC")
+  levels = c("LGD", "HGD", "AC", "AC_2018")
 )
 
 n_counts <- tmb |>
   group_by(group, grade_of_dysplasia) |>
   summarise(n = n(), .groups = "drop")
 
+# Calculate Kruskal–Wallis p-values
+tmb_sub1 <- tmb |> filter(grade_of_dysplasia %in% c("LGD", "HGD", "AC"))
+tmb_sub2 <- tmb |> filter(grade_of_dysplasia %in% c("LGD", "HGD", "AC", "AC_2018"))
+
+pval1 <- kruskal.test(tmb ~ grade_of_dysplasia, data = tmb_sub1)$p.value
+pval2 <- kruskal.test(tmb ~ grade_of_dysplasia, data = tmb_sub2)$p.value
+
+# Format nicely
+pval1_label <- paste0("Kruskal-Wallis (LGD–HGD–AC): p = ", signif(pval1, 2))
+pval2_label <- paste0("Kruskal-Wallis (LGD–HGD–AC–AC_2018): p = ", signif(pval2, 2))
+
+# Count samples per group
+n_counts <- tmb |>
+  group_by(grade_of_dysplasia) |>
+  summarise(n = n(), .groups = "drop")
+
+# Plot
 p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +
-  geom_violin(alpha = 0.3, color = NA) +   # transparent violin behind
-  geom_boxplot(alpha = 0.8, width = 0.2, outlier.shape = NA) +  # narrower boxes
-  geom_jitter(size = 0.5, alpha = 0.8, width = 0.15) +  # optional points
-  facet_grid(~group, scales = "free_x", space = "free") +
+  geom_violin(alpha = 0.3, color = NA) +
+  geom_boxplot(alpha = 0.8, width = 0.5, outlier.shape = NA) +
+  geom_jitter(size = 0.5, alpha = 0.8, width = 0.15) +
   geom_text(
     data = n_counts,
     aes(x = grade_of_dysplasia, y = 30, label = paste0("n=", n)),
     inherit.aes = FALSE,
     vjust = 1.5,
     color = "black",
-    size = 4
+    size = 3
   ) +
   labs(
-    y = "TMB (Mut/Mb)", fill = NULL
+    y = "TMB (Mut/Mb)",
+    fill = NULL
   ) +
-  theme_bw(base_size = 14) +
+  theme_bw(base_size = 10) +
+  scale_y_log10() +
   theme(
     legend.position = "bottom",
     axis.title.x = element_blank(),
     strip.background = element_blank(),
     strip.text = element_text(face = "bold")
   ) +
-  scale_fill_brewer(palette = "Dark2") +
-  scale_y_log10() +
-  stat_compare_means(method = "kruskal.test")
+  # Add the two Kruskal test labels manually
+  annotate("text", x = 2, y = 400, label = pval1_label, size = 3, fontface = "italic") +
+  annotate("text", x = 2.5, y = 250, label = pval2_label, size = 3, fontface = "italic") +
+  scale_fill_brewer(palette = "Dark2") 
 
-ggsave("plots/tmb/tmb_by_grade_with_group.png", p, width = 5.6, height = 5)
+ggsave("plots/tmb/tmb_by_grade_with_group.png", p, width = 4, height = 4)
+
+
+#### Just by grade ####
+tmb <- tmb |> filter(grade_of_dysplasia != "AC_2018")
 
 n_counts <- tmb |>
   group_by(grade_of_dysplasia) |>
@@ -72,7 +106,7 @@ n_counts <- tmb |>
 
 p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +
   geom_violin(alpha = 0.3, color = NA) +   # transparent violin behind
-  geom_boxplot(alpha = 0.8, width = 0.2, outlier.shape = NA) +  # narrower boxes
+  geom_boxplot(alpha = 0.8, width = 0.5, outlier.shape = NA) +  # narrower boxes
   geom_jitter(size = 0.5, alpha = 0.8, width = 0.15) +  # optional points
   geom_text(
     data = n_counts,
@@ -106,56 +140,3 @@ p <- ggplot(tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)
   stat_compare_means(method = "kruskal.test", label.y = 3, size = 3) 
 
 ggsave("plots/tmb/tmb_by_grade.png", p, width = 4, height = 4)
-
-
-
-
-#### Add 2018 remapped adenocarcinomas ####
-remap_tmb <- read_tsv("/lustre/scratch125/casm/team113da/projects/IBD_Associated_Dysplasia/3361_3511_IBD_CRC_ReMap/analysis/variants_combined/release_v1/all_tumours/matched_samples/mutations_per_Mb.tsv",
-  col_names = c("sanger_dna_id", "tmb")
-) |>
-  mutate(
-    grade_of_dysplasia = "AC_2018",
-    group = "Progressor"
-  )
-
-tmb <- tmb |>
-  select("sanger_dna_id", "tmb", "grade_of_dysplasia", "group")
-
-combined_tmb <- bind_rows(tmb, remap_tmb)
-
-combined_tmb[["grade_of_dysplasia"]] <- factor(
-  combined_tmb[["grade_of_dysplasia"]],
-  levels = c("LGD", "HGD", "AC", "AC_2018")
-)
-
-n_counts <- combined_tmb |>
-  group_by(group, grade_of_dysplasia) |>
-  summarise(n = n(), .groups = "drop")
-
-p2 <- ggplot(combined_tmb, aes(x = grade_of_dysplasia, y = tmb, fill = grade_of_dysplasia)) +
-  geom_boxplot(alpha = 0.8) +
-  # geom_dotplot(binaxis='y', position=position_jitterdodge(jitter.width=0, dodge.width = 0.3), dotsize=0.5) +
-  #    geom_jitter(size = 1, alpha = 0.8) +
-  #             position = position_dodge(width = 0)) +
-  facet_grid(~group, scales = "free_x", space = "free") +
-  geom_text(
-    data = n_counts,
-    aes(x = grade_of_dysplasia, y = 200, label = paste0("n=", n)),
-    inherit.aes = FALSE,
-    color = "black",
-    size = 4
-  ) +
-  labs(
-    y = "TMB (Mutations/Mb)"
-  ) +
-  theme_bw(base_size = 14) +
-  theme(
-    legend.position = "none",
-    axis.title.x = element_blank(),
-    strip.text = element_text(size = 10)
-  ) +
-  scale_fill_brewer(palette = "Dark2") +
-  scale_y_log10()
-
-ggsave("plots/TMB/tmb_per_group_with_remap.png", p2, width = 6, height = 5)
