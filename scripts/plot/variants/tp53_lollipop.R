@@ -74,11 +74,11 @@ gene.features <- GRanges(
   height = 0.03
 )
 
-yaxis <- c(0, 1, 2, 3, 4, 5)
+yaxis <- c(0, 1, 2)
 
 # Plot --------------------------------------------------------------------
 
-pdf("plots/variants/tp53_lollipop.pdf")
+pdf("plots/variants/tp53_lollipop.pdf", width = 7, height = 6)
 lolliplot(
   plot.snp,
   gene.features,
@@ -90,9 +90,18 @@ lolliplot(
 
 grid.text(label = "Mutation Frequency", 
       x = unit(0.02, "npc"),
-      y = unit(0.275, "npc"), 
+      y = unit(0.35, "npc"), 
       rot = 90,
       gp = gpar(fontsize = 12, col = "black"))
 
+grid.text(label = "Progressor", 
+      x = unit(0.5, "npc"),
+      y = unit(0.6, "npc"), 
+      gp = gpar(fontsize = 12, fontface = "bold", col = "black"))
+
+grid.text(label = "Non-Progressor", 
+      x = unit(0.5, "npc"),
+      y = unit(0.04, "npc"), 
+      gp = gpar(fontsize = 12, fontface = "bold", col = "black"))
 
 dev.off()
