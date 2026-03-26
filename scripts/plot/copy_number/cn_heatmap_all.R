@@ -14,7 +14,8 @@ meta <- read_tsv("metadata/final_metadata_qc_pass.tsv") |>
   select(sanger_dna_id, study_id, group, precursor_or_follow_up) |>
   mutate(facet_group = paste(group, precursor_or_follow_up, sep = " "))
 
-samples <- read_lines("metadata/sample_lists/all_one_ppat.list")
+samples <- read_tsv("metadata/sample_lists/all_one_ppat.list") |>
+  pull(sanger_dna_id)
 
 # Load in CN segments
 segments <- read_tsv("data/copy_number/segments/all_segments.tsv")
@@ -82,7 +83,7 @@ cnv_calls_1 <- cnv_calls[1:28751, ]
 cnv_calls_1_df <- as.data.frame(cnv_calls_1) |>
   rownames_to_column("bin")
 
-#write_tsv(cnv_calls_1_df, "results/copy_number/cnv_all_calls.txt")
+write_tsv(cnv_calls_1_df, "results/copy_number/cnv_all_calls.txt")
 
 # Single Plot
 tidy_cnv_calls <- reshape2::melt(cnv_calls_1)
