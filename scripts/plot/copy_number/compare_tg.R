@@ -1,5 +1,6 @@
 library(readr)
-
+library(dplyr)
+library(ggplot2)
 # read in tg data
 tg_calls <- read_tsv("data/copy_number/trevor_graham/tg_discovery_calls.tsv") |>
     tibble::column_to_rownames("Sample") |>
@@ -18,7 +19,7 @@ calls <- read_tsv("results/copy_number/cnv_all_calls.txt")
 tidy_tg_calls <- reshape2::melt(tg_calls)
 colnames(tidy_tg_calls) <- c("bin", "sample", "cn_state")
 
-tidy_tg_calls$cn_state <- as.character(tidy_cnv_calls$cn_state)
+tidy_tg_calls$cn_state <- as.character(tidy_tg_calls$cn_state)
 
 tidy_tg_calls$bin <- sub("^V", "", tidy_tg_calls$bin)
 tidy_tg_calls$sample <- sub(".*\\.", "", tidy_tg_calls$sample)
@@ -53,21 +54,23 @@ p <- ggplot(data = tidy_tg_calls) +
         plot.title = element_text(size = 9, face = "bold"),
         legend.key.size = unit(0.4, "cm"))
 
-  ggsave("plots/copy_number/test.png", p, width = 10, heigh = 8)
+  ggsave("plots/copy_number/trevor_graham/tg_cn_heatmap.pdf", p, width = 10, heigh = 8)
 
-  # frequency plot
-
+# frequency plot
 freq_df <- tidy_tg_calls |>
   mutate(gain = cn_state %in% c("1", "2"), loss = cn_state %in% c("-1", "-2")) |>
-  group_by(bin) |>
+  group_by(Progression, bin) |>
   summarise(gain_freq = mean(gain), loss_freq = mean(loss))
 
-  p <- ggplot(freq_df) +
+p <- ggplot(freq_df) +
   geom_area(aes(x = bin, y = gain_freq), fill = "#B04968", alpha = 0.6) +
   geom_area(aes(x = bin, y = -loss_freq), fill = "#4776A2", alpha = 0.6) +
         scale_x_continuous(
             expand = c(0,0),
             breaks = tg_bin_sizes$cum_bins,
             labels = 1:22) +
-  theme_bw()
-ggsave("plots/copy_number/test_tg.pdf", p, width = 10, height =4)
+  facet_wrap(~Progression, ncol =1) +
+  theme_bw() +
+  labs(y = "Frequency", x = "Chromosome") +
+  theme(strip.background = element_blank())
+ggsave("plots/copy_number/test_tg.pdf", p, width = 12, height = 5)
