@@ -80,9 +80,14 @@ meta_tidy <- meta_pass |>
 # Remove extra PD62028a/3CPA case in 'non-progressor' group
 # Remove N-prog lesion from patient with lesions in both N-prog & prog groups
 # 37CNPA/PD62039d & 37CNPB/PD62039e
+# Remove samples that are now LGD in precurosr (update from Shahida on 19/06/2026)
+# 5CNP, 11CNP, 12CNP, 18CNPB-1, 18CNPB-2, 27CNPA, 30CNPA, 30CNPB, 34CNPA, 34CNPB
+# 5CPA, 5CPB, 5CPC, 7CPA, 26CPA, 26CPB
 meta_filtered <- meta_tidy |>
   filter(!(sanger_dna_id == "PD62028a" & group == "Non-progressor")) |>
-  filter(!(sanger_dna_id %in% c("PD62039d", "PD62039e")))
+  filter(!(sanger_dna_id %in% c("PD62039d", "PD62039e"))) |>
+  filter(!(study_id %in% c("18CNPB-1", "18CNPB-2", "30CNPA", "30CNPB", "34CNPA", "34CNPB"))) |>
+  filter(!(study_id %in% c("5CPA", "5CPB", "5CPC")))
 
 # Fix samples with missing metadata (not in prog/non-prog sheets)
 # PD62045c, PD62041d 
