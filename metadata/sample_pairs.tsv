@@ -5,8 +5,6 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 3CPB	PD62028c	T2	Follow up	High grade	High grade dysplasia	IBDU	16 years	1 year	Transverse	Yes	No	Yes	Male	56	None	Progressor	Transverse colon	PD62028
 4CPB	PD62029c	T2	Precursor	Low grade	Low grade dysplasia in TVA	IBDU	2 years	2 years 3 months	Caecum	No	No	No	Female	82	Sigmoid adenocarcinoma 2015	Progressor	Right colon	PD62029
 4CPC	PD62029d	T3	Follow up	High grade	High grade dysplasia ? Invasive in TVA (focal HG change on review)	IBDU	2 years	2 years 3 months	Caecum	No	No	No	Female	82	Sigmoid adenocarcinoma 2015	Progressor	Right colon	PD62029
-5CPA	PD62030a	T1	Precursor	High grade	High grade dysplasia (very small fragment)	Crohn's	15 years	6 months	Sigmoid	No	No	No	Male	67	None	Progressor	Left colon	PD62030
-5CPC	PD62030d	T3	Follow up	Adenocarcinoma	Adenocarcinoma	Crohn's	15 years	6 months	Sigmoid	No	No	No	Male	67	None	Progressor	Left colon	PD62030
 6CPA	PD62031a	T1	Precursor	Low grade	Low grade dysplasia	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	27	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor	Left colon	PD62031
 6CPB	PD62031c	T2	Follow up	Adenocarcinoma	Adenocarcinoma (focal invasion)	Crohn's	10 years	18 months	Sigmoid	No	No	No	Male	28	MLH1 positive in adenocarcinoma.  Recent review of historical biopsies favoured UC over Crohn's	Progressor	Left colon	PD62031
 8CPA	PD62033a	T1	Precursor	Low grade	Low grade dysplasia in TVA	UC	19 years	6 months	Rectum	No	No	No	Male	55	None	Progressor	Rectum	PD62033
@@ -57,8 +55,6 @@ study_id	sanger_dna_id	phenotype	precursor_or_follow_up	grade_of_dysplasia	diagn
 26CNPC	PD62075d	T3	Follow up	Low grade	Low grade	UC	At least 6 years	10 months	Sigmoid	No	No	No	Female	59	NA	Non-progressor	Left colon	PD62075
 28CNPA	PD62076a	T1	Precursor	Low grade	Low grade	UC	27 years	2 years 2 months	Transverse	No	No	No	Female	81	NA	Non-progressor	Transverse colon	PD62076
 28CNPB	PD62076c	T2	Follow up	Low grade	Low grade	UC	27 years	2 years 2 months	Transverse	No	No	No	Female	83	NA	Non-progressor	Transverse colon	PD62076
-30CNPA	PD62078a	T1	Precursor	Low grade	Moderate	UC	30 years	7 months	Rectosigmoid	No	No	Yes	Male	75	NA	Non-progressor	Left colon	PD62078
-30CNPB	PD62078c	T2	Follow up	Low grade	Moderate	UC	30 years	7 months	Rectosigmoid	No	No	Yes	Male	75	NA	Non-progressor	Left colon	PD62078
 31CNPA	PD62079a	T1	Precursor	Low grade	Low grade	UC	8 years	1 year 6 months	Transverse	No	No	Yes	Male	51	NA	Non-progressor	Transverse colon	PD62079
 31CNPB	PD62079c	T2	Follow up	Low grade	Low grade	UC	8 years	1 year 6 months	Transverse	No	No	Yes	Male	53	NA	Non-progressor	Transverse colon	PD62079
 32CNPA	PD62080a	T1	Precursor	Low grade	Low grade	UC	5 years	4 years 7 months	Rectum	No	No	No	Male	43	NA	Non-progressor	Rectum	PD62080
