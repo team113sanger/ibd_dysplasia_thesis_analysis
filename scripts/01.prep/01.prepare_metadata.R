@@ -3,7 +3,7 @@ library(janitor)
 library(stringr)
 library(dplyr)
 
-# Load metadata
+# ------ Load metadata ------ 
 progressors <- read_tsv("metadata/progressors_raw.tsv") |>
   clean_names() |>
   mutate(group = "Progressor") |>
@@ -26,7 +26,7 @@ meta <- read_tsv("metadata/sanger_metadata.tsv") |>
 qc_pass_samples <- read_tsv("metadata/sample_lists/qc_pass_sample_list.tsv", col_names = F) |>
   pull(X1)
 
-# Combine metadata
+# ------ Combine metadata ------ 
 meta_temp <- rbind(progressors, non_progressors)
 meta_combined <- left_join(meta, meta_temp, by = "study_id") |>
   select(
@@ -37,11 +37,11 @@ meta_combined <- left_join(meta, meta_temp, by = "study_id") |>
     sex, age, additional_info_of_note, group
   )
 
-# Filter for only samples that passed QC
+# ------ Filter for only samples that passed QC --------
 meta_pass <- meta_combined |>
   filter(sanger_dna_id %in% qc_pass_samples)
 
-# Tidy columns
+# ------ Tidy columns ------ 
 meta_tidy <- meta_pass |>
   mutate(precursor_or_follow_up = case_when(
     str_detect(precursor_or_follow_up, regex("precursor", ignore_case = TRUE)) ~ "Precursor",
@@ -77,6 +77,7 @@ meta_tidy <- meta_pass |>
         TRUE ~ "Other"
       ))
 
+# ------  Manual Filtering ------ 
 # Remove extra PD62028a/3CPA case in 'non-progressor' group
 # Remove N-prog lesion from patient with lesions in both N-prog & prog groups
 # 37CNPA/PD62039d & 37CNPB/PD62039e
@@ -89,6 +90,7 @@ meta_filtered <- meta_tidy |>
   filter(!(study_id %in% c("18CNPB-1", "18CNPB-2", "30CNPA", "30CNPB", "34CNPA", "34CNPB"))) |>
   filter(!(study_id %in% c("5CPA", "5CPB", "5CPC")))
 
+# ------ Manual Fixes ------ 
 # Fix samples with missing metadata (not in prog/non-prog sheets)
 # PD62045c, PD62041d 
 meta_edit <- meta_filtered |>
