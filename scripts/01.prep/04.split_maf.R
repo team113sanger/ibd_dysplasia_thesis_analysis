@@ -5,10 +5,14 @@ library(dplyr)
 
 maf <- read_tsv("data/variants/7100_3235-filtered_mutations_matched_allTum_keep.maf")
 
-prog_pre_list <- read_lines("metadata/sample_lists/progressor_precursor_samples_ppat.tsv")
-n_prog_pre_list <- read_lines("metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv")
-prog_fol_list <- read_lines("metadata/sample_lists/progressor_follow_up_samples_ppat.tsv")
-n_prog_fol_list <- read_lines("metadata/sample_lists/non_progressor_follow_up_samples_ppat.tsv")
+prog_pre_list <- read_tsv("metadata/sample_lists/progressor_precursor_samples_ppat.tsv") |>
+  pull(sanger_dna_id)
+n_prog_pre_list <- read_tsv("metadata/sample_lists/non_progressor_precursor_samples_ppat.tsv") |>
+  pull(sanger_dna_id)
+prog_fol_list <- read_tsv("metadata/sample_lists/progressor_follow_up_samples_ppat.tsv") |>
+  pull(sanger_dna_id)
+n_prog_fol_list <- read_tsv("metadata/sample_lists/non_progressor_follow_up_samples_ppat.tsv") |>
+  pull(sanger_dna_id)
 
 prog_pre_maf <- maf |>
   filter(Tumor_Sample_Barcode %in% prog_pre_list)
